@@ -23,20 +23,20 @@ export default {
     }
   },
   colors: {
-    primary: '#FF2773',
+    primary: '#920000',
     white: '#FFF',
-    pink: '#FF2773',
-    blue: '#4056F4',
+    red: '#FF0101',
+    blue: '#1D3557',
     green: '#06D6A0',
-    yellow: '#FFD166',
+    yellow: '#D1B53F',
     black: '#1E252B',
     mainBg: '#F7F7FF',
-    gray: '#685879',
+    gray: '#282B32',
     lightGray: '#B3ABBC',
     disabled: '#EAEAEA'
   },
   gradients: {
-    blue: 'linear-gradient(90.38deg, #3F37C9 -11.12%, #1BEAFF 110.38%)'
+    blue: 'linear-gradient(100.65deg, #FF0101 -10.44%, #920000 116.63%);'
   },
   spacings: {
     xxsmall: '0.8rem',
