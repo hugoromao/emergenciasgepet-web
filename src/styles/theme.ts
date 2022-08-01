@@ -34,6 +34,7 @@ export default {
     mainBg: '#F7F7FF',
     gray: '#282B32',
     lightGray: '#B3ABBC',
+    lightGray1: '#64748B',
     disabled: '#EAEAEA'
   },
   gradients: {
