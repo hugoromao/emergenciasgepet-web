@@ -9,14 +9,14 @@ export type ButtonProps = {
   styleType?: 'default' | 'outline' | 'minimal' | 'icon'
   loading?: boolean
   children: React.ReactNode
-  backgroundColor?: 'blue' | 'green'
+  backgroundColor?: 'gray' | 'red'
 } & ButtonTypes
 
 const Button = ({
   styleType = 'default',
   loading,
   children,
-  backgroundColor,
+  backgroundColor = 'gray',
   onClick,
   ...props
 }: ButtonProps) => {

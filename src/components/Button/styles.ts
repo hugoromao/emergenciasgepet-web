@@ -3,23 +3,23 @@ import { lighten } from 'polished'
 import styled, { css, DefaultTheme } from 'styled-components'
 
 type ButtonProps = {
-  backgroundColor?: 'blue' | 'green'
+  backgroundColor: 'gray' | 'red'
   styleType: 'default' | 'outline' | 'minimal' | 'icon'
 }
 
 const backgrounds = {
-  blue: (theme: DefaultTheme) => css`
-    background-color: ${theme.colors.blue};
+  gray: (theme: DefaultTheme) => css`
+    background-color: ${theme.colors.gray};
+    border: 1px solid ${theme.colors.gray};
   `,
-  green: (theme: DefaultTheme) => css`
-    background-color: ${theme.colors.green};
+  red: (theme: DefaultTheme) => css`
+    background-color: ${theme.colors.darkRed};
+    border: 1px solid ${theme.colors.darkRed};
   `
 }
 
 const buttonModifiers = {
-  default: (theme: DefaultTheme) => css`
-    background-color: ${theme.colors.blue};
-  `,
+  default: () => css``,
 
   outline: (theme: DefaultTheme) => css`
     background-color: white;
@@ -83,7 +83,6 @@ export const Button = styled.button<ButtonProps>`
     border: none;
     color: white;
     border-radius: ${theme.border.radius};
-    border: 1px solid ${theme.colors.primary};
 
     font-weight: ${theme.font.bold};
     font-size: ${theme.font.sizes.small};
@@ -96,8 +95,8 @@ export const Button = styled.button<ButtonProps>`
     position: relative;
 
     &:hover {
-      background-color: ${lighten(0.1, theme.colors.primary)};
-      border: 1px solid ${lighten(0.1, theme.colors.primary)};
+      background-color: ${lighten(0.1, theme.colors[backgroundColor])};
+      border: 1px solid ${lighten(0.1, theme.colors[backgroundColor])};
     }
 
     &:disabled {
@@ -108,7 +107,7 @@ export const Button = styled.button<ButtonProps>`
       cursor: not-allowed;
     }
 
-    ${backgroundColor && backgrounds[backgroundColor](theme)}
+    ${backgrounds[backgroundColor](theme)}
 
     ${buttonModifiers[styleType](theme)}
   `}

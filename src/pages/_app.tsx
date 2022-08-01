@@ -10,9 +10,14 @@ function App({ Component, pageProps }: AppProps) {
     <>
       <ThemeProvider theme={theme}>
         <Head>
-          <title>React Avançado - Boilerplate</title>
-          <link rel="shortcut icon" href="/img/icon-512.png" />
-          <link rel="apple-touch-icon" href="/img/icon-512.png" />
+          <title>1º CONGRESSO RORAIMENSE DE TRAUMA E EMERGÊNCIAS MÉDICAS</title>
+          <link rel="shortcut icon" href="/img/favicon.png" />
+          <link rel="apple-touch-icon" href="/img/favicon.png" />
+          <link
+            rel="shortcut icon"
+            href="/img/favicon.svg"
+            type="image/x-icon"
+          />
           <link rel="manifest" href="/manifest.json" />
           <meta name="theme-color" content="#06092B" />
           <meta

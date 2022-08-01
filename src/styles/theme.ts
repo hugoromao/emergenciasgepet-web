@@ -26,6 +26,7 @@ export default {
     primary: '#920000',
     white: '#FFF',
     red: '#FF0101',
+    darkRed: '#B71E1A',
     blue: '#2B2D42',
     green: '#06D6A0',
     yellow: '#D1B53F',
