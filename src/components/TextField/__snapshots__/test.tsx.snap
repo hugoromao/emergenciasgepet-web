@@ -85,6 +85,17 @@ exports[`<TextField /> Renders with error 1`] = `
   font-size: 1.2rem;
 }
 
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
 .c0 .c3 {
   border-color: #B71E1A;
 }
