@@ -30,7 +30,7 @@ const SubscriptionForm = () => {
   const onSubmit: SubmitHandler<Inputs> = (data) => {
     setLoading(true)
     console.log(data)
-    push('/success')
+    push('/inscricao/success')
   }
 
   return (

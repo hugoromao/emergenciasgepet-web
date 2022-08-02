@@ -45,4 +45,4 @@ export const Hero = styled.div`
   `}
 `
 
-export const FormWrapper = styled.section``
+export const FormWrapper = styled.div``
