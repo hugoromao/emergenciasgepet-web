@@ -9,7 +9,7 @@ export const Wrapper = styled.div`
     width: 50vw;
     height: 100vh;
     overflow: auto;
-    padding: ${theme.spacings.medium} 0;
+    padding: ${theme.spacings.medium};
 
     overflow: auto;
   `}
@@ -20,11 +20,12 @@ export const ContentWrapper = styled.form`
     width: 100%;
     height: inherit;
     max-width: 56rem;
-    display: flex;
     margin: 0 auto;
     padding: ${theme.spacings.medium} 0;
 
+    display: flex;
     flex-direction: column;
+    justify-content: center;
     gap: ${theme.spacings.small};
   `}
 `

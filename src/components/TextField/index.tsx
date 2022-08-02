@@ -64,11 +64,12 @@ const TextField = ({
         ) : (
           <S.Input
             type="text"
-            onChange={onChange}
             value={value}
             iconPosition={iconPosition}
             disabled={disabled}
             name={name}
+            {...register}
+            onChange={onChange}
             {...(label ? { id: name } : {})}
             {...props}
           />
