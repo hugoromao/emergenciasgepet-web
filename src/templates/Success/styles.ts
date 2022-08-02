@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components'
+import media from 'styled-media-query'
 
 export const Wrapper = styled.div`
   background-image: url('/img/success.png');
@@ -22,6 +23,7 @@ export const Content = styled.div`
     justify-content: center;
 
     h1 {
+      text-align: center;
       font-size: ${theme.font.sizes.xxlarge};
       margin-bottom: ${theme.spacings.small};
     }
@@ -30,5 +32,11 @@ export const Content = styled.div`
       font-weight: ${theme.font.bold};
       text-transform: uppercase;
     }
+
+    ${media.lessThan('medium')`
+      width: 100%;
+      height: 100%;
+      padding: ${theme.spacings.xsmall};
+    `}
   `}
 `
