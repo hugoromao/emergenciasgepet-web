@@ -57,6 +57,8 @@ export const Icon = styled.div<IconPositionProps>`
     display: flex;
     color: ${theme.colors.lightGray1};
     order: ${iconPosition === 'right' ? 1 : 0};
+    padding-left: ${iconPosition === 'left' ? '0.8rem' : 0};
+    padding-right: ${iconPosition === 'right' ? '0.8rem' : 0};
 
     & > svg {
       width: 2.2rem;
