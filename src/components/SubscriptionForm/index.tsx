@@ -13,9 +13,9 @@ const SubscriptionForm = () => {
           INSCRIÇÃO - 1º congresso roraimense de trauma e emergências médicas
         </S.Title>
         <S.FormGrid>
-          <TextField label="Nome completo" />
-          <TextField label="E-mail" />
-          <TextField label="Telefone/Celular" />
+          <TextField label="Nome completo" name="name" />
+          <TextField label="E-mail" type="email" name="email" />
+          <TextField label="Telefone/Celular" name="phone" />
         </S.FormGrid>
         <S.FormInfo>Pagamento</S.FormInfo>
         <S.Payment>
@@ -34,9 +34,9 @@ const SubscriptionForm = () => {
               <Warning />
               <p>You may only place scheduled orders right now for pick up.</p>
             </S.Warning>
-            <FileField />
           </S.Column>
         </S.Payment>
+        <FileField />
         <Button type="submit" style={{ width: 'fit-content' }}>
           Enviar
         </Button>

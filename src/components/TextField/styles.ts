@@ -13,7 +13,7 @@ export const InputWrapper = styled.div`
     align-items: center;
     background: transparent;
     border-radius: 0.2rem;
-    padding: 0 ${theme.spacings.xsmall};
+    /* padding: 0 ${theme.spacings.xsmall}; */
     border: 0.2rem solid;
     border-color: ${theme.colors.lightGray1};
   `}

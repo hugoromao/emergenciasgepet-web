@@ -18,9 +18,12 @@ export const Wrapper = styled.div`
 export const ContentWrapper = styled.form`
   ${({ theme }) => css`
     width: 100%;
+    height: inherit;
     max-width: 56rem;
     display: flex;
     margin: 0 auto;
+    padding: ${theme.spacings.medium} 0;
+
     flex-direction: column;
     gap: ${theme.spacings.small};
   `}
