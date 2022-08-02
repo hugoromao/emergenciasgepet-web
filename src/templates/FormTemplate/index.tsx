@@ -17,7 +17,7 @@ const FormTemplate = ({ children }: FormTemplateProps) => (
       </S.Strong>
     </S.Hero>
 
-    <S.FormWrapper>{children}</S.FormWrapper>
+    {children}
   </S.Wrapper>
 )
 

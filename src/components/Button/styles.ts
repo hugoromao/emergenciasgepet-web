@@ -82,7 +82,7 @@ export const Button = styled.button<ButtonProps>`
     min-width: 6.7rem;
     border: none;
     color: white;
-    border-radius: ${theme.border.radius};
+    border-radius: 0.4rem;
 
     font-weight: ${theme.font.bold};
     font-size: ${theme.font.sizes.small};
