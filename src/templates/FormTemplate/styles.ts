@@ -1,9 +1,14 @@
 import Image from 'next/image'
+import media from 'styled-media-query'
 import styled, { css } from 'styled-components'
 
 export const Wrapper = styled.main`
-  display: flex;
-  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  ${media.lessThan('medium')`
+    grid-template-columns: 1fr;
+  `}
 `
 
 export const Strong = styled.strong`
@@ -19,7 +24,7 @@ export const Strong = styled.strong`
 export const ImageWrapper = styled.div`
   width: 50vw;
   height: 100vh;
-  position: absolute;
+  position: fixed;
 `
 
 export const HeroImage = styled(Image)`
@@ -42,7 +47,12 @@ export const Hero = styled.div`
     opacity: 0.9;
 
     color: white;
+    position: fixed;
   `}
 `
 
-export const FormWrapper = styled.div``
+export const TemplateWrapper = styled.div`
+  ${media.lessThan('medium')`
+    display: none;
+  `}
+`

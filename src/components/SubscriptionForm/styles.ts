@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components'
+import media from 'styled-media-query'
 
 export const Wrapper = styled.div`
   ${({ theme }) => css`
@@ -7,9 +8,15 @@ export const Wrapper = styled.div`
     justify-content: center;
 
     width: 50vw;
-    height: 100vh;
+    /* height: 100vh; */
     overflow: auto;
     padding: ${theme.spacings.medium};
+
+    ${media.lessThan('medium')`
+      width: 100%;
+      padding: ${theme.spacings.xsmall};
+      height: 100%;
+    `}
 
     overflow: auto;
   `}
@@ -21,7 +28,7 @@ export const ContentWrapper = styled.form`
     height: inherit;
     max-width: 56rem;
     margin: 0 auto;
-    padding: ${theme.spacings.medium} 0;
+    padding: ${theme.spacings.medium};
 
     display: flex;
     flex-direction: column;
@@ -45,6 +52,11 @@ export const FormGrid = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: ${theme.spacings.xsmall};
+
+    ${media.lessThan('medium')`
+      grid-template-columns: 1fr;
+      width: 100%;
+    `}
   `}
 `
 
@@ -77,6 +89,11 @@ export const Payment = styled.div`
     display: grid;
     grid-template-columns: auto 1fr;
     gap: ${theme.spacings.small};
+
+    ${media.lessThan('medium')`
+      grid-template-columns: 1fr;
+      width: 100%;
+    `}
 
     h1 {
       margin: 0;

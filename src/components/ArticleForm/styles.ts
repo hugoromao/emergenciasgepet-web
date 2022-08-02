@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components'
+import media from 'styled-media-query'
 
 export const Wrapper = styled.div`
   ${({ theme }) => css`
@@ -12,6 +13,10 @@ export const Wrapper = styled.div`
     padding: ${theme.spacings.medium};
 
     overflow: auto;
+
+    ${media.lessThan('medium')`
+      width: 100%;
+    `}
   `}
 `
 
@@ -45,6 +50,10 @@ export const FormGrid = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: ${theme.spacings.xsmall};
+
+    ${media.lessThan('medium')`
+      grid-template-columns: 1fr;
+    `}
   `}
 `
 
