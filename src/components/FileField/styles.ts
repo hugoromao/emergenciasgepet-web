@@ -15,6 +15,8 @@ export const InputWrapper = styled.div`
 
     svg {
       height: 2.4rem;
+      width: 2.4rem;
+      min-width: 2.4rem;
     }
 
     p {

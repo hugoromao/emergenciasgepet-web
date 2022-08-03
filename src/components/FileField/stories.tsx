@@ -1,5 +1,5 @@
 import { Story, Meta } from '@storybook/react'
-import FileField from '.'
+import FileField, { FileFieldProps } from '.'
 
 export default {
   title: 'Form/FileField',
@@ -8,7 +8,8 @@ export default {
     viewport: {
       defaultViewport: 'desktop1'
     }
-  }
+  },
+  args: { name: 'teste', label: 'Comprovante' } as FileFieldProps
 } as Meta
 
-export const Default: Story = () => <FileField />
+export const Default: Story<FileFieldProps> = (args) => <FileField {...args} />

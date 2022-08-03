@@ -65,7 +65,7 @@ const ArticleForm = () => {
           />
         </S.FormGrid>
 
-        <FileField />
+        <FileField name="article" label="Artigo" />
 
         <Button
           type="submit"

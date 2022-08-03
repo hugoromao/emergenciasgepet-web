@@ -12,8 +12,27 @@ import { useRouter } from 'next/router'
 
 type Inputs = {
   name: string
+  doc: string
   email: string
   phone: string
+  categorie:
+    | 'medicine-student'
+    | 'doctor'
+    | 'graduation-student'
+    | 'health-professional'
+  undergraduateSemester: number
+  institution: string
+  country: string
+  city: string
+  uf: string
+  postalCode: string
+  address: string
+  addressNumber: string
+  neightborhood: string
+  payerName: string
+  payerDoc: string
+  // categoryVoucher: file
+  // paymentVoucher: file
 }
 
 const SubscriptionForm = () => {
@@ -40,7 +59,7 @@ const SubscriptionForm = () => {
       </S.Title>
       <S.FormGrid>
         <TextField
-          label="Nome completo"
+          label="Nome completo*"
           name="name"
           register={register('name', {
             required: 'Este campo é obrigatório'
@@ -48,7 +67,15 @@ const SubscriptionForm = () => {
           error={errors.name?.message}
         />
         <TextField
-          label="E-mail"
+          label="CPF*"
+          name="doc"
+          register={register('doc', {
+            required: 'Este campo é obrigatório'
+          })}
+          error={errors.doc?.message}
+        />
+        <TextField
+          label="E-mail*"
           type="email"
           name="email"
           register={register('email', {
@@ -59,12 +86,78 @@ const SubscriptionForm = () => {
           error={errors.email?.message}
         />
         <TextField
-          label="Telefone/Celular"
+          label="Telefone(celular)*"
           name="phone"
           register={register('phone', {
             required: 'Este campo é obrigatório'
           })}
           error={errors.phone?.message}
+        />
+
+        <input type="radio" id="huey" name="drone" value="huey" />
+        <input type="radio" id="dewey" name="drone" value="dewey" />
+
+        <TextField
+          label="Instituição/Empresa**"
+          name="institution"
+          register={register('institution', {
+            required: 'Este campo é obrigatório'
+          })}
+          error={errors.institution?.message}
+        />
+
+        <TextField
+          label="País**"
+          name="country"
+          register={register('country', {
+            required: 'Este campo é obrigatório'
+          })}
+          error={errors.country?.message}
+        />
+
+        <TextField
+          label="Cidade**"
+          name="city"
+          register={register('city', {
+            required: 'Este campo é obrigatório'
+          })}
+          error={errors.city?.message}
+        />
+
+        <TextField
+          label="UF**"
+          name="uf"
+          register={register('uf', {
+            required: 'Este campo é obrigatório'
+          })}
+          error={errors.uf?.message}
+        />
+
+        <TextField
+          label="CEP**"
+          name="postalCode"
+          register={register('postalCode', {
+            required: 'Este campo é obrigatório'
+          })}
+          error={errors.postalCode?.message}
+        />
+
+        <TextField
+          label="Endereço*"
+          name="address"
+          register={register('address', {
+            required: 'Este campo é obrigatório'
+          })}
+          error={errors.address?.message}
+        />
+
+        <TextField
+          label="Bairro*"
+          name="neightborhood"
+          register={register('neightborhood', {
+            required: 'Este campo é obrigatório'
+          })}
+          error={errors.neightborhood?.message}
         />
       </S.FormGrid>
       <S.FormInfo>Pagamento</S.FormInfo>
@@ -86,7 +179,7 @@ const SubscriptionForm = () => {
           </S.Warning>
         </S.Column>
       </S.Payment>
-      <FileField />
+      <FileField name="paymentVoucher" label="Comprovante de pagamento *" />
 
       <Button type="submit" style={{ width: 'fit-content' }} loading={loading}>
         Enviar
