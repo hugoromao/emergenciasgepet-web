@@ -63,7 +63,7 @@ const TextField = ({
           </InputMask>
         ) : (
           <S.Input
-            type="text"
+            type={type}
             value={value}
             iconPosition={iconPosition}
             disabled={disabled}

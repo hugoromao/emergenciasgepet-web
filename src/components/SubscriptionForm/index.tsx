@@ -9,6 +9,7 @@ import TextField from 'components/TextField'
 import * as S from './styles'
 import { useState } from 'react'
 import { useRouter } from 'next/router'
+import CategoryRadio from 'components/CategoryRadio'
 
 type Inputs = {
   name: string
@@ -39,8 +40,9 @@ const SubscriptionForm = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors }
-  } = useForm<Inputs>()
+    formState: { errors },
+    watch
+  } = useForm<Inputs>({ defaultValues: { undergraduateSemester: 1 } })
 
   const { push } = useRouter()
 
@@ -67,6 +69,7 @@ const SubscriptionForm = () => {
           error={errors.name?.message}
         />
         <TextField
+          type="tel"
           label="CPF*"
           name="doc"
           register={register('doc', {
@@ -86,6 +89,7 @@ const SubscriptionForm = () => {
           error={errors.email?.message}
         />
         <TextField
+          type="tel"
           label="Telefone(celular)*"
           name="phone"
           register={register('phone', {
@@ -94,12 +98,62 @@ const SubscriptionForm = () => {
           error={errors.phone?.message}
         />
 
-        <input type="radio" id="huey" name="drone" value="huey" />
-        <input type="radio" id="dewey" name="drone" value="dewey" />
+        <S.FormInfo>Selecione a categoria</S.FormInfo>
+
+        <CategoryRadio
+          id="medicine-student"
+          name="medicine-student"
+          value="medicine-student"
+          register={register('categorie', {
+            required: 'Este campo é obrigatório'
+          })}
+          title="Estudante de graduação (medicina)"
+          prices={[
+            { label: 'Preço até 15/09', price: 70 },
+            { label: 'Preço até 15/10', price: 80 }
+          ]}
+        />
+
+        <CategoryRadio
+          id="graduation-student"
+          name="graduation-student"
+          value="graduation-student"
+          register={register('categorie', {
+            required: 'Este campo é obrigatório'
+          })}
+          title="Estudante de graduação 
+          (outro curso da saúde) (vagas 
+          limitadas)"
+          prices={[
+            { label: 'Preço até 15/09', price: 80 },
+            { label: 'Preço até 15/10', price: 90 }
+          ]}
+        />
+
+        {(watch('categorie') === 'medicine-student' ||
+          watch('categorie') === 'graduation-student') && (
+          <TextField
+            type="tel"
+            min="1"
+            max="12"
+            defaultValue={1}
+            label="Semestre de graduação*"
+            name="undergraduateSemester"
+            register={register('undergraduateSemester', {
+              required: 'Este campo é obrigatório',
+              min: { value: 1, message: 'Escolha um valor entre 1 e 12' },
+              max: { value: 12, message: 'Escolha um valor entre 1 e 12' }
+            })}
+            error={errors.undergraduateSemester?.message}
+          />
+        )}
+
+        <FileField name="" label="Comprovante de categoria *" />
 
         <TextField
-          label="Instituição/Empresa**"
+          label="Instituição/Empresa*"
           name="institution"
+          placeholder="UFRR, UERR, ... "
           register={register('institution', {
             required: 'Este campo é obrigatório'
           })}
@@ -107,7 +161,7 @@ const SubscriptionForm = () => {
         />
 
         <TextField
-          label="País**"
+          label="País*"
           name="country"
           register={register('country', {
             required: 'Este campo é obrigatório'
@@ -116,7 +170,7 @@ const SubscriptionForm = () => {
         />
 
         <TextField
-          label="Cidade**"
+          label="Cidade*"
           name="city"
           register={register('city', {
             required: 'Este campo é obrigatório'
@@ -125,7 +179,7 @@ const SubscriptionForm = () => {
         />
 
         <TextField
-          label="UF**"
+          label="UF*"
           name="uf"
           register={register('uf', {
             required: 'Este campo é obrigatório'
@@ -134,7 +188,8 @@ const SubscriptionForm = () => {
         />
 
         <TextField
-          label="CEP**"
+          label="CEP*"
+          type="tel"
           name="postalCode"
           register={register('postalCode', {
             required: 'Este campo é obrigatório'
@@ -178,8 +233,26 @@ const SubscriptionForm = () => {
             <p>You may only place scheduled orders right now for pick up.</p>
           </S.Warning>
         </S.Column>
+
+        <TextField
+          label="Nome do pagador*"
+          name="payerName"
+          register={register('payerName', {
+            required: 'Este campo é obrigatório'
+          })}
+          error={errors.payerName?.message}
+        />
+
+        <TextField
+          label="CPF do pagador*"
+          name="payerDoc"
+          register={register('payerDoc', {
+            required: 'Este campo é obrigatório'
+          })}
+          error={errors.payerDoc?.message}
+        />
+        <FileField name="paymentVoucher" label="Comprovante de pagamento *" />
       </S.Payment>
-      <FileField name="paymentVoucher" label="Comprovante de pagamento *" />
 
       <Button type="submit" style={{ width: 'fit-content' }} loading={loading}>
         Enviar
