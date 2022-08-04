@@ -16,48 +16,47 @@ import { useRouter } from 'next/router'
 import api from 'services/api'
 
 type Inputs = {
-  name: string
-  doc: string
+  nome: string
+  cpf: string
   email: string
-  phone: string
-  categorie:
-    | 'medicine-student'
-    | 'doctor'
-    | 'graduation-student'
-    | 'health-professional'
+  celular: string
+  categoria:
+    | 'Estudante de graduação (MEDICINA)'
+    | 'MÉDICO'
+    | 'Estudante de graduação (Outro curso da saúde)'
+    | 'Outros profissionais da saúde'
     | string
-  undergraduateSemester: number
-  institution: string
-  country: string
-  city: string
+  semestre_de_graduacao: number
+  instituicao: string
+  pais: string
+  cidade: string
   uf: string
-  postalCode: string
-  address: string
-  addressNumber: string
-  neightborhood: string
-  payerName: string
-  payerDoc: string
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  paymentVoucher: File
-  categoryVoucher: File
+  cep: string
+  endereco: string
+  numeros: string
+  bairro: string
+  nome_do_pagador: string
+  cpf_do_pagador: string
+  comprovante_de_pagamento: File
+  comprovante_de_categoria: File
 }
 
 const isAfter1509 = dayjs().isAfter('2022-09-15')
 
 const categoriesPrices = {
-  'medicine-student': {
+  'Estudante de graduação (MEDICINA)': {
     price: isAfter1509 ? 80 : 70,
     label: 'Estudante de graduação (medicina)'
   },
-  doctor: {
+  MÉDICO: {
     price: isAfter1509 ? 115 : 100,
     label: 'Médico'
   },
-  'graduation-student': {
+  'Estudante de graduação (Outro curso da saúde)': {
     price: isAfter1509 ? 90 : 80,
     label: 'Estudante de graduação (outro curso da saúde) (vagas limitadas)'
   },
-  'health-professional': {
+  'Outros profissionais da saúde': {
     price: isAfter1509 ? 120 : 115,
     label: 'Outros profissionais da saúde'
   }
@@ -72,7 +71,7 @@ const SubscriptionForm = () => {
     getValues
   } = useForm<Inputs>({
     defaultValues: {
-      undergraduateSemester: 1
+      semestre_de_graduacao: 1
     }
   })
 
@@ -80,25 +79,56 @@ const SubscriptionForm = () => {
   const { push } = useRouter()
   const [loading, setLoading] = useState(false)
 
-  const onSubmit: SubmitHandler<Inputs> = async (data) => {
+  const onSubmit: SubmitHandler<Inputs> = async ({
+    bairro,
+    categoria,
+    celular,
+    cep,
+    cidade,
+    cpf,
+    cpf_do_pagador,
+    email,
+    endereco,
+    instituicao,
+    nome,
+    nome_do_pagador,
+    numeros,
+    pais,
+    semestre_de_graduacao,
+    comprovante_de_categoria,
+    // comprovante_de_pagamento,
+    uf
+  }) => {
     try {
       setLoading(true)
-      console.log(data)
-
       await api
         .post('/subscriptions', {
           data: {
-            nome: data.name,
-            email: data.email,
-            phone: data.phone
+            bairro,
+            categoria,
+            celular,
+            cep,
+            cidade,
+            cpf,
+            cpf_do_pagador,
+            email,
+            endereco,
+            instituicao,
+            nome,
+            nome_do_pagador,
+            numeros,
+            pais,
+            semestre_de_graduacao: Number(semestre_de_graduacao),
+            comprovante_de_pagamento: 'asmdak',
+            uf
           }
         })
         .then(async (r) => {
           const formData = new FormData()
-          formData.append('files', (data as any).paymentVoucher[0])
+          formData.append('files', (comprovante_de_categoria as any)[0])
           formData.append('refId', String(r.data.data.id))
           formData.append('ref', 'api::subscription.subscription')
-          formData.append('field', 'payment_voucher')
+          formData.append('field', 'comprovante_de_categoria')
           await api.post('/upload', formData)
 
           push('/inscricao/success')
@@ -125,21 +155,21 @@ const SubscriptionForm = () => {
       <S.FormGrid>
         <TextField
           label="Nome completo*"
-          name="name"
-          register={register('name', {
+          name="nome"
+          register={register('nome', {
             required: 'Este campo é obrigatório'
           })}
-          error={errors.name?.message}
+          error={errors.nome?.message}
         />
         <TextField
           type="tel"
           label="CPF*"
-          name="doc"
+          name="cpf"
           mask="999.999.999-99"
-          register={register('doc', {
+          register={register('cpf', {
             required: 'Este campo é obrigatório'
           })}
-          error={errors.doc?.message}
+          error={errors.cpf?.message}
         />
         <TextField
           label="E-mail*"
@@ -156,11 +186,11 @@ const SubscriptionForm = () => {
           type="tel"
           label="Telefone(celular)*"
           mask="99 999999999"
-          name="phone"
-          register={register('phone', {
+          name="celular"
+          register={register('celular', {
             required: 'Este campo é obrigatório'
           })}
-          error={errors.phone?.message}
+          error={errors.celular?.message}
         />
       </S.FormGrid>
 
@@ -168,11 +198,13 @@ const SubscriptionForm = () => {
         <S.FormInfo>Selecione a categoria</S.FormInfo>
 
         <CategoryRadio
-          id="medicine-student"
-          name="medicine-student"
-          value="medicine-student"
-          isSelected={getValues('categorie') === 'medicine-student'}
-          register={register('categorie', {
+          id="Estudante de graduação (MEDICINA)"
+          name="Estudante de graduação (MEDICINA)"
+          value="Estudante de graduação (MEDICINA)"
+          isSelected={
+            getValues('categoria') === 'Estudante de graduação (MEDICINA)'
+          }
+          register={register('categoria', {
             required: 'Escolha pelo menos uma categoria'
           })}
           title="Estudante de graduação (medicina)"
@@ -180,15 +212,18 @@ const SubscriptionForm = () => {
             { label: 'Preço até 15/09', price: 70 },
             { label: 'Preço até 15/10', price: 80 }
           ]}
-          error={errors.categorie?.message}
+          error={errors.categoria?.message}
         />
 
         <CategoryRadio
-          id="graduation-student"
-          name="graduation-student"
-          value="graduation-student"
-          isSelected={getValues('categorie') === 'graduation-student'}
-          register={register('categorie', {
+          id="Estudante de graduação (Outro curso da saúde)"
+          name="Estudante de graduação (Outro curso da saúde)"
+          value="Estudante de graduação (Outro curso da saúde)"
+          isSelected={
+            getValues('categoria') ===
+            'Estudante de graduação (Outro curso da saúde)'
+          }
+          register={register('categoria', {
             required: 'Escolha pelo menos uma categoria'
           })}
           title="Estudante de graduação 
@@ -198,15 +233,15 @@ const SubscriptionForm = () => {
             { label: 'Preço até 15/09', price: 80 },
             { label: 'Preço até 15/10', price: 90 }
           ]}
-          error={errors.categorie?.message}
+          error={errors.categoria?.message}
         />
 
         <CategoryRadio
-          id="doctor"
-          name="doctor"
-          value="doctor"
-          isSelected={getValues('categorie') === 'doctor'}
-          register={register('categorie', {
+          id="MÉDICO"
+          name="MÉDICO"
+          value="MÉDICO"
+          isSelected={getValues('categoria') === 'MÉDICO'}
+          register={register('categoria', {
             required: 'Escolha pelo menos uma categoria'
           })}
           title="Médico (vagas limitadas)"
@@ -214,15 +249,17 @@ const SubscriptionForm = () => {
             { label: 'Preço até 15/09', price: 100 },
             { label: 'Preço até 15/10', price: 115 }
           ]}
-          error={errors.categorie?.message}
+          error={errors.categoria?.message}
         />
 
         <CategoryRadio
-          id="health-professional"
-          name="health-professional"
-          value="health-professional"
-          isSelected={getValues('categorie') === 'health-professional'}
-          register={register('categorie', {
+          id="Outros profissionais da saúde"
+          name="Outros profissionais da saúde"
+          value="Outros profissionais da saúde"
+          isSelected={
+            getValues('categoria') === 'Outros profissionais da saúde'
+          }
+          register={register('categoria', {
             required: 'Escolha pelo menos uma categoria'
           })}
           title="Outros profissionais da saúde (vagas limitadas)"
@@ -230,64 +267,65 @@ const SubscriptionForm = () => {
             { label: 'Preço até 15/09', price: 115 },
             { label: 'Preço até 15/10', price: 120 }
           ]}
-          error={errors.categorie?.message}
+          error={errors.categoria?.message}
         />
       </S.CategoriesGrid>
 
       <S.FormGrid>
-        {(watch('categorie') === 'medicine-student' ||
-          watch('categorie') === 'graduation-student') && (
+        {(watch('categoria') ===
+          'Estudante de graduação (Outro curso da saúde)' ||
+          watch('categoria') === 'Estudante de graduação (MEDICINA)') && (
           <TextField
             type="tel"
             min="1"
             max="12"
             defaultValue={1}
             label="Semestre de graduação*"
-            name="undergraduateSemester"
-            register={register('undergraduateSemester', {
+            name="semestre_de_graduacao"
+            register={register('semestre_de_graduacao', {
               required: 'Este campo é obrigatório',
               min: { value: 1, message: 'Escolha um valor entre 1 e 12' },
               max: { value: 12, message: 'Escolha um valor entre 1 e 12' }
             })}
-            error={errors.undergraduateSemester?.message}
+            error={errors.semestre_de_graduacao?.message}
           />
         )}
 
         <FileField
-          name="categoryVoucher"
+          name="comprovante_de_categoria"
           label="Comprovante de categoria *"
-          register={register('categoryVoucher', {
+          register={register('comprovante_de_categoria', {
             required: 'Este campo é obrigatório'
           })}
-          error={errors.categoryVoucher?.message as string | undefined}
+          error={errors.comprovante_de_categoria?.message as string | undefined}
         />
 
         <TextField
           label="Instituição/Empresa*"
-          name="institution"
+          name="instituicao"
           placeholder="UFRR, UERR, ... "
-          register={register('institution', {
+          register={register('instituicao', {
             required: 'Este campo é obrigatório'
           })}
-          error={errors.institution?.message}
+          error={errors.instituicao?.message}
         />
 
         <TextField
           label="País*"
-          name="country"
-          register={register('country', {
+          name="pais"
+          register={register('pais', {
             required: 'Este campo é obrigatório'
           })}
-          error={errors.country?.message}
+          error={errors.pais?.message}
         />
 
         <TextField
           label="Cidade*"
-          name="city"
-          register={register('city', {
+          name="cidade"
+          register={register('cidade', {
             required: 'Este campo é obrigatório'
           })}
-          error={errors.city?.message}
+          error={errors.cidade?.message}
         />
 
         <TextField
@@ -303,39 +341,39 @@ const SubscriptionForm = () => {
           label="CEP*"
           type="tel"
           mask="99999-999"
-          name="postalCode"
-          register={register('postalCode', {
+          name="cep"
+          register={register('cep', {
             required: 'Este campo é obrigatório'
           })}
-          error={errors.postalCode?.message}
+          error={errors.cep?.message}
         />
 
         <TextField
           label="Endereço*"
-          name="address"
-          register={register('address', {
+          name="endereco"
+          register={register('endereco', {
             required: 'Este campo é obrigatório'
           })}
-          error={errors.address?.message}
+          error={errors.endereco?.message}
         />
 
         <TextField
           type="number"
           label="Número*"
-          name="address"
-          register={register('addressNumber', {
+          name="numeros"
+          register={register('numeros', {
             required: 'Este campo é obrigatório'
           })}
-          error={errors.address?.message}
+          error={errors.numeros?.message}
         />
 
         <TextField
           label="Bairro*"
-          name="neightborhood"
-          register={register('neightborhood', {
+          name="bairro"
+          register={register('bairro', {
             required: 'Este campo é obrigatório'
           })}
-          error={errors.neightborhood?.message}
+          error={errors.bairro?.message}
         />
       </S.FormGrid>
 
@@ -348,12 +386,12 @@ const SubscriptionForm = () => {
         </S.BorderWrapper>
         <S.Column>
           <S.Column style={{ gap: 0 }}>
-            {watch('categorie') && (
+            {watch('categoria') && (
               <S.Title>
                 R${' '}
                 {String(
                   categoriesPrices[
-                    watch('categorie') as 'medicine-student'
+                    watch('categoria') as 'Estudante de graduação (MEDICINA)'
                   ].price.toFixed(2)
                 ).replace('.', ',')}
               </S.Title>
@@ -374,30 +412,30 @@ const SubscriptionForm = () => {
       <S.FormGrid>
         <TextField
           label="Nome do pagador*"
-          name="payerName"
-          register={register('payerName', {
+          name="nome_do_pagador"
+          register={register('nome_do_pagador', {
             required: 'Este campo é obrigatório'
           })}
-          error={errors.payerName?.message}
+          error={errors.nome_do_pagador?.message}
         />
 
         <TextField
           label="CPF do pagador*"
           type="tel"
-          name="payerDoc"
+          name="cpf_do_pagador"
           mask="999.999.999-99"
-          register={register('payerDoc', {
+          register={register('cpf_do_pagador', {
             required: 'Este campo é obrigatório'
           })}
-          error={errors.payerDoc?.message}
+          error={errors.cpf_do_pagador?.message}
         />
         <FileField
-          name="paymentVoucher"
+          name="comprovante_de_pagamento"
           label="Comprovante de pagamento *"
-          register={register('paymentVoucher', {
+          register={register('comprovante_de_pagamento', {
             required: 'Este campo é obrigatório'
           })}
-          error={errors.paymentVoucher?.message as string | undefined}
+          error={errors.comprovante_de_pagamento?.message as string | undefined}
         />
       </S.FormGrid>
 

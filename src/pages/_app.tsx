@@ -11,7 +11,7 @@ function App({ Component, pageProps }: AppProps) {
   return (
     <SnackbarProvider
       maxSnack={1}
-      // style={{ fontSize: '1.6rem', fontFamily: theme.font.family }}
+      // stPyle={{ fontSize: '1.6rem', fontFamily: theme.font.family }}
       autoHideDuration={2000}
       anchorOrigin={{
         vertical: 'bottom',
@@ -48,12 +48,9 @@ function App({ Component, pageProps }: AppProps) {
             href="/img/favicon.svg"
             type="image/x-icon"
           />
-          <link rel="manifest" href="/manifest.json" />
-          <meta name="theme-color" content="#06092B" />
-          <meta
-            name="description"
-            content="A simple project starter to work with TypeScript, React, NextJS and Styled Components"
-          />
+          {/* <link rel="manifest" href="/manifest.json" /> */}
+          <meta name="theme-color" content="#B71E1A" />
+          <meta name="description" content="24, 25, 26 de novembro." />
         </Head>
         <GlobalStyles />
         <Component {...pageProps} />
