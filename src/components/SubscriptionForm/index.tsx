@@ -50,11 +50,11 @@ const categoriesPrices = {
     label: 'Estudante de graduação (medicina)'
   },
   doctor: {
-    price: isAfter1509 ? 90 : 80,
+    price: isAfter1509 ? 115 : 100,
     label: 'Médico'
   },
   'graduation-student': {
-    price: isAfter1509 ? 115 : 100,
+    price: isAfter1509 ? 90 : 80,
     label: 'Estudante de graduação (outro curso da saúde) (vagas limitadas)'
   },
   'health-professional': {
