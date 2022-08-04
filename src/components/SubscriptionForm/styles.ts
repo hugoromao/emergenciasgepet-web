@@ -60,8 +60,11 @@ export const FormGrid = styled.div`
     }
 
     ${media.lessThan('medium')`
-      grid-template-columns: 1fr;
-      width: 100%;
+    grid-template-columns: 1fr;
+    width: 100%;
+    ${FileWrapper} {
+      grid-column: 1;
+    }
     `}
   `}
 `
@@ -79,6 +82,9 @@ export const CategoriesGrid = styled.div`
     ${media.lessThan('medium')`
       grid-template-columns: 1fr;
       width: 100%;
+      ${FormInfo} {
+        grid-column: 1;
+      }
     `}
   `}
 `
