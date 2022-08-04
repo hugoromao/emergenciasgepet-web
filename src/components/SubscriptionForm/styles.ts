@@ -1,6 +1,8 @@
 import styled, { css } from 'styled-components'
 import media from 'styled-media-query'
 
+import { Wrapper as FileWrapper } from 'components/FileField/styles'
+
 export const Wrapper = styled.div`
   ${({ theme }) => css`
     display: flex;
@@ -53,6 +55,27 @@ export const FormGrid = styled.div`
     grid-template-columns: 1fr 1fr;
     gap: ${theme.spacings.xsmall};
 
+    ${FileWrapper} {
+      grid-column: span 2;
+    }
+
+    ${media.lessThan('medium')`
+      grid-template-columns: 1fr;
+      width: 100%;
+    `}
+  `}
+`
+
+export const CategoriesGrid = styled.div`
+  ${({ theme }) => css`
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: ${theme.spacings.xsmall};
+
+    ${FormInfo} {
+      grid-column: span 2;
+    }
+
     ${media.lessThan('medium')`
       grid-template-columns: 1fr;
       width: 100%;
@@ -87,8 +110,12 @@ export const FormInfo = styled.p`
 export const Payment = styled.div`
   ${({ theme }) => css`
     display: grid;
-    grid-template-columns: auto 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: ${theme.spacings.small};
+
+    ${Column} {
+      grid-column: span 2;
+    }
 
     ${media.lessThan('medium')`
       grid-template-columns: 1fr;
@@ -131,6 +158,7 @@ export const Warning = styled.div`
 export const BorderWrapper = styled.div`
   ${({ theme }) => css`
     margin: 0 auto;
+    height: min-content;
     border: 2rem solid ${theme.colors.darkRed};
     border-radius: 1.6rem;
   `}

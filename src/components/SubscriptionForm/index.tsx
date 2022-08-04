@@ -162,7 +162,9 @@ const SubscriptionForm = () => {
           })}
           error={errors.phone?.message}
         />
+      </S.FormGrid>
 
+      <S.CategoriesGrid>
         <S.FormInfo>Selecione a categoria</S.FormInfo>
 
         <CategoryRadio
@@ -190,8 +192,8 @@ const SubscriptionForm = () => {
             required: 'Escolha pelo menos uma categoria'
           })}
           title="Estudante de graduação 
-          (outro curso da saúde) (vagas 
-          limitadas)"
+  (outro curso da saúde) (vagas 
+  limitadas)"
           prices={[
             { label: 'Preço até 15/09', price: 80 },
             { label: 'Preço até 15/10', price: 90 }
@@ -230,7 +232,9 @@ const SubscriptionForm = () => {
           ]}
           error={errors.categorie?.message}
         />
+      </S.CategoriesGrid>
 
+      <S.FormGrid>
         {(watch('categorie') === 'medicine-student' ||
           watch('categorie') === 'graduation-student') && (
           <TextField
@@ -334,6 +338,7 @@ const SubscriptionForm = () => {
           error={errors.neightborhood?.message}
         />
       </S.FormGrid>
+
       <S.FormInfo>Pagamento</S.FormInfo>
       <S.Payment>
         <S.BorderWrapper>
@@ -364,7 +369,9 @@ const SubscriptionForm = () => {
             </p>
           </S.Warning>
         </S.Column>
+      </S.Payment>
 
+      <S.FormGrid>
         <TextField
           label="Nome do pagador*"
           name="payerName"
@@ -392,7 +399,7 @@ const SubscriptionForm = () => {
           })}
           error={errors.paymentVoucher?.message as string | undefined}
         />
-      </S.Payment>
+      </S.FormGrid>
 
       <Button type="submit" style={{ width: 'fit-content' }} loading={loading}>
         Enviar
