@@ -13,7 +13,7 @@ export type TextFieldProps = {
   disabled?: boolean
   error?: string
   register?: UseFormRegisterReturn
-  mask?: 'phone'
+  mask?: string
 } & InputHTMLAttributes<HTMLInputElement>
 
 const TextField = ({
@@ -48,7 +48,7 @@ const TextField = ({
         {!!icon && <S.Icon iconPosition={iconPosition}>{icon}</S.Icon>}
         {mask ? (
           <InputMask
-            mask="99 999999999"
+            mask={mask}
             alwaysShowMask={false}
             maskPlaceholder=""
             {...props}

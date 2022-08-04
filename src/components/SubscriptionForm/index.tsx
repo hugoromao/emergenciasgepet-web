@@ -8,10 +8,10 @@ import FileField from 'components/FileField'
 import TextField from 'components/TextField'
 import * as S from './styles'
 import { useState } from 'react'
-import { useRouter } from 'next/router'
+// import { useRouter } from 'next/router'
 import CategoryRadio from 'components/CategoryRadio'
 import dayjs from 'dayjs'
-import api from 'services/api'
+// import api from 'services/api'
 
 type Inputs = {
   name: string
@@ -35,7 +35,8 @@ type Inputs = {
   neightborhood: string
   payerName: string
   payerDoc: string
-  paymentVoucher: unknown
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  paymentVoucher: any
   // categoryVoucher: file
 }
 
@@ -68,51 +69,37 @@ const SubscriptionForm = () => {
     watch
   } = useForm<Inputs>({
     defaultValues: {
-      name: 'Teste',
-      doc: '999999999',
-      email: 'hugo@gmail.com',
-      phone: '1123123',
-      categorie: 'graduation-student',
-      undergraduateSemester: 1,
-      institution: 'UFRR',
-      country: 'Brasil',
-      city: 'Boa Vista',
-      uf: 'RR',
-      postalCode: '99999',
-      address: 'adksamdk',
-      addressNumber: '1293',
-      neightborhood: 'pricuma',
-      payerName: 'hugo',
-      payerDoc: '12931923'
+      undergraduateSemester: 1
     }
   })
 
-  const { push } = useRouter()
+  // const { push } = useRouter()
 
   const [loading, setLoading] = useState(false)
 
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     try {
       setLoading(true)
+      console.log(data)
 
-      await api
-        .post('/subscriptions', {
-          data: {
-            nome: data.name,
-            email: data.email,
-            phone: data.phone
-          }
-        })
-        .then(async (r) => {
-          const formData = new FormData()
-          formData.append('files', data.paymentVoucher[0])
-          formData.append('refId', String(r.data.data.id))
-          formData.append('ref', 'api::subscription.subscription')
-          formData.append('field', 'payment_voucher')
-          await api.post('/upload', formData)
-        })
+      // await api
+      //   .post('/subscriptions', {
+      //     data: {
+      //       nome: data.name,
+      //       email: data.email,
+      //       phone: data.phone
+      //     }
+      //   })
+      //   .then(async (r) => {
+      //     const formData = new FormData()
+      //     formData.append('files', data.paymentVoucher[0])
+      //     formData.append('refId', String(r.data.data.id))
+      //     formData.append('ref', 'api::subscription.subscription')
+      //     formData.append('field', 'payment_voucher')
+      //     await api.post('/upload', formData)
+      //   })
 
-      push('/inscricao/success')
+      // push('/inscricao/success')
     } catch {
       setLoading(false)
     }
@@ -136,6 +123,7 @@ const SubscriptionForm = () => {
           type="tel"
           label="CPF*"
           name="doc"
+          mask="999.999.999-99"
           register={register('doc', {
             required: 'Este campo é obrigatório'
           })}
@@ -155,6 +143,7 @@ const SubscriptionForm = () => {
         <TextField
           type="tel"
           label="Telefone(celular)*"
+          mask="99 999999999"
           name="phone"
           register={register('phone', {
             required: 'Este campo é obrigatório'
@@ -286,6 +275,7 @@ const SubscriptionForm = () => {
         <TextField
           label="CEP*"
           type="tel"
+          mask="99999-999"
           name="postalCode"
           register={register('postalCode', {
             required: 'Este campo é obrigatório'
@@ -364,6 +354,7 @@ const SubscriptionForm = () => {
         <TextField
           label="CPF do pagador*"
           name="payerDoc"
+          mask="999.999.999-99"
           register={register('payerDoc', {
             required: 'Este campo é obrigatório'
           })}
