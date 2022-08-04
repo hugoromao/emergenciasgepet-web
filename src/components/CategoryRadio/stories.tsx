@@ -7,7 +7,7 @@ export default {
   args: {
     id: '1',
     isSelected: false,
-    name: 'name',
+    name: 'teste',
     prices: [{ label: 'label', price: 1 }],
     title: 'title',
     value: 'value',
