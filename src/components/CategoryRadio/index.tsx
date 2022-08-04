@@ -4,7 +4,7 @@ import { useRef, useState } from 'react'
 import { UseFormRegisterReturn } from 'react-hook-form'
 import * as S from './styles'
 
-type CategoryRadioProps = {
+export type CategoryRadioProps = {
   id: string
   name: string
   value: string
