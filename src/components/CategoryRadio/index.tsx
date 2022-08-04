@@ -12,6 +12,7 @@ type CategoryRadioProps = {
   prices: { label: string; price: number }[]
   register?: UseFormRegisterReturn
   error?: string
+  isSelected: boolean
 }
 
 const CategoryRadio = ({
@@ -21,7 +22,8 @@ const CategoryRadio = ({
   register,
   prices,
   title,
-  error
+  error,
+  isSelected
 }: CategoryRadioProps) => {
   const ref = useRef(null)
   const [focus, setFocus] = useState(false)
@@ -34,6 +36,7 @@ const CategoryRadio = ({
         ref={ref}
         htmlFor={id}
         onClick={() => setFocus(true)}
+        isSelected={isSelected}
         focus={focus}
       >
         <input type="radio" id={id} name={name} value={value} {...register} />

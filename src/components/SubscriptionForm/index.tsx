@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import Image from 'next/image'
 
 import { SubmitHandler, useForm } from 'react-hook-form'
@@ -8,10 +9,10 @@ import FileField from 'components/FileField'
 import TextField from 'components/TextField'
 import * as S from './styles'
 import { useState } from 'react'
-// import { useRouter } from 'next/router'
 import CategoryRadio from 'components/CategoryRadio'
 import dayjs from 'dayjs'
-// import api from 'services/api'
+import { useRouter } from 'next/router'
+import api from 'services/api'
 
 type Inputs = {
   name: string
@@ -36,8 +37,8 @@ type Inputs = {
   payerName: string
   payerDoc: string
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  paymentVoucher: any
-  // categoryVoucher: file
+  paymentVoucher: File
+  categoryVoucher: File
 }
 
 const isAfter1509 = dayjs().isAfter('2022-09-15')
@@ -66,15 +67,15 @@ const SubscriptionForm = () => {
     register,
     handleSubmit,
     formState: { errors },
-    watch
+    watch,
+    getValues
   } = useForm<Inputs>({
     defaultValues: {
       undergraduateSemester: 1
     }
   })
 
-  // const { push } = useRouter()
-
+  const { push } = useRouter()
   const [loading, setLoading] = useState(false)
 
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
@@ -82,24 +83,24 @@ const SubscriptionForm = () => {
       setLoading(true)
       console.log(data)
 
-      // await api
-      //   .post('/subscriptions', {
-      //     data: {
-      //       nome: data.name,
-      //       email: data.email,
-      //       phone: data.phone
-      //     }
-      //   })
-      //   .then(async (r) => {
-      //     const formData = new FormData()
-      //     formData.append('files', data.paymentVoucher[0])
-      //     formData.append('refId', String(r.data.data.id))
-      //     formData.append('ref', 'api::subscription.subscription')
-      //     formData.append('field', 'payment_voucher')
-      //     await api.post('/upload', formData)
-      //   })
+      await api
+        .post('/subscriptions', {
+          data: {
+            nome: data.name,
+            email: data.email,
+            phone: data.phone
+          }
+        })
+        .then(async (r) => {
+          const formData = new FormData()
+          formData.append('files', (data as any).paymentVoucher[0])
+          formData.append('refId', String(r.data.data.id))
+          formData.append('ref', 'api::subscription.subscription')
+          formData.append('field', 'payment_voucher')
+          await api.post('/upload', formData)
+        })
 
-      // push('/inscricao/success')
+      push('/inscricao/success')
     } catch {
       setLoading(false)
     }
@@ -157,6 +158,7 @@ const SubscriptionForm = () => {
           id="medicine-student"
           name="medicine-student"
           value="medicine-student"
+          isSelected={getValues('categorie') === 'medicine-student'}
           register={register('categorie', {
             required: 'Escolha pelo menos uma categoria'
           })}
@@ -172,6 +174,7 @@ const SubscriptionForm = () => {
           id="graduation-student"
           name="graduation-student"
           value="graduation-student"
+          isSelected={getValues('categorie') === 'graduation-student'}
           register={register('categorie', {
             required: 'Escolha pelo menos uma categoria'
           })}
@@ -189,6 +192,7 @@ const SubscriptionForm = () => {
           id="doctor"
           name="doctor"
           value="doctor"
+          isSelected={getValues('categorie') === 'doctor'}
           register={register('categorie', {
             required: 'Escolha pelo menos uma categoria'
           })}
@@ -204,6 +208,7 @@ const SubscriptionForm = () => {
           id="health-professional"
           name="health-professional"
           value="health-professional"
+          isSelected={getValues('categorie') === 'health-professional'}
           register={register('categorie', {
             required: 'Escolha pelo menos uma categoria'
           })}
@@ -233,7 +238,14 @@ const SubscriptionForm = () => {
           />
         )}
 
-        <FileField name="categoryVoucher" label="Comprovante de categoria *" />
+        <FileField
+          name="categoryVoucher"
+          label="Comprovante de categoria *"
+          register={register('categoryVoucher', {
+            required: 'Este campo é obrigatório'
+          })}
+          error={errors.categoryVoucher?.message as string | undefined}
+        />
 
         <TextField
           label="Instituição/Empresa*"
@@ -353,6 +365,7 @@ const SubscriptionForm = () => {
 
         <TextField
           label="CPF do pagador*"
+          type="tel"
           name="payerDoc"
           mask="999.999.999-99"
           register={register('payerDoc', {
@@ -366,6 +379,7 @@ const SubscriptionForm = () => {
           register={register('paymentVoucher', {
             required: 'Este campo é obrigatório'
           })}
+          error={errors.paymentVoucher?.message as string | undefined}
         />
       </S.Payment>
 

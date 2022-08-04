@@ -2,10 +2,11 @@ import styled, { css } from 'styled-components'
 
 type WrapperProps = {
   focus: boolean
+  isSelected: boolean
 }
 
 export const Wrapper = styled.label<WrapperProps>`
-  ${({ theme, focus }) => css`
+  ${({ theme, focus, isSelected }) => css`
     display: flex;
     flex-direction: column;
     padding: ${theme.spacings.xsmall};
@@ -15,7 +16,7 @@ export const Wrapper = styled.label<WrapperProps>`
     box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
     border: 0.1rem solid transparent;
 
-    ${focus &&
+    ${(focus || isSelected) &&
     css`
       border: 0.1rem solid ${theme.colors.darkRed};
     `}

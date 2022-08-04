@@ -1,4 +1,4 @@
-import { useState, InputHTMLAttributes, useRef } from 'react'
+import { useState, InputHTMLAttributes } from 'react'
 import InputMask from 'react-input-mask'
 import { UseFormRegisterReturn } from 'react-hook-form'
 
@@ -31,7 +31,6 @@ const TextField = ({
   ...props
 }: TextFieldProps) => {
   const [value, setValue] = useState(initialValue)
-  const inputMaskRef = useRef<HTMLInputElement>(null)
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newValue = e.currentTarget.value
@@ -52,13 +51,16 @@ const TextField = ({
             alwaysShowMask={false}
             maskPlaceholder=""
             {...props}
-            {...register}
+            onChange={register?.onChange}
+            onBlur={register?.onBlur}
           >
             <S.Input
-              ref={inputMaskRef}
               type={type}
               iconPosition={iconPosition}
               spellCheck={false}
+              ref={register?.ref}
+              name={register?.name}
+              required={register?.required}
             />
           </InputMask>
         ) : (

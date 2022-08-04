@@ -1,3 +1,4 @@
+import { Error } from 'components/TextField/styles'
 import { useState } from 'react'
 import { UseFormRegisterReturn } from 'react-hook-form'
 import { FileUpload } from 'styled-icons/material-rounded'
@@ -7,9 +8,10 @@ export type FileFieldProps = {
   label?: string
   name: string
   register?: UseFormRegisterReturn
+  error?: string
 }
 
-const FileField = ({ label, name, register }: FileFieldProps) => {
+const FileField = ({ label, name, register, error }: FileFieldProps) => {
   const [file, setFile] = useState<string | null>(null)
 
   function onInputChange(e: React.ChangeEvent<HTMLInputElement>) {
@@ -23,9 +25,12 @@ const FileField = ({ label, name, register }: FileFieldProps) => {
         {label}
         <S.InputWrapper>
           <FileUpload />
-          <p>
-            {file ? file : 'Solte seus arquivos ou clique para fazer upload.'}
-          </p>
+          {file ? (
+            <p>{file}</p>
+          ) : (
+            'Solte seus arquivos ou clique para fazer upload.'
+          )}
+
           <S.Input
             id={name}
             type="file"
@@ -34,6 +39,7 @@ const FileField = ({ label, name, register }: FileFieldProps) => {
             onChange={onInputChange}
           />
         </S.InputWrapper>
+        {!!error && <Error>{error}</Error>}
       </S.Label>
     </S.Wrapper>
   )

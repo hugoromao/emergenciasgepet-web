@@ -23,6 +23,11 @@ export const InputWrapper = styled.div`
       font-size: ${theme.font.sizes.small};
       font-weight: 300;
       color: ${theme.colors.lightGray1};
+
+      white-space: nowrap;
+      max-width: 25rem;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
   `}
 `
