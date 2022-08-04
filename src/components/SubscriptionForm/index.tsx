@@ -10,6 +10,7 @@ import * as S from './styles'
 import { useState } from 'react'
 import { useRouter } from 'next/router'
 import CategoryRadio from 'components/CategoryRadio'
+import dayjs from 'dayjs'
 
 type Inputs = {
   name: string
@@ -52,6 +53,27 @@ const SubscriptionForm = () => {
     setLoading(true)
     console.log(data)
     push('/inscricao/success')
+  }
+
+  const isAfter1509 = dayjs().isAfter('2022-09-15')
+
+  const categoriesPrices = {
+    'medicine-student': {
+      price: isAfter1509 ? 80 : 70,
+      label: 'Estudante de graduação (medicina)'
+    },
+    doctor: {
+      price: isAfter1509 ? 90 : 80,
+      label: 'Médico'
+    },
+    'graduation-student': {
+      price: isAfter1509 ? 115 : 100,
+      label: 'Estudante de graduação (outro curso da saúde) (vagas limitadas)'
+    },
+    'health-professional': {
+      price: isAfter1509 ? 120 : 115,
+      label: 'Outros profissionais da saúde'
+    }
   }
 
   return (
@@ -105,13 +127,14 @@ const SubscriptionForm = () => {
           name="medicine-student"
           value="medicine-student"
           register={register('categorie', {
-            required: 'Este campo é obrigatório'
+            required: 'Escolha pelo menos uma categoria'
           })}
           title="Estudante de graduação (medicina)"
           prices={[
             { label: 'Preço até 15/09', price: 70 },
             { label: 'Preço até 15/10', price: 80 }
           ]}
+          error={errors.categorie?.message}
         />
 
         <CategoryRadio
@@ -119,7 +142,7 @@ const SubscriptionForm = () => {
           name="graduation-student"
           value="graduation-student"
           register={register('categorie', {
-            required: 'Este campo é obrigatório'
+            required: 'Escolha pelo menos uma categoria'
           })}
           title="Estudante de graduação 
           (outro curso da saúde) (vagas 
@@ -128,6 +151,37 @@ const SubscriptionForm = () => {
             { label: 'Preço até 15/09', price: 80 },
             { label: 'Preço até 15/10', price: 90 }
           ]}
+          error={errors.categorie?.message}
+        />
+
+        <CategoryRadio
+          id="doctor"
+          name="doctor"
+          value="doctor"
+          register={register('categorie', {
+            required: 'Escolha pelo menos uma categoria'
+          })}
+          title="Médico (vagas limitadas)"
+          prices={[
+            { label: 'Preço até 15/09', price: 100 },
+            { label: 'Preço até 15/10', price: 115 }
+          ]}
+          error={errors.categorie?.message}
+        />
+
+        <CategoryRadio
+          id="health-professional"
+          name="health-professional"
+          value="health-professional"
+          register={register('categorie', {
+            required: 'Escolha pelo menos uma categoria'
+          })}
+          title="Outros profissionais da saúde (vagas limitadas)"
+          prices={[
+            { label: 'Preço até 15/09', price: 115 },
+            { label: 'Preço até 15/10', price: 120 }
+          ]}
+          error={errors.categorie?.message}
         />
 
         {(watch('categorie') === 'medicine-student' ||
@@ -207,6 +261,16 @@ const SubscriptionForm = () => {
         />
 
         <TextField
+          type="number"
+          label="Número*"
+          name="address"
+          register={register('addressNumber', {
+            required: 'Este campo é obrigatório'
+          })}
+          error={errors.address?.message}
+        />
+
+        <TextField
           label="Bairro*"
           name="neightborhood"
           register={register('neightborhood', {
@@ -217,20 +281,30 @@ const SubscriptionForm = () => {
       </S.FormGrid>
       <S.FormInfo>Pagamento</S.FormInfo>
       <S.Payment>
-        <Image
-          src="/img/qrcode.png"
-          width="240"
-          height="240"
-          objectFit="contain"
-        />
+        <S.BorderWrapper>
+          <S.QRCodeWrapper>
+            <Image src="/img/qrcode.png" layout="fill" objectFit="fill" />
+          </S.QRCodeWrapper>
+        </S.BorderWrapper>
         <S.Column>
           <S.Column style={{ gap: 0 }}>
-            <S.Title>R$ 35,00</S.Title>
-            <S.Name>Fulana de Souza Lima</S.Name>
+            {watch('categorie') && (
+              <S.Title>
+                R${' '}
+                {String(
+                  categoriesPrices[watch('categorie')].price.toFixed(2)
+                ).replace('.', ',')}
+              </S.Title>
+            )}
+            <S.Name>Chave Pix: 030.742.562-22</S.Name>
           </S.Column>
           <S.Warning>
             <Warning />
-            <p>You may only place scheduled orders right now for pick up.</p>
+            <p>
+              ATENÇÃO: por favor, confirme os dados do recebedor antes de
+              confirmar a transferência: Laura Beatriz Rocha Bacelar Paiva, com
+              CPF 030.742.562-22, CAIXA.
+            </p>
           </S.Warning>
         </S.Column>
 

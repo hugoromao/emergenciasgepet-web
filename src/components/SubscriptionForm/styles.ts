@@ -116,7 +116,7 @@ export const Warning = styled.div`
     gap: ${theme.spacings.xsmall};
 
     svg {
-      height: 3.2rem;
+      min-width: 3.2rem;
       fill: #ffc02d;
     }
 
@@ -124,5 +124,23 @@ export const Warning = styled.div`
       font-size: ${theme.font.sizes.xsmall};
       font-weight: 500;
     }
+  `}
+`
+
+export const BorderWrapper = styled.div`
+  ${({ theme }) => css`
+    margin: 0 auto;
+    border: 2rem solid ${theme.colors.darkRed};
+    border-radius: 1.6rem;
+  `}
+`
+
+export const QRCodeWrapper = styled.div`
+  ${() => css`
+    position: relative;
+    width: 24rem;
+    height: 24rem;
+    border-radius: 2.4rem;
+    margin: 1.6rem;
   `}
 `

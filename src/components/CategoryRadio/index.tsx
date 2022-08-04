@@ -1,3 +1,4 @@
+import { Error } from 'components/TextField/styles'
 import { useOnClickOutside } from 'hooks/useOnClickOutside'
 import { useRef, useState } from 'react'
 import { UseFormRegisterReturn } from 'react-hook-form'
@@ -10,6 +11,7 @@ type CategoryRadioProps = {
   title: string
   prices: { label: string; price: number }[]
   register?: UseFormRegisterReturn
+  error?: string
 }
 
 const CategoryRadio = ({
@@ -18,7 +20,8 @@ const CategoryRadio = ({
   value,
   register,
   prices,
-  title
+  title,
+  error
 }: CategoryRadioProps) => {
   const ref = useRef(null)
   const [focus, setFocus] = useState(false)
@@ -26,23 +29,26 @@ const CategoryRadio = ({
   useOnClickOutside(ref, () => setFocus(false))
 
   return (
-    <S.Wrapper
-      ref={ref}
-      htmlFor={id}
-      onClick={() => setFocus(true)}
-      focus={focus}
-    >
-      <input type="radio" id={id} name={name} value={value} {...register} />
-      <strong>{title}</strong>
-      <S.PriceWrapper>
-        {prices.map((price) => (
-          <S.Price key={price.label}>
-            <p>{price.label}</p>
-            <strong>R$ {price.price}</strong>
-          </S.Price>
-        ))}
-      </S.PriceWrapper>
-    </S.Wrapper>
+    <>
+      <S.Wrapper
+        ref={ref}
+        htmlFor={id}
+        onClick={() => setFocus(true)}
+        focus={focus}
+      >
+        <input type="radio" id={id} name={name} value={value} {...register} />
+        <strong>{title}</strong>
+        <S.PriceWrapper>
+          {prices.map((price) => (
+            <S.Price key={price.label}>
+              <p>{price.label}</p>
+              <strong>R$ {price.price}</strong>
+            </S.Price>
+          ))}
+        </S.PriceWrapper>
+      </S.Wrapper>
+      {!!error && <Error>{error}</Error>}
+    </>
   )
 }
 
