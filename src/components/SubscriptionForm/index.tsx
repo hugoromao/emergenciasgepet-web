@@ -11,6 +11,7 @@ import { useState } from 'react'
 import { useRouter } from 'next/router'
 import CategoryRadio from 'components/CategoryRadio'
 import dayjs from 'dayjs'
+import api from 'services/api'
 
 type Inputs = {
   name: string
@@ -22,6 +23,7 @@ type Inputs = {
     | 'doctor'
     | 'graduation-student'
     | 'health-professional'
+    | string
   undergraduateSemester: number
   institution: string
   country: string
@@ -33,8 +35,29 @@ type Inputs = {
   neightborhood: string
   payerName: string
   payerDoc: string
+  paymentVoucher: unknown
   // categoryVoucher: file
-  // paymentVoucher: file
+}
+
+const isAfter1509 = dayjs().isAfter('2022-09-15')
+
+const categoriesPrices = {
+  'medicine-student': {
+    price: isAfter1509 ? 80 : 70,
+    label: 'Estudante de graduação (medicina)'
+  },
+  doctor: {
+    price: isAfter1509 ? 90 : 80,
+    label: 'Médico'
+  },
+  'graduation-student': {
+    price: isAfter1509 ? 115 : 100,
+    label: 'Estudante de graduação (outro curso da saúde) (vagas limitadas)'
+  },
+  'health-professional': {
+    price: isAfter1509 ? 120 : 115,
+    label: 'Outros profissionais da saúde'
+  }
 }
 
 const SubscriptionForm = () => {
@@ -43,36 +66,55 @@ const SubscriptionForm = () => {
     handleSubmit,
     formState: { errors },
     watch
-  } = useForm<Inputs>({ defaultValues: { undergraduateSemester: 1 } })
+  } = useForm<Inputs>({
+    defaultValues: {
+      name: 'Teste',
+      doc: '999999999',
+      email: 'hugo@gmail.com',
+      phone: '1123123',
+      categorie: 'graduation-student',
+      undergraduateSemester: 1,
+      institution: 'UFRR',
+      country: 'Brasil',
+      city: 'Boa Vista',
+      uf: 'RR',
+      postalCode: '99999',
+      address: 'adksamdk',
+      addressNumber: '1293',
+      neightborhood: 'pricuma',
+      payerName: 'hugo',
+      payerDoc: '12931923'
+    }
+  })
 
   const { push } = useRouter()
 
   const [loading, setLoading] = useState(false)
 
-  const onSubmit: SubmitHandler<Inputs> = (data) => {
-    setLoading(true)
-    console.log(data)
-    push('/inscricao/success')
-  }
+  const onSubmit: SubmitHandler<Inputs> = async (data) => {
+    try {
+      setLoading(true)
 
-  const isAfter1509 = dayjs().isAfter('2022-09-15')
+      await api
+        .post('/subscriptions', {
+          data: {
+            nome: data.name,
+            email: data.email,
+            phone: data.phone
+          }
+        })
+        .then(async (r) => {
+          const formData = new FormData()
+          formData.append('files', data.paymentVoucher[0])
+          formData.append('refId', String(r.data.data.id))
+          formData.append('ref', 'api::subscription.subscription')
+          formData.append('field', 'payment_voucher')
+          await api.post('/upload', formData)
+        })
 
-  const categoriesPrices = {
-    'medicine-student': {
-      price: isAfter1509 ? 80 : 70,
-      label: 'Estudante de graduação (medicina)'
-    },
-    doctor: {
-      price: isAfter1509 ? 90 : 80,
-      label: 'Médico'
-    },
-    'graduation-student': {
-      price: isAfter1509 ? 115 : 100,
-      label: 'Estudante de graduação (outro curso da saúde) (vagas limitadas)'
-    },
-    'health-professional': {
-      price: isAfter1509 ? 120 : 115,
-      label: 'Outros profissionais da saúde'
+      push('/inscricao/success')
+    } catch {
+      setLoading(false)
     }
   }
 
@@ -202,7 +244,7 @@ const SubscriptionForm = () => {
           />
         )}
 
-        <FileField name="" label="Comprovante de categoria *" />
+        <FileField name="categoryVoucher" label="Comprovante de categoria *" />
 
         <TextField
           label="Instituição/Empresa*"
@@ -292,7 +334,9 @@ const SubscriptionForm = () => {
               <S.Title>
                 R${' '}
                 {String(
-                  categoriesPrices[watch('categorie')].price.toFixed(2)
+                  categoriesPrices[
+                    watch('categorie') as 'medicine-student'
+                  ].price.toFixed(2)
                 ).replace('.', ',')}
               </S.Title>
             )}
@@ -325,7 +369,13 @@ const SubscriptionForm = () => {
           })}
           error={errors.payerDoc?.message}
         />
-        <FileField name="paymentVoucher" label="Comprovante de pagamento *" />
+        <FileField
+          name="paymentVoucher"
+          label="Comprovante de pagamento *"
+          register={register('paymentVoucher', {
+            required: 'Este campo é obrigatório'
+          })}
+        />
       </S.Payment>
 
       <Button type="submit" style={{ width: 'fit-content' }} loading={loading}>

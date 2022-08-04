@@ -116,6 +116,7 @@ export const Warning = styled.div`
     gap: ${theme.spacings.xsmall};
 
     svg {
+      width: 3.2rem;
       min-width: 3.2rem;
       fill: #ffc02d;
     }
