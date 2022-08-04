@@ -28,7 +28,7 @@ const FileField = ({ label, name, register, error }: FileFieldProps) => {
           {file ? (
             <p>{file}</p>
           ) : (
-            'Solte seus arquivos ou clique para fazer upload.'
+            'Solte seus arquivos aqui ou clique para fazer upload.'
           )}
 
           <S.Input

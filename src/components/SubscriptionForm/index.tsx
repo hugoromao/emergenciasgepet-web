@@ -3,6 +3,7 @@ import Image from 'next/image'
 
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { Warning } from 'styled-icons/material-outlined'
+import { useSnackbar } from 'notistack'
 
 import Button from 'components/Button'
 import FileField from 'components/FileField'
@@ -75,6 +76,7 @@ const SubscriptionForm = () => {
     }
   })
 
+  const { enqueueSnackbar } = useSnackbar()
   const { push } = useRouter()
   const [loading, setLoading] = useState(false)
 
@@ -98,11 +100,20 @@ const SubscriptionForm = () => {
           formData.append('ref', 'api::subscription.subscription')
           formData.append('field', 'payment_voucher')
           await api.post('/upload', formData)
-        })
 
-      push('/inscricao/success')
+          push('/inscricao/success')
+        })
+        .catch(() => {
+          setLoading(false)
+          enqueueSnackbar('Falha ao completar inscrição', {
+            variant: 'error'
+          })
+        })
     } catch {
       setLoading(false)
+      enqueueSnackbar('Falha ao completar inscrição', {
+        variant: 'error'
+      })
     }
   }
 
