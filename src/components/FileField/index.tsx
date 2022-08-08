@@ -9,9 +9,16 @@ export type FileFieldProps = {
   name: string
   register?: UseFormRegisterReturn
   error?: string
+  accept?: string
 }
 
-const FileField = ({ label, name, register, error }: FileFieldProps) => {
+const FileField = ({
+  label,
+  name,
+  register,
+  error,
+  accept = '.pdf, .doc, .docx'
+}: FileFieldProps) => {
   const [file, setFile] = useState<string | null>(null)
 
   function onInputChange(e: React.ChangeEvent<HTMLInputElement>) {
@@ -34,7 +41,7 @@ const FileField = ({ label, name, register, error }: FileFieldProps) => {
           <S.Input
             id={name}
             type="file"
-            accept=".pdf, .doc, .docx"
+            accept={accept}
             {...register}
             onChange={onInputChange}
           />

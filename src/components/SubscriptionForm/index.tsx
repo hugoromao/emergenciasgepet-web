@@ -300,6 +300,7 @@ const SubscriptionForm = () => {
         <FileField
           name="comprovante_de_categoria"
           label="Comprovante de categoria *"
+          accept=".pdf, .doc, .docx, .png, .jpg"
           register={register('comprovante_de_categoria', {
             required: 'Este campo é obrigatório'
           })}
@@ -438,6 +439,7 @@ const SubscriptionForm = () => {
         <FileField
           name="comprovante_de_pagamento"
           label="Comprovante de pagamento *"
+          accept=".pdf, .doc, .docx, .png, .jpg"
           register={register('comprovante_de_pagamento', {
             required: 'Este campo é obrigatório'
           })}
