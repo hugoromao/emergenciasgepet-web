@@ -96,7 +96,7 @@ const SubscriptionForm = () => {
     pais,
     semestre_de_graduacao,
     comprovante_de_categoria,
-    // comprovante_de_pagamento,
+    comprovante_de_pagamento,
     uf
   }) => {
     try {
@@ -118,8 +118,7 @@ const SubscriptionForm = () => {
             nome_do_pagador,
             numeros,
             pais,
-            semestre_de_graduacao: Number(semestre_de_graduacao),
-            comprovante_de_pagamento: 'asmdak',
+            semestre_de_graduacao: String(semestre_de_graduacao),
             uf
           }
         })
@@ -130,6 +129,13 @@ const SubscriptionForm = () => {
           formData.append('ref', 'api::subscription.subscription')
           formData.append('field', 'comprovante_de_categoria')
           await api.post('/upload', formData)
+
+          const formData2 = new FormData()
+          formData2.append('files', (comprovante_de_pagamento as any)[0])
+          formData2.append('refId', String(r.data.data.id))
+          formData2.append('ref', 'api::subscription.subscription')
+          formData2.append('field', 'comprovante_de_pagamento')
+          await api.post('/upload', formData2)
 
           push('/inscricao/success')
         })

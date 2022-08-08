@@ -1,6 +1,8 @@
 import styled, { css } from 'styled-components'
 import media from 'styled-media-query'
 
+import { Wrapper as FileWrapper } from 'components/FileField/styles'
+
 export const Wrapper = styled.div`
   ${({ theme }) => css`
     display: flex;
@@ -8,15 +10,17 @@ export const Wrapper = styled.div`
     justify-content: center;
 
     width: 50vw;
-    height: 100vh;
+    /* height: 100vh; */
     overflow: auto;
     padding: ${theme.spacings.medium};
 
-    overflow: auto;
-
     ${media.lessThan('medium')`
       width: 100%;
+      padding: ${theme.spacings.xsmall};
+      height: 100%;
     `}
+
+    overflow: auto;
   `}
 `
 
@@ -26,7 +30,7 @@ export const ContentWrapper = styled.form`
     height: inherit;
     max-width: 56rem;
     margin: 0 auto;
-    padding: ${theme.spacings.medium} 0;
+    padding: ${theme.spacings.medium};
 
     display: flex;
     flex-direction: column;
@@ -51,8 +55,16 @@ export const FormGrid = styled.div`
     grid-template-columns: 1fr 1fr;
     gap: ${theme.spacings.xsmall};
 
+    ${FileWrapper} {
+      grid-column: span 2;
+    }
+
     ${media.lessThan('medium')`
-      grid-template-columns: 1fr;
+    grid-template-columns: 1fr;
+    width: 100%;
+    ${FileWrapper} {
+      grid-column: 1;
+    }
     `}
   `}
 `
@@ -78,31 +90,5 @@ export const FormInfo = styled.p`
     font-size: ${theme.font.sizes.xlarge};
     font-weight: ${theme.font.bold};
     color: black;
-  `}
-`
-
-export const Name = styled.p`
-  ${({ theme }) => css`
-    font-size: ${theme.font.sizes.xxlarge};
-    color: black;
-  `}
-`
-
-export const Warning = styled.div`
-  ${({ theme }) => css`
-    display: flex;
-    padding: 1.4rem 1.6rem;
-    background-color: #fff9e9;
-    gap: ${theme.spacings.xsmall};
-
-    svg {
-      height: 3.2rem;
-      fill: #ffc02d;
-    }
-
-    p {
-      font-size: ${theme.font.sizes.xsmall};
-      font-weight: 500;
-    }
   `}
 `
