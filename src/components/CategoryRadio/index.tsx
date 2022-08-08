@@ -49,8 +49,8 @@ const CategoryRadio = ({
             </S.Price>
           ))}
         </S.PriceWrapper>
+        {!!error && <Error>{error}</Error>}
       </S.Wrapper>
-      {!!error && <Error>{error}</Error>}
     </>
   )
 }
