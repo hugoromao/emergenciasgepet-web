@@ -33,7 +33,7 @@ type Inputs = {
   uf: string
   cep: string
   endereco: string
-  numeros: string
+  numero: string
   bairro: string
   nome_do_pagador: string
   cpf_do_pagador: string
@@ -92,7 +92,7 @@ const SubscriptionForm = () => {
     instituicao,
     nome,
     nome_do_pagador,
-    numeros,
+    numero,
     pais,
     semestre_de_graduacao,
     comprovante_de_categoria,
@@ -116,7 +116,7 @@ const SubscriptionForm = () => {
             instituicao,
             nome,
             nome_do_pagador,
-            numeros,
+            numero,
             pais,
             semestre_de_graduacao: String(semestre_de_graduacao),
             uf
@@ -366,11 +366,11 @@ const SubscriptionForm = () => {
         <TextField
           type="number"
           label="Número*"
-          name="numeros"
-          register={register('numeros', {
+          name="numero"
+          register={register('numero', {
             required: 'Este campo é obrigatório'
           })}
-          error={errors.numeros?.message}
+          error={errors.numero?.message}
         />
 
         <TextField
