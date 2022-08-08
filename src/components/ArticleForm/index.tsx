@@ -80,7 +80,7 @@ const ArticleForm = () => {
           formData.append('field', 'comprovante_de_categoria')
           await api.post('/upload', formData)
 
-          push('/articles/success')
+          push('/inscricao/success')
         })
         .catch(() => {
           setLoading(false)
