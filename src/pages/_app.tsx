@@ -24,7 +24,7 @@ function App({ Component, pageProps }: AppProps) {
         openGraph={{
           url: 'https://congresso-roraimense-de-trauma-e-emergencias-medicas-web.vercel.app/',
           title: '1º congresso roraimense de trauma e emergências médicas',
-          description: 'Open Graph Description',
+          description: '24, 25, 26 de novembro.',
           images: [
             {
               url: 'https://congrrmed.herokuapp.com/uploads/Whats_App_Image_2022_07_20_at_15_15_05_b835f2d84e.jpeg?updated_at=2022-08-04T19:42:02.703Z',

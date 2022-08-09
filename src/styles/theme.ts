@@ -38,7 +38,7 @@ export default {
     disabled: '#EAEAEA'
   },
   gradients: {
-    blue: 'linear-gradient(100.65deg, #FF0101 -10.44%, #920000 116.63%);'
+    red: 'linear-gradient(100.65deg, #FF0101 -10.44%, #920000 116.63%);'
   },
   spacings: {
     xxsmall: '0.8rem',
