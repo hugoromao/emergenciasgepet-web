@@ -1,15 +1,18 @@
 import Loading from 'components/Loading'
-import { ButtonHTMLAttributes, MouseEvent } from 'react'
+import { AnchorHTMLAttributes, ButtonHTMLAttributes, MouseEvent } from 'react'
 
 import * as S from './styles'
 
-type ButtonTypes = ButtonHTMLAttributes<HTMLButtonElement>
+type ButtonTypes =
+  | AnchorHTMLAttributes<HTMLAnchorElement>
+  | ButtonHTMLAttributes<HTMLButtonElement>
 
 export type ButtonProps = {
   styleType?: 'default' | 'outline' | 'minimal' | 'icon'
   loading?: boolean
   children: React.ReactNode
   backgroundColor?: 'gray' | 'red'
+  as?: React.ElementType
 } & ButtonTypes
 
 const Button = ({
@@ -21,9 +24,12 @@ const Button = ({
   ...props
 }: ButtonProps) => {
   function handleOnClick(
-    e: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>
+    e:
+      | MouseEvent<HTMLButtonElement, globalThis.MouseEvent>
+      | MouseEvent<HTMLAnchorElement, MouseEvent>
   ) {
-    if (!loading && onClick) onClick(e)
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    if (!loading && onClick) onClick(e as any)
   }
 
   return (

@@ -5,14 +5,18 @@ import { useState } from 'react'
 import { Close, Menu } from 'styled-icons/material-rounded'
 import * as S from './styles'
 
-const Header = () => {
+type HeaderProps = {
+  transparent?: boolean
+}
+
+const Header = ({ transparent = false }: HeaderProps) => {
   const [openMenu, setOpenMenu] = useState(false)
 
   const router = useRouter()
 
   return (
     <>
-      <S.Wrapper>
+      <S.Wrapper transparent={transparent}>
         <img src="/img/logo.png" />
 
         <S.Button onClick={() => setOpenMenu(true)}>

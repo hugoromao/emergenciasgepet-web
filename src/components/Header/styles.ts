@@ -1,7 +1,11 @@
 import styled, { css } from 'styled-components'
 
-export const Wrapper = styled.header`
-  ${({ theme }) => css`
+type WrapperProps = {
+  transparent: boolean
+}
+
+export const Wrapper = styled.header<WrapperProps>`
+  ${({ theme, transparent }) => css`
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -19,6 +23,11 @@ export const Wrapper = styled.header`
       height: 3.2rem;
       fill: ${theme.colors.white};
     }
+
+    ${transparent &&
+    css`
+      background-color: transparent;
+    `}
   `}
 `
 
@@ -29,26 +38,29 @@ export const Button = styled.button`
 `
 
 export const MenuWrapper = styled.div`
-  display: flex;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background-color: white;
-
-  align-items: center;
-  justify-content: center;
-
-  button {
+  ${({ theme }) => css`
+    display: flex;
     position: absolute;
-    right: 1.6rem;
-    top: 1.6rem;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: white;
+    z-index: ${theme.layers.menu};
 
-    svg {
-      height: 3.2rem;
+    align-items: center;
+    justify-content: center;
+
+    button {
+      position: absolute;
+      right: 1.6rem;
+      top: 1.6rem;
+
+      svg {
+        height: 3.2rem;
+      }
     }
-  }
+  `}
 `
 
 export const LinksWrapper = styled.nav`
