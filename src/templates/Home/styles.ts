@@ -150,6 +150,7 @@ export const About = styled(Container)`
     ${media.lessThan('medium')`
       display: flex;
       flex-direction: column;
+      margin: 0 auto;
     `}
   `}
 `
@@ -162,6 +163,10 @@ export const AboutText = styled.div`
 
   margin: 12rem 0;
 
+  ${media.lessThan('medium')`
+    margin: 4.8rem 0;
+  `}
+
   #about {
     font-size: 1.6rem;
     font-weight: 400;
@@ -173,16 +178,9 @@ export const AboutText = styled.div`
     font-weight: 700;
     position: relative;
 
-    /* &::after {
-      content: '';
-      width: 13rem;
-      height: 1.2rem;
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      background-color: #d1b53f;
-      opacity: 0.8;
-    } */
+    ${media.lessThan('medium')`
+      font-size: 4.8rem;
+    `}
   }
 
   p {
