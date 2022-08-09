@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import Button from 'components/Button'
 import Header from 'components/Header'
+import Participants from 'components/Participants'
 import ScheduleSection from 'components/ScheduleSection'
 import { Check2, FileEarmarkRichtext } from 'styled-icons/bootstrap'
 import { Instagram, Whatsapp } from 'styled-icons/boxicons-logos'
@@ -68,6 +69,8 @@ const Home = () => (
     </S.About>
 
     <ScheduleSection />
+
+    <Participants />
   </S.Wrapper>
 )
 

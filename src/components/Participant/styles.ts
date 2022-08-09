@@ -21,6 +21,7 @@ export const Strong = styled.strong`
 
 export const Text = styled.p`
   font-size: 1.6rem;
+  max-width: 30rem;
   font-weight: 400;
   text-align: center;
 `
