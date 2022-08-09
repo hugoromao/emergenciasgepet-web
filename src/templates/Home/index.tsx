@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import Button from 'components/Button'
+import Footer from 'components/Footer'
 import Header from 'components/Header'
 import Participants from 'components/Participants'
 import ScheduleSection from 'components/ScheduleSection'
@@ -34,14 +35,16 @@ const Home = () => (
           <a href="https://www.instagram.com/" target="_blank" rel="noreferrer">
             <Instagram />
           </a>
+
           <a
-            href="https://wa.me/559591651886?lang=pt_br"
+            href="https://wa.me/559581190726?lang=pt_br"
             target="_blank"
             rel="noreferrer"
           >
             <Whatsapp />
           </a>
-          <a href="mailto:someone@yoursite.com">
+
+          <a href="mailto:grupogepet46@gmail.com">
             <EmailOutline />
           </a>
         </S.SocialButtonsWrapper>
@@ -71,6 +74,8 @@ const Home = () => (
     <ScheduleSection />
 
     <Participants />
+
+    <Footer />
   </S.Wrapper>
 )
 
