@@ -74,6 +74,6 @@ export const Strong = styled.strong`
   position: relative;
 
   ${media.lessThan('medium')`
-      font-size: 4.8rem;
+      font-size: 3.2rem;
   `}
 `
