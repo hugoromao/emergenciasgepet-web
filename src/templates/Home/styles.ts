@@ -9,6 +9,7 @@ export const Hero = styled.section`
     height: 82rem;
     background: linear-gradient(357.23deg, #e52521 19.28%, #b71e1a 128.93%);
     position: relative;
+    padding: 2.4rem;
   `}
 `
 

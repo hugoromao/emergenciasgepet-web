@@ -1,8 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
+import { useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { useState } from 'react'
+
 import { Close, Menu } from 'styled-icons/material-rounded'
+
 import * as S from './styles'
 
 type HeaderProps = {
@@ -19,7 +21,14 @@ const Header = ({ transparent = false }: HeaderProps) => {
       <S.Wrapper transparent={transparent}>
         <img src="/img/logo.png" />
 
-        <S.Button onClick={() => setOpenMenu(true)}>
+        <S.LinksWrapper>
+          <S.Link href="/">Início</S.Link>
+          <S.Link href="/inscricao">Inscrições</S.Link>
+          <S.Link href="/inscricao/artigo">Envio de artigos</S.Link>
+          <S.Link href="/programacao">Programação</S.Link>
+        </S.LinksWrapper>
+
+        <S.Button id="menu" onClick={() => setOpenMenu(true)}>
           <Menu />
         </S.Button>
       </S.Wrapper>
