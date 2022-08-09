@@ -21,6 +21,12 @@ export const Hero = styled.section`
 
 export const Container = styled.div`
   max-width: 130rem;
+  margin: 0 auto;
+  height: fit-content;
+
+  ${media.greaterThan('medium')`
+      min-height: 82rem;
+  `}
 `
 
 export const HeroContent = styled(Container)`
@@ -29,6 +35,7 @@ export const HeroContent = styled(Container)`
   grid-template-areas: 'img title title title' 'buttons buttons none social';
   row-gap: 4.8rem;
   margin: auto;
+  min-height: 0;
 
   img {
     grid-area: img;
@@ -131,4 +138,62 @@ export const SocialButtonsWrapper = styled.div`
       align-self: start;
     `}
   `}
+`
+
+export const About = styled(Container)`
+  ${() => css`
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  `}
+`
+
+export const AboutText = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  color: #000;
+
+  #about {
+    font-size: 1.6rem;
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+
+  strong {
+    font-size: 6.4rem;
+    font-weight: 700;
+  }
+
+  p {
+    font-size: 1.6rem;
+    font-weight: 400;
+  }
+
+  a {
+    width: fit-content;
+    text-decoration: none;
+  }
+`
+
+export const AboutImage = styled.div`
+  position: relative;
+
+  img {
+    width: 68rem;
+    height: 61rem;
+    object-fit: cover;
+    clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+    z-index: 1;
+
+    &::after {
+      content: 'asd';
+      position: absolute;
+      width: 14rem;
+      height: 18rem;
+      background-image: url('/img/plus-right.png');
+      right: 0;
+      bottom: 0;
+      z-index: 2;
+    }
+  }
 `

@@ -45,6 +45,26 @@ const Home = () => (
         </S.SocialButtonsWrapper>
       </S.HeroContent>
     </S.Hero>
+
+    <S.About>
+      <S.AboutText>
+        <p id="about">Sobre o congresso</p>
+        <strong>INSIRA SEU TEXTO AQUI</strong>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat.
+        </p>
+        <Button as="a" href="/inscricao">
+          INSCREVA-SE
+        </Button>
+      </S.AboutText>
+
+      <S.AboutImage>
+        <img src="/img/doctors.jpg" alt="doctors" />
+      </S.AboutImage>
+    </S.About>
   </S.Wrapper>
 )
 
