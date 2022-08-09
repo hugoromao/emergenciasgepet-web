@@ -39,59 +39,20 @@ export const Link = styled.a<LinkProps>`
 
 type WrapperProps = {
   transparent: boolean
-  hideLogo: boolean
 }
 
 export const Wrapper = styled.header<WrapperProps>`
-  ${({ theme, transparent, hideLogo }) => css`
+  ${({ theme, transparent }) => css`
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-
     background-color: ${theme.colors.darkRed};
-
-    position: relative;
-
-    img {
-      height: 4.2rem;
-    }
-
-    svg {
-      height: 3.2rem;
-      fill: ${theme.colors.white};
-    }
-
-    ${media.greaterThan('medium')`
-      #menu {
-        display: none;
-      }
-    `}
+    width: 100%;
+    max-width: 130rem;
+    margin: 0 auto;
 
     ${transparent &&
     css`
       background-color: transparent;
     `}
-
-    ${hideLogo &&
-    css`
-      img {
-        visibility: hidden;
-      }
-    `}
-
-    ${LinksWrapper} {
-      display: flex;
-      flex-direction: row;
-      ${media.lessThan('medium')`
-        display: none;
-      `}
-    }
-
-    ${Link} {
-      color: white;
-      font-size: 1.6rem;
-      text-transform: uppercase;
-    }
   `}
 `
 
@@ -123,6 +84,57 @@ export const MenuWrapper = styled.div`
       svg {
         height: 3.2rem;
       }
+    }
+  `}
+`
+
+type ContainerProps = {
+  hideLogo: boolean
+}
+
+export const Container = styled.div<ContainerProps>`
+  ${({ theme, hideLogo }) => css`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: auto;
+
+    position: relative;
+
+    img {
+      height: 4.2rem;
+    }
+
+    svg {
+      height: 3.2rem;
+      fill: ${theme.colors.white};
+    }
+
+    ${media.greaterThan('medium')`
+      #menu {
+        display: none;
+      }
+    `}
+
+    ${hideLogo &&
+    css`
+      img {
+        visibility: hidden;
+      }
+    `}
+
+    ${LinksWrapper} {
+      display: flex;
+      flex-direction: row;
+      ${media.lessThan('medium')`
+        display: none;
+      `}
+    }
+
+    ${Link} {
+      color: white;
+      font-size: 1.6rem;
+      text-transform: uppercase;
     }
   `}
 `

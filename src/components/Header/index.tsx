@@ -19,19 +19,19 @@ const Header = ({ transparent = false, hideLogo = false }: HeaderProps) => {
 
   return (
     <>
-      <S.Wrapper transparent={transparent} hideLogo={hideLogo}>
-        <img src="/img/logo.png" />
-
-        <S.LinksWrapper>
-          <S.Link href="/">Início</S.Link>
-          <S.Link href="/inscricao">Inscrições</S.Link>
-          <S.Link href="/inscricao/artigo">Envio de artigos</S.Link>
-          <S.Link href="/programacao">Programação</S.Link>
-        </S.LinksWrapper>
-
-        <S.Button id="menu" onClick={() => setOpenMenu(true)}>
-          <Menu />
-        </S.Button>
+      <S.Wrapper transparent={transparent}>
+        <S.Container hideLogo={hideLogo}>
+          <img src="/img/logo.png" />
+          <S.LinksWrapper>
+            <S.Link href="/">Início</S.Link>
+            <S.Link href="/inscricao">Inscrições</S.Link>
+            <S.Link href="/inscricao/artigo">Envio de artigos</S.Link>
+            <S.Link href="/programacao">Programação</S.Link>
+          </S.LinksWrapper>
+          <S.Button id="menu" onClick={() => setOpenMenu(true)}>
+            <Menu />
+          </S.Button>
+        </S.Container>
       </S.Wrapper>
 
       {openMenu && (

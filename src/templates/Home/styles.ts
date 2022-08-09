@@ -144,6 +144,13 @@ export const About = styled(Container)`
   ${() => css`
     display: grid;
     grid-template-columns: 1fr 1fr;
+    margin: 5.5rem auto;
+    padding: 0 2.4rem;
+
+    ${media.lessThan('medium')`
+      display: flex;
+      flex-direction: column;
+    `}
   `}
 `
 
@@ -152,6 +159,8 @@ export const AboutText = styled.div`
   flex-direction: column;
   gap: 1.6rem;
   color: #000;
+
+  margin: 12rem 0;
 
   #about {
     font-size: 1.6rem;
@@ -162,6 +171,18 @@ export const AboutText = styled.div`
   strong {
     font-size: 6.4rem;
     font-weight: 700;
+    position: relative;
+
+    /* &::after {
+      content: '';
+      width: 13rem;
+      height: 1.2rem;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      background-color: #d1b53f;
+      opacity: 0.8;
+    } */
   }
 
   p {
@@ -177,6 +198,12 @@ export const AboutText = styled.div`
 
 export const AboutImage = styled.div`
   position: relative;
+  display: flex;
+  align-items: center;
+
+  ${media.lessThan('medium')`
+    display:none;
+  `}
 
   img {
     width: 68rem;
@@ -185,15 +212,41 @@ export const AboutImage = styled.div`
     clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
     z-index: 1;
 
-    &::after {
-      content: 'asd';
-      position: absolute;
-      width: 14rem;
-      height: 18rem;
-      background-image: url('/img/plus-right.png');
-      right: 0;
-      bottom: 0;
-      z-index: 2;
-    }
+    ${media.between('medium', 'large')`
+      width: 51rem;
+      height: 47rem;
+    `}
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 25rem;
+    height: 14rem;
+    background-repeat: no-repeat;
+    background-image: url('/img/plus-left.png');
+    left: -4rem;
+    bottom: 2rem;
+    z-index: 0;
+
+    ${media.between('medium', 'large')`
+      display: none;
+    `}
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    width: 20rem;
+    height: 18rem;
+    background-repeat: no-repeat;
+    background-image: url('/img/plus-right.png');
+    right: 5rem;
+    bottom: 4rem;
+    z-index: 2;
+
+    ${media.between('medium', 'large')`
+      bottom: 12rem;
+    `}
   }
 `
