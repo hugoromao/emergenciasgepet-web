@@ -9,16 +9,17 @@ import * as S from './styles'
 
 type HeaderProps = {
   transparent?: boolean
+  hideLogo?: boolean
 }
 
-const Header = ({ transparent = false }: HeaderProps) => {
+const Header = ({ transparent = false, hideLogo = false }: HeaderProps) => {
   const [openMenu, setOpenMenu] = useState(false)
 
   const router = useRouter()
 
   return (
     <>
-      <S.Wrapper transparent={transparent}>
+      <S.Wrapper transparent={transparent} hideLogo={hideLogo}>
         <img src="/img/logo.png" />
 
         <S.LinksWrapper>

@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components'
+import media from 'styled-media-query'
 
 export const Wrapper = styled.main``
 
@@ -6,10 +7,15 @@ export const Hero = styled.section`
   ${() => css`
     display: flex;
     flex-direction: column;
-    height: 82rem;
+    height: fit-content;
+
     background: linear-gradient(357.23deg, #e52521 19.28%, #b71e1a 128.93%);
     position: relative;
     padding: 2.4rem;
+
+    ${media.greaterThan('medium')`
+      min-height: 82rem;
+    `}
   `}
 `
 
@@ -26,6 +32,9 @@ export const HeroContent = styled(Container)`
 
   img {
     grid-area: img;
+    width: 30rem;
+    height: 30rem;
+    margin: 0 auto;
   }
 
   &::after {
@@ -37,6 +46,24 @@ export const HeroContent = styled(Container)`
     font-weight: 700;
     color: #b71e1a;
   }
+
+  ${media.lessThan('medium')`
+    display: flex;
+    flex-direction: column;
+    row-gap: 4.8rem;
+    margin: 0;
+
+    img {
+      grid-area: img;
+      width: 10rem;
+      height: 10rem;
+    }
+
+    &::after {
+      font-size: 5.2rem;
+      bottom: 1.4rem;
+    }
+  `}
 `
 
 export const HeroText = styled.span`
@@ -53,6 +80,9 @@ export const HeroText = styled.span`
     color: white;
     text-transform: uppercase;
     text-align: center;
+    ${media.lessThan('medium')`
+      font-size: 3.2rem;
+    `}
   }
 
   p {
@@ -78,6 +108,10 @@ export const ButtonsWrapper = styled.div`
     svg {
       height: 2.4rem;
     }
+
+    ${media.lessThan('medium')`
+      flex-direction: column;
+    `}
   `}
 `
 
@@ -92,5 +126,9 @@ export const SocialButtonsWrapper = styled.div`
       height: 4.2rem;
       fill: white;
     }
+
+    ${media.lessThan('medium')`
+      align-self: start;
+    `}
   `}
 `

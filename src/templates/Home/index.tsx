@@ -1,6 +1,6 @@
+/* eslint-disable @next/next/no-img-element */
 import Button from 'components/Button'
 import Header from 'components/Header'
-import Image from 'next/image'
 import { Check2, FileEarmarkRichtext } from 'styled-icons/bootstrap'
 import { Instagram, Whatsapp } from 'styled-icons/boxicons-logos'
 import { EmailOutline } from 'styled-icons/evaicons-outline'
@@ -9,14 +9,9 @@ import * as S from './styles'
 const Home = () => (
   <S.Wrapper>
     <S.Hero>
-      <Header transparent />
+      <Header transparent hideLogo />
       <S.HeroContent>
-        <Image
-          width={300}
-          height={300}
-          objectFit="contain"
-          src="/img/logo.png"
-        />
+        <img src="/img/logo.png" />
         <S.HeroText>
           <h1>1º congresso roraimense de trauma e emergências médicas</h1>
           <p>24, 25, 26 de novembro</p>

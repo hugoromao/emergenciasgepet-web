@@ -39,16 +39,16 @@ export const Link = styled.a<LinkProps>`
 
 type WrapperProps = {
   transparent: boolean
+  hideLogo: boolean
 }
 
 export const Wrapper = styled.header<WrapperProps>`
-  ${({ theme, transparent }) => css`
+  ${({ theme, transparent, hideLogo }) => css`
     display: flex;
     justify-content: space-between;
     align-items: center;
 
     background-color: ${theme.colors.darkRed};
-    padding: 0.8rem ${theme.spacings.xsmall};
 
     position: relative;
 
@@ -70,6 +70,13 @@ export const Wrapper = styled.header<WrapperProps>`
     ${transparent &&
     css`
       background-color: transparent;
+    `}
+
+    ${hideLogo &&
+    css`
+      img {
+        visibility: hidden;
+      }
     `}
 
     ${LinksWrapper} {
