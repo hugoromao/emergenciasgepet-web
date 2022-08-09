@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import Button from 'components/Button'
 import Header from 'components/Header'
+import ScheduleSection from 'components/ScheduleSection'
 import { Check2, FileEarmarkRichtext } from 'styled-icons/bootstrap'
 import { Instagram, Whatsapp } from 'styled-icons/boxicons-logos'
 import { EmailOutline } from 'styled-icons/evaicons-outline'
@@ -65,6 +66,8 @@ const Home = () => (
         <img src="/img/doctors.jpg" alt="doctors" />
       </S.AboutImage>
     </S.About>
+
+    <ScheduleSection />
   </S.Wrapper>
 )
 
