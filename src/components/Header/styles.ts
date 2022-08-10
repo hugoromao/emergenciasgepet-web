@@ -97,7 +97,8 @@ export const Container = styled.div<ContainerProps>`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-left: auto;
+    /* margin-left: auto; */
+    width: 100%;
 
     position: relative;
 
