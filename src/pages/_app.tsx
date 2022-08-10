@@ -21,13 +21,14 @@ function App({ Component, pageProps }: AppProps) {
       <NextSeo
         title="1º congresso roraimense de trauma e emergências médicas"
         description="24, 25, 26 de novembro."
+        canonical="https://congresso-roraimense-de-trauma-e-emergencias-medicas-web.vercel.app/"
         openGraph={{
           url: 'https://congresso-roraimense-de-trauma-e-emergencias-medicas-web.vercel.app/',
           title: '1º congresso roraimense de trauma e emergências médicas',
           description: '24, 25, 26 de novembro.',
           images: [
             {
-              url: 'https://congrrmed.herokuapp.com/uploads/Whats_App_Image_2022_07_20_at_15_15_05_b835f2d84e.jpeg?updated_at=2022-08-04T19:42:02.703Z',
+              url: 'https://congrrmed.herokuapp.com/uploads/thumbnail_NAOAPAGAR_001ab42060.png?width=512&height=511',
               width: 492,
               height: 495,
               alt: 'Imagem do evento',
