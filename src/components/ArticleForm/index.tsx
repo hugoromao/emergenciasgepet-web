@@ -1,14 +1,17 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import { useState } from 'react'
+import { useRouter } from 'next/router'
+import { useSnackbar } from 'notistack'
 import { SubmitHandler, useForm } from 'react-hook-form'
+
+import api from 'services/api'
 
 import Button from 'components/Button'
 import TextField from 'components/TextField'
-import * as S from './styles'
-import { useState } from 'react'
-import { useRouter } from 'next/router'
 import FileField from 'components/FileField'
-import { useSnackbar } from 'notistack'
-import api from 'services/api'
+import NativeSelect from 'components/NativeSelect'
+
+import * as S from './styles'
 
 type Inputs = {
   nome: string
@@ -24,6 +27,8 @@ type Inputs = {
   numero: string
   bairro: string
   artigo: File
+  title: string
+  authors: string
 }
 
 const ArticleForm = () => {
@@ -95,6 +100,25 @@ const ArticleForm = () => {
       })
     }
   }
+
+  const modalityOptions = [
+    { value: 'relatoCaso', label: 'Relato de caso' },
+    { value: 'resumoSimples', label: 'Resumo simples' },
+    { value: 'resumoExpandido', label: 'Resumo expandido' }
+  ]
+
+  const areasOptions = [
+    { value: 'teste', label: 'Emergências Urológicas' },
+    { value: 'teste', label: 'Emergências Cardíacas' },
+    { value: 'teste', label: 'Emergências Vasculares' },
+    { value: 'teste', label: 'Emergências Ginecológicas' },
+    { value: 'teste', label: 'Emergências Pediátricas' },
+    { value: 'teste', label: 'Emergências Reumatológicas' },
+    { value: 'teste', label: 'Emergências Ortopédicas' },
+    { value: 'teste', label: 'Emergências Dermatológicas' },
+    { value: 'teste', label: 'Trauma Abdominal' },
+    { value: 'teste', label: 'Trauma Torácico' }
+  ]
 
   return (
     <S.ContentWrapper onSubmit={handleSubmit(onSubmit)}>
@@ -228,6 +252,28 @@ const ArticleForm = () => {
             required: 'Este campo é obrigatório'
           })}
           error={errors.artigo?.message as string | undefined}
+        />
+
+        <TextField
+          label="Título"
+          name="title"
+          register={register('title', {
+            required: 'Este campo é obrigatório'
+          })}
+          error={errors.title?.message}
+        />
+
+        <NativeSelect label="Modalidade" options={modalityOptions} />
+
+        <NativeSelect label="Área Temática" options={areasOptions} />
+
+        <TextField
+          label="Autores"
+          name="title"
+          register={register('title', {
+            required: 'Este campo é obrigatório'
+          })}
+          error={errors.title?.message}
         />
       </S.FormGrid>
 
