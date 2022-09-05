@@ -16,7 +16,7 @@ export const Wrapper = styled(Container)`
     text-align: start;
     align-items: start;
     justify-content: start;
-    margin: 2.4rem;
+    padding: 2.4rem;
   `}
 
   &::before {

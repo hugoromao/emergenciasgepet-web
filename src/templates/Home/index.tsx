@@ -53,9 +53,8 @@ const Home = () => (
 
     <S.About>
       <S.AboutText>
-        <p id="about">Sobre o congresso</p>
-        <strong>INSIRA SEU TEXTO AQUI</strong>
-        <p>
+        <strong>I Congresso Roraimense de Trauma e Emergências Médicas</strong>
+        <p style={{ lineHeight: '3rem' }}>
           De 17 a 19 de novembro, vamos estar juntos, em Boa Vista-RR, no evento
           do GEPET mais aguardado dos últimos tempos. Será um momento especial
           para nos reencontrarmos, compartilharmos experiências, aprendizados e
@@ -72,6 +71,42 @@ const Home = () => (
     </S.About>
 
     <ScheduleSection />
+
+    <S.About className="bv">
+      <S.AboutText>
+        <p id="about">Sobre o congresso</p>
+        <strong>Em Boa Vista, RR</strong>
+        <S.AboutImage>
+          <img src="/img/bv.jpeg" alt="doctors" />
+        </S.AboutImage>
+      </S.AboutText>
+    </S.About>
+
+    <S.About>
+      <S.AboutText>
+        <p id="about">Sobre o congresso</p>
+        <strong>
+          Credenciamento e Palestra Inaugural: No Aipana Plaza Hotel
+        </strong>
+        <p style={{ lineHeight: '3rem' }}>
+          Um espaço elegante, moderno e de alto padrão para receber os
+          congressistas.
+        </p>
+      </S.AboutText>
+      <S.AboutImage>
+        <img src="/img/hotel.jpg" alt="doctors" />
+      </S.AboutImage>
+    </S.About>
+
+    <S.About>
+      <S.AboutText>
+        <p id="about">Sobre o congresso</p>
+        <strong>Palestras e Apresentações Orais: UERR, Campus Boa Vista</strong>
+      </S.AboutText>
+      <S.AboutImage>
+        <img src="/img/uerr.jpeg" alt="doctors" />
+      </S.AboutImage>
+    </S.About>
 
     <Participants />
 

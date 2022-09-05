@@ -12,12 +12,14 @@ export const Image = styled.img`
   width: 12rem;
   height: 12rem;
   object-fit: cover;
+  object-position: top;
 `
 
 export const Strong = styled.strong`
   font-size: 2.4rem;
   font-weight: 700;
   text-align: center;
+  max-width: 60%;
 `
 
 export const Text = styled.p`

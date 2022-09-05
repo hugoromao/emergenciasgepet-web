@@ -1,7 +1,13 @@
 import styled, { css } from 'styled-components'
 import media from 'styled-media-query'
 
-export const Wrapper = styled.main``
+export const Wrapper = styled.main`
+  .bv {
+    ${media.greaterThan('small')`
+      display: none;
+    `}
+  }
+`
 
 export const Hero = styled.section`
   ${() => css`
@@ -179,7 +185,7 @@ export const AboutText = styled.div`
     position: relative;
 
     ${media.lessThan('medium')`
-      font-size: 4.8rem;
+      font-size: 3.8rem;
     `}
   }
 
@@ -199,10 +205,6 @@ export const AboutImage = styled.div`
   display: flex;
   align-items: center;
 
-  ${media.lessThan('medium')`
-    display:none;
-  `}
-
   img {
     width: 68rem;
     height: 61rem;
@@ -215,6 +217,23 @@ export const AboutImage = styled.div`
       height: 47rem;
     `}
   }
+
+  ${media.lessThan('medium')`
+    /* display:none; */
+    width: 100%;
+    
+    img {
+      width: 100%;
+      height: auto;
+      clip-path: none;
+      border-radius: 0.8rem;
+      box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    }
+
+    &::before, &::after {
+     display: none;
+    }
+  `}
 
   &::before {
     content: '';
