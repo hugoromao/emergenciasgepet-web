@@ -8,34 +8,59 @@ const Participants = () => (
 
     <S.Grid>
       <Participant
-        src="https://cdn.dribbble.com/users/77224/avatars/normal/67af2e02cc98b66c12df27abfa72e062.png?1654018916"
-        title="Prof. Cecilia"
-        text="Product designer and Illustrator. Mother to 59 houseplants."
+        src="/img/Foto_Dr_Fernando_Tallo.jpg"
+        title="Dr. Fernando Tallo"
+        text="ACLS"
       />
       <Participant
-        src="https://cdn.dribbble.com/users/77224/avatars/normal/67af2e02cc98b66c12df27abfa72e062.png?1654018916"
-        title="Prof. Cecilia"
-        text="Product designer and Illustrator. Mother to 59 houseplants."
+        src="/img/Foto_Dr_Marcos_Tobias_Machado.png"
+        title="Dr. Marcos Tobias Machado"
+        text="Emergências Urológicas"
       />
       <Participant
-        src="https://cdn.dribbble.com/users/77224/avatars/normal/67af2e02cc98b66c12df27abfa72e062.png?1654018916"
-        title="Prof. Cecilia"
-        text="Product designer and Illustrator. Mother to 59 houseplants."
+        src="/img/Foto_Dr_Hassan_Syagha.jpeg"
+        title="Dr. Hassan Syagha"
+        text="Emergências Cardíacas"
       />
       <Participant
-        src="https://cdn.dribbble.com/users/77224/avatars/normal/67af2e02cc98b66c12df27abfa72e062.png?1654018916"
-        title="Prof. Cecilia"
-        text="Product designer and Illustrator. Mother to 59 houseplants."
+        src="/img/Foto_Dra_Paula_Trintinela.jpg"
+        title="Dra. Paula Trintinela"
+        text="Emergências Vasculares"
       />
       <Participant
-        src="https://cdn.dribbble.com/users/77224/avatars/normal/67af2e02cc98b66c12df27abfa72e062.png?1654018916"
-        title="Prof. Cecilia"
-        text="Product designer and Illustrator. Mother to 59 houseplants."
+        src="/img/Foto_Dr_Mario_Maciel.jpg"
+        title="Dr. Mário Maciel de Lima Jr"
+        text="Emergências Ginecológicas"
       />
       <Participant
-        src="https://cdn.dribbble.com/users/77224/avatars/normal/67af2e02cc98b66c12df27abfa72e062.png?1654018916"
-        title="Prof. Cecilia"
-        text="Product designer and Illustrator. Mother to 59 houseplants."
+        src="/img/Foto_Dr_Odair_Vaz.jpeg"
+        title="Dr. Odair Vaz Machado"
+        text="Trauma Abdominal"
+      />
+      <Participant
+        src="/img/Foto_Dr_Marcos_Barroso.jpeg"
+        title="Dr. Marcos Barroso"
+        text="Trauma Torácico"
+      />
+      <Participant
+        src="/img/Foto_Dr_Andre_Trolese.jpg"
+        title="Dr. André Trolese"
+        text="Emergências Reumatológicas"
+      />
+      <Participant
+        src="/img/Foto_Dr_Jonathas_Lopes.jpg"
+        title="Dr. Jonathas Lopes"
+        text="Emergências Ortopédicas"
+      />
+      <Participant
+        src="/img/Foto_Dra_Vitoria_Gandur.jpg"
+        title="Dra. Vitória Gandur"
+        text="Emergências Dermatológicas"
+      />
+      <Participant
+        src="/img/Foto_Dra_Patricia_Cavalcante.jpg"
+        title="Dra. Patrícia Cavalcante"
+        text="Emergências Pediátricas"
       />
     </S.Grid>
   </S.Wrapper>

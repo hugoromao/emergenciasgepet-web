@@ -11,6 +11,7 @@ export const Image = styled.img`
   border-radius: 50%;
   width: 12rem;
   height: 12rem;
+  object-fit: cover;
 `
 
 export const Strong = styled.strong`

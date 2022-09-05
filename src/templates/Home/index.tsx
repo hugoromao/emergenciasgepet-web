@@ -56,10 +56,10 @@ const Home = () => (
         <p id="about">Sobre o congresso</p>
         <strong>INSIRA SEU TEXTO AQUI</strong>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat.
+          De 17 a 19 de novembro, vamos estar juntos, em Boa Vista-RR, no evento
+          do GEPET mais aguardado dos últimos tempos. Será um momento especial
+          para nos reencontrarmos, compartilharmos experiências, aprendizados e
+          nos tornarmos ainda melhores!
         </p>
         <Button as="a" href="/inscricao">
           INSCREVA-SE
