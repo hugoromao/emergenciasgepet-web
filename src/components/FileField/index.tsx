@@ -32,11 +32,7 @@ const FileField = ({
         {label}
         <S.InputWrapper>
           <FileUpload />
-          {file ? (
-            <p>{file}</p>
-          ) : (
-            'Solte seus arquivos aqui ou clique para fazer upload.'
-          )}
+          {file ? <p>{file}</p> : 'Clique para fazer upload.'}
 
           <S.Input
             id={name}

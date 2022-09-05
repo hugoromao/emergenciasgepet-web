@@ -48,7 +48,6 @@ export const Select = styled.select`
     font-size: ${theme.font.sizes.medium};
 
     text-overflow: ellipsis;
-    max-width: 24rem;
 
     option {
       padding: 1.6rem 0;

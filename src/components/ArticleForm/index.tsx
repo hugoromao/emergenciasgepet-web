@@ -12,6 +12,7 @@ import FileField from 'components/FileField'
 import NativeSelect from 'components/NativeSelect'
 
 import * as S from './styles'
+import Checkbox from 'components/Checkbox'
 
 type Inputs = {
   nome: string
@@ -42,6 +43,7 @@ const ArticleForm = () => {
   const { enqueueSnackbar } = useSnackbar()
 
   const [loading, setLoading] = useState(false)
+  const [acceptedTerms, setAcceptedTerms] = useState(false)
 
   const onSubmit: SubmitHandler<Inputs> = async ({
     bairro,
@@ -244,40 +246,53 @@ const ArticleForm = () => {
           })}
           error={errors.bairro?.message}
         />
-
-        <FileField
-          name="artigo"
-          label="Artigo *"
-          register={register('artigo', {
-            required: 'Este campo é obrigatório'
-          })}
-          error={errors.artigo?.message as string | undefined}
-        />
-
-        <TextField
-          label="Título"
-          name="title"
-          register={register('title', {
-            required: 'Este campo é obrigatório'
-          })}
-          error={errors.title?.message}
-        />
-
-        <NativeSelect label="Modalidade" options={modalityOptions} />
-
-        <NativeSelect label="Área Temática" options={areasOptions} />
-
-        <TextField
-          label="Autores"
-          name="title"
-          register={register('title', {
-            required: 'Este campo é obrigatório'
-          })}
-          error={errors.title?.message}
-        />
       </S.FormGrid>
 
-      <Button type="submit" style={{ width: 'fit-content' }} loading={loading}>
+      <FileField
+        name="artigo"
+        label="Artigo *"
+        register={register('artigo', {
+          required: 'Este campo é obrigatório'
+        })}
+        error={errors.artigo?.message as string | undefined}
+      />
+
+      <TextField
+        label="Título"
+        name="title"
+        register={register('title', {
+          required: 'Este campo é obrigatório'
+        })}
+        error={errors.title?.message}
+      />
+
+      <NativeSelect label="Modalidade" options={modalityOptions} />
+
+      <NativeSelect label="Área Temática" options={areasOptions} />
+
+      <TextField
+        label="Autores"
+        name="title"
+        register={register('title', {
+          required: 'Este campo é obrigatório'
+        })}
+        error={errors.title?.message}
+      />
+
+      <span style={{ gridColumn: 'span 2' }}>
+        <Checkbox
+          label="Declaro que li e estou de acordo com as regras de submissão"
+          labelFor="terms"
+          onCheck={(e) => setAcceptedTerms(e)}
+        />
+      </span>
+
+      <Button
+        type="submit"
+        style={{ width: 'fit-content' }}
+        loading={loading}
+        disabled={!acceptedTerms}
+      >
         Enviar
       </Button>
     </S.ContentWrapper>
