@@ -74,7 +74,7 @@ const Home = () => (
 
     <S.About className="bv">
       <S.AboutText>
-        <p id="about">Sobre o congresso</p>
+        <p id="about">Local</p>
         <strong>Em Boa Vista, RR</strong>
         <S.AboutImage>
           <img src="/img/bv.jpeg" alt="doctors" />
@@ -84,7 +84,7 @@ const Home = () => (
 
     <S.About>
       <S.AboutText>
-        <p id="about">Sobre o congresso</p>
+        {/* <p id="about">Credenciamento</p> */}
         <strong>
           Credenciamento e Palestra Inaugural: No Aipana Plaza Hotel
         </strong>
@@ -100,7 +100,7 @@ const Home = () => (
 
     <S.About>
       <S.AboutText>
-        <p id="about">Sobre o congresso</p>
+        {/* <p id="about">Sobre o congresso</p> */}
         <strong>Palestras e Apresentações Orais: UERR, Campus Boa Vista</strong>
       </S.AboutText>
       <S.AboutImage>

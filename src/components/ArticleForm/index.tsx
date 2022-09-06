@@ -28,8 +28,10 @@ type Inputs = {
   numero: string
   bairro: string
   artigo: File
-  title: string
-  authors: string
+  tituloDoArtigo: string
+  autores: string
+  modalidade: string
+  areaDeEstudo: string
 }
 
 const ArticleForm = () => {
@@ -58,7 +60,11 @@ const ArticleForm = () => {
     numero,
     pais,
     uf,
-    artigo
+    artigo,
+    autores,
+    tituloDoArtigo,
+    areaDeEstudo,
+    modalidade
   }) => {
     try {
       setLoading(true)
@@ -76,7 +82,11 @@ const ArticleForm = () => {
             nome,
             pais,
             uf,
-            numero
+            numero,
+            autores,
+            tituloDoArtigo,
+            areaDeEstudo,
+            modalidade
           }
         })
         .then(async (r) => {
@@ -110,16 +120,22 @@ const ArticleForm = () => {
   ]
 
   const areasOptions = [
-    { value: 'teste', label: 'Emergências Urológicas' },
-    { value: 'teste', label: 'Emergências Cardíacas' },
-    { value: 'teste', label: 'Emergências Vasculares' },
-    { value: 'teste', label: 'Emergências Ginecológicas' },
-    { value: 'teste', label: 'Emergências Pediátricas' },
-    { value: 'teste', label: 'Emergências Reumatológicas' },
-    { value: 'teste', label: 'Emergências Ortopédicas' },
-    { value: 'teste', label: 'Emergências Dermatológicas' },
-    { value: 'teste', label: 'Trauma Abdominal' },
-    { value: 'teste', label: 'Trauma Torácico' }
+    { value: 'emergencias-urologicas', label: 'Emergências Urológicas' },
+    { value: 'emergencias-cardiacas', label: 'Emergências Cardíacas' },
+    { value: 'emergencias-vasculares', label: 'Emergências Vasculares' },
+    { value: 'emergencias-ginecologicas', label: 'Emergências Ginecológicas' },
+    { value: 'emergencias-pediatricas', label: 'Emergências Pediátricas' },
+    {
+      value: 'emergencias-reumatologicas',
+      label: 'Emergências Reumatológicas'
+    },
+    { value: 'emergencias-ortopedicas', label: 'Emergências Ortopédicas' },
+    {
+      value: 'emergencias-dermatologicas',
+      label: 'Emergências Dermatológicas'
+    },
+    { value: 'trauma-abdominal', label: 'Trauma Abdominal' },
+    { value: 'trauma-toracico', label: 'Trauma Torácico' }
   ]
 
   return (
@@ -259,24 +275,32 @@ const ArticleForm = () => {
 
       <TextField
         label="Título"
-        name="title"
-        register={register('title', {
+        name="tituloDoArtigo"
+        register={register('tituloDoArtigo', {
           required: 'Este campo é obrigatório'
         })}
-        error={errors.title?.message}
+        error={errors.tituloDoArtigo?.message}
       />
 
-      <NativeSelect label="Modalidade" options={modalityOptions} />
+      <NativeSelect
+        label="Modalidade"
+        options={modalityOptions}
+        register={register('modalidade')}
+      />
 
-      <NativeSelect label="Área Temática" options={areasOptions} />
+      <NativeSelect
+        label="Área Temática"
+        options={areasOptions}
+        register={register('areaDeEstudo')}
+      />
 
       <TextField
         label="Autores"
-        name="title"
-        register={register('title', {
+        name="autores"
+        register={register('autores', {
           required: 'Este campo é obrigatório'
         })}
-        error={errors.title?.message}
+        error={errors.autores?.message}
       />
 
       <span style={{ gridColumn: 'span 2' }}>
