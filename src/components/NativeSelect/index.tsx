@@ -3,12 +3,15 @@ import { InputHTMLAttributes } from 'react'
 import { UseFormRegisterReturn } from 'react-hook-form'
 import * as S from './styles'
 
+import { Error } from 'components/TextField/styles'
+
 export type SelectOption = {
   value: string | number | boolean
   label: string
 }
 
 export type NativeSelectProps = {
+  error?: string
   label?: string
   options: SelectOption[]
   register?: UseFormRegisterReturn
@@ -20,6 +23,7 @@ const NativeSelect = ({
   label,
   options,
   register,
+  error,
   ...props
 }: NativeSelectProps) => {
   const onChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -39,6 +43,7 @@ const NativeSelect = ({
         ))}
       </S.Select>
       <UnfoldMore id="expand" />
+      <S.Error>{error}</S.Error>
     </S.Wrapper>
   )
 }

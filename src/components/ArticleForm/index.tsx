@@ -114,12 +114,14 @@ const ArticleForm = () => {
   }
 
   const modalityOptions = [
+    { value: '', label: 'Selecionar' },
     { value: 'relatoCaso', label: 'Relato de caso' },
     { value: 'resumoSimples', label: 'Resumo simples' },
     { value: 'resumoExpandido', label: 'Resumo expandido' }
   ]
 
   const areasOptions = [
+    { value: '', label: 'Selecionar' },
     { value: 'emergencias-urologicas', label: 'Emergências Urológicas' },
     { value: 'emergencias-cardiacas', label: 'Emergências Cardíacas' },
     { value: 'emergencias-vasculares', label: 'Emergências Vasculares' },
@@ -285,13 +287,19 @@ const ArticleForm = () => {
       <NativeSelect
         label="Modalidade"
         options={modalityOptions}
-        register={register('modalidade')}
+        register={register('modalidade', {
+          required: 'Este campo é obrigatório'
+        })}
+        error={errors.modalidade?.message}
       />
 
       <NativeSelect
         label="Área Temática"
         options={areasOptions}
-        register={register('areaDeEstudo')}
+        register={register('areaDeEstudo', {
+          required: 'Este campo é obrigatório'
+        })}
+        error={errors.areaDeEstudo?.message}
       />
 
       <TextField

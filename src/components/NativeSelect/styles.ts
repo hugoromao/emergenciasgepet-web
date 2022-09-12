@@ -72,3 +72,13 @@ export const Select = styled.select`
 `
 
 export const Option = styled.option``
+
+export const Error = styled.p`
+  ${({ theme }) => css`
+    color: ${theme.colors.darkRed};
+    font-size: ${theme.font.sizes.xsmall};
+
+    position: absolute;
+    bottom: -1.6rem;
+  `}
+`
