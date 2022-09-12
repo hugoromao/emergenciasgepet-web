@@ -4,7 +4,7 @@ import * as S from './styles'
 
 const Participants = () => (
   <S.Wrapper>
-    <Strong>PARTICIPANTES</Strong>
+    <Strong>PALESTRANTES</Strong>
 
     <S.Grid>
       <Participant
