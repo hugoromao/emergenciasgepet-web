@@ -20,6 +20,18 @@ export const ModalWrapper = styled.div`
 `
 
 export const Modal = styled.div`
+  @keyframes showUp {
+    from {
+      opacity: 0;
+      margin-top: 2.4rem;
+    }
+
+    to {
+      opacity: 1;
+      margin-top: 0rem;
+    }
+  }
+
   ${({ theme }) => css`
     display: flex;
 
@@ -30,6 +42,7 @@ export const Modal = styled.div`
     background: white;
     padding: ${theme.spacings.xsmall};
     position: relative;
+    animation: showUp 0.4s;
 
     svg {
       position: absolute;
