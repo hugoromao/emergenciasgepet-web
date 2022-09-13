@@ -1,29 +1,33 @@
-import { useState } from 'react'
+import { Dispatch, SetStateAction, useRef } from 'react'
+import { useOnClickOutside } from 'hooks/useOnClickOutside'
+
 import { Close } from 'styled-icons/material-rounded'
 
 import * as S from './styles'
 
 type ModalProps = {
   children: React.ReactNode
+  open: boolean
+  setOpen: Dispatch<SetStateAction<boolean>>
 }
 
-const Modal = ({ children }: ModalProps) => {
-  const [open, setOpen] = useState(true)
+const Modal = ({ children, open, setOpen }: ModalProps) => {
+  const ref = useRef(null)
 
   function closeModal() {
     setOpen(false)
   }
 
+  useOnClickOutside(ref, () => setOpen(false))
+
   return (
     <S.Wrapper>
-      <h1>{children}</h1>
-
       {open && (
-        <S.ModalWrapper onClick={closeModal}>
-          <S.Modal>
+        <S.ModalWrapper>
+          <S.Modal ref={ref}>
             <Close size={24} onClick={closeModal} />
 
-            <h1>Teste</h1>
+            {children}
           </S.Modal>
         </S.ModalWrapper>
       )}
