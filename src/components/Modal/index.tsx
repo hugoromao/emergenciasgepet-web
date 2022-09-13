@@ -1,7 +1,7 @@
 import { Dispatch, SetStateAction, useRef } from 'react'
-import { useOnClickOutside } from 'hooks/useOnClickOutside'
-
 import { Close } from 'styled-icons/material-rounded'
+
+import { useOnClickOutside } from 'hooks/useOnClickOutside'
 
 import * as S from './styles'
 
@@ -24,9 +24,11 @@ const Modal = ({ children, open, setOpen }: ModalProps) => {
     <S.Wrapper>
       {open && (
         <S.ModalWrapper>
-          <S.Modal ref={ref}>
+          <S.Modal
+            ref={ref}
+            // exit={{ opacity: 0, y: 10 }}
+          >
             <Close size={24} onClick={closeModal} />
-
             {children}
           </S.Modal>
         </S.ModalWrapper>

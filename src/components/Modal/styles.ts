@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components'
+import media from 'styled-media-query'
 
 export const Wrapper = styled.div``
 
@@ -20,6 +21,18 @@ export const ModalWrapper = styled.div`
 `
 
 export const Modal = styled.div`
+  @keyframes showUp {
+    from {
+      opacity: 0;
+      margin-top: 2.4rem;
+    }
+
+    to {
+      opacity: 1;
+      margin-top: 0rem;
+    }
+  }
+
   ${({ theme }) => css`
     display: flex;
 
@@ -34,6 +47,8 @@ export const Modal = styled.div`
       rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
       rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
 
+    animation: showUp 0.4s;
+
     svg {
       position: absolute;
       top: 1.6rem;
@@ -41,5 +56,9 @@ export const Modal = styled.div`
       fill: #707070;
       cursor: pointer;
     }
+
+    ${media.greaterThan('small')`
+      max-width: 65rem;
+    `}
   `}
 `
