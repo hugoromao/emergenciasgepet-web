@@ -4,6 +4,7 @@ import media from 'styled-media-query'
 export const LinksWrapper = styled.nav`
   ${({ theme }) => css`
     display: flex;
+    align-items: center;
     flex-direction: column;
 
     gap: ${theme.spacings.small};
