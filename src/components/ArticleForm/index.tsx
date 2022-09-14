@@ -84,8 +84,8 @@ const ArticleForm = () => {
             uf,
             numero,
             autores,
-            tituloDoArtigo,
-            areaDeEstudo,
+            titulodoartigo: tituloDoArtigo,
+            areadeestudo: areaDeEstudo,
             modalidade
           }
         })
