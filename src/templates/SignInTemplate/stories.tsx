@@ -6,4 +6,4 @@ export default {
   component: SignInTemplate
 } as Meta
 
-export const Default: Story = () => <SignInTemplate />
+export const Default: Story = () => <SignInTemplate>Teste</SignInTemplate>
