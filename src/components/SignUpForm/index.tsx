@@ -3,19 +3,42 @@ import TextField from 'components/TextField'
 import { useForm } from 'react-hook-form'
 
 import { Wrapper } from 'components/SignInForm/styles'
+import api from 'services/api'
+import { useState } from 'react'
+import { signIn } from 'next-auth/react'
 
 type Inputs = {
   name: string
   lastName: string
-  username: string
+  email: string
   password: string
 }
 
 const SignUpForm = () => {
+  const [loading, setLoading] = useState(false)
+
   const { handleSubmit, register, formState } = useForm<Inputs>()
 
-  async function onSubmit(data: Inputs) {
-    console.log(data)
+  async function onSubmit({ lastName, name, password, email }: Inputs) {
+    try {
+      setLoading(true)
+      const inputs = {
+        username: `${name} ${lastName}`,
+        email,
+        password,
+        name,
+        lastname: lastName,
+        confirmed: true,
+        blocked: false,
+        role: 1
+      }
+      const { data } = await api.post('/auth/local/register', inputs)
+      signIn('credentials', { ...data, callbackUrl: '/' })
+
+      setLoading(false)
+    } catch {
+      setLoading(false)
+    }
   }
 
   return (
@@ -39,20 +62,26 @@ const SignUpForm = () => {
       <TextField
         label="E-mail"
         type="email"
-        register={register('username', {
+        register={register('email', {
           required: 'Este campo é obrigatório'
         })}
-        error={formState.errors.username?.message}
+        error={formState.errors.email?.message}
       />
       <TextField
         label="Senha"
         register={register('password', {
-          required: 'Este campo é obrigatório'
+          required: 'Este campo é obrigatório',
+          minLength: {
+            message: 'A senha deve possuir no mínimo 6 letras',
+            value: 6
+          }
         })}
         error={formState.errors.password?.message}
       />
 
-      <Button type="submit">Entrar</Button>
+      <Button type="submit" loading={loading}>
+        Entrar
+      </Button>
     </Wrapper>
   )
 }

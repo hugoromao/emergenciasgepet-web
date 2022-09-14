@@ -22,7 +22,7 @@ const SignInForm = () => {
 
   return (
     <S.Wrapper onSubmit={handleSubmit(onSubmit)}>
-      <h1>Seja bem vindo!</h1>
+      <h1>Login</h1>
 
       <TextField
         label="E-mail"
