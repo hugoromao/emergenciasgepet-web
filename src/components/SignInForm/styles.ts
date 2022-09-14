@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 export const Wrapper = styled.form`
   width: 100%;
@@ -7,6 +7,10 @@ export const Wrapper = styled.form`
   justify-content: center;
 
   gap: 1.6rem;
+
+  button {
+    height: 4.8rem;
+  }
 
   button[type='submit'] {
     margin-top: auto;
@@ -22,13 +26,42 @@ export const Wrapper = styled.form`
 
     display: flex;
     gap: 2.4rem;
-    padding: 1.6rem;
-    justify-content: start;
-    width: fit-content;
+    padding: 1.2rem 1.6rem;
+    /* justify-content: start; */
+    width: 100%;
     margin: 0 auto;
 
     img {
       height: 2.4rem;
     }
   }
+`
+
+export const Span = styled.span`
+  ${({ theme }) => css`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
+    gap: 2.4rem;
+
+    p {
+      font-size: 1.4rem;
+      color: #707070;
+    }
+
+    hr {
+      width: 100%;
+      height: 0.1rem;
+      border: none;
+      background-color: #707070;
+    }
+
+    a {
+      color: ${theme.colors.darkRed};
+      font-weight: 700;
+    }
+  `}
 `

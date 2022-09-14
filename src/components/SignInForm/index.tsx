@@ -40,6 +40,14 @@ const SignInForm = () => {
         error={formState.errors.password?.message}
       />
 
+      <Button type="submit">Entrar</Button>
+
+      <S.Span>
+        <hr />
+        <p>Ou</p>
+        <hr />
+      </S.Span>
+
       <Button
         id="google"
         type="button"
@@ -54,9 +62,11 @@ const SignInForm = () => {
         Logar com o Google
       </Button>
 
-      <Button type="submit" onClick={() => signIn('google')}>
-        Entrar
-      </Button>
+      <S.Span style={{ marginTop: '2.4rem' }}>
+        <p>
+          Ainda não possui cadastro? <a href="/signUp">Criar nova conta</a>
+        </p>
+      </S.Span>
     </S.Wrapper>
   )
 }
