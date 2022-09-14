@@ -1,6 +1,8 @@
+import { GetServerSidePropsContext } from 'next'
 import FormTemplate from 'templates/FormTemplate'
 
 import SubscriptionForm from 'components/SubscriptionForm'
+import protectedRoutes from 'utils/protected-routes'
 
 export default function Subscription() {
   return (
@@ -8,4 +10,11 @@ export default function Subscription() {
       <SubscriptionForm />
     </FormTemplate>
   )
+}
+
+export async function getServerSideProps(context: GetServerSidePropsContext) {
+  const session = await protectedRoutes(context)
+  return {
+    props: { session }
+  }
 }
