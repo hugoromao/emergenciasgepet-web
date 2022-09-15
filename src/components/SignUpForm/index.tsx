@@ -1,8 +1,9 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import Button from 'components/Button'
 import TextField from 'components/TextField'
 import { useForm } from 'react-hook-form'
 
-import { Wrapper } from 'components/SignInForm/styles'
+import { ErrorText, Wrapper } from 'components/SignInForm/styles'
 import api from 'services/api'
 import { useState } from 'react'
 import { signIn } from 'next-auth/react'
@@ -19,11 +20,13 @@ const SignUpForm = () => {
 
   const { handleSubmit, register, formState } = useForm<Inputs>()
 
+  const [errorMessage, setErrorMessage] = useState(null)
+
   async function onSubmit({ lastName, name, password, email }: Inputs) {
     try {
       setLoading(true)
       const inputs = {
-        username: `${name} ${lastName}`,
+        username: `${email}`,
         email,
         password,
         name,
@@ -33,10 +36,16 @@ const SignUpForm = () => {
         role: 1
       }
       const { data } = await api.post('/auth/local/register', inputs)
-      signIn('credentials', { ...data, callbackUrl: '/' })
+      signIn('credentials', {
+        identifier: data.user.username,
+        password,
+        callbackUrl: '/'
+      })
 
       setLoading(false)
-    } catch {
+    } catch (err) {
+      const error = err as any
+      setErrorMessage(error.response.data.error.message)
       setLoading(false)
     }
   }
@@ -78,6 +87,8 @@ const SignUpForm = () => {
         })}
         error={formState.errors.password?.message}
       />
+
+      {errorMessage && <ErrorText>{errorMessage}</ErrorText>}
 
       <Button type="submit" loading={loading}>
         Entrar

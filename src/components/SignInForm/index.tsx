@@ -1,14 +1,16 @@
+/* eslint-disable @next/next/no-html-link-for-pages */
 /* eslint-disable @next/next/no-img-element */
 import Button from 'components/Button'
 import TextField from 'components/TextField'
 import { useForm } from 'react-hook-form'
-import { signIn, signOut, useSession } from 'next-auth/react'
+import { signIn } from 'next-auth/react'
 
 import * as S from './styles'
 import { useRouter } from 'next/router'
+import { useState } from 'react'
 
 type Inputs = {
-  username: string
+  identifier: string
   password: string
 }
 
@@ -16,8 +18,11 @@ const SignInForm = () => {
   const { query } = useRouter()
   const { handleSubmit, register, formState } = useForm<Inputs>()
 
+  const [loading, setLoading] = useState(false)
+
   async function onSubmit(data: Inputs) {
-    console.log(data)
+    setLoading(true)
+    signIn('credentials', { ...data, callbackUrl: '/' })
   }
 
   return (
@@ -26,11 +31,11 @@ const SignInForm = () => {
 
       <TextField
         label="E-mail"
-        type="email"
-        register={register('username', {
+        type="identifier"
+        register={register('identifier', {
           required: 'Este campo é obrigatório'
         })}
-        error={formState.errors.username?.message}
+        error={formState.errors.identifier?.message}
       />
       <TextField
         label="Senha"
@@ -40,9 +45,15 @@ const SignInForm = () => {
         error={formState.errors.password?.message}
       />
 
-      <Button type="submit">Entrar</Button>
+      {query.error === 'CredentialsSignin' && (
+        <S.ErrorText>Email ou senha incorretos!</S.ErrorText>
+      )}
 
-      <S.Span>
+      <Button type="submit" loading={loading}>
+        Entrar
+      </Button>
+
+      {/* <S.Span>
         <hr />
         <p>Ou</p>
         <hr />
@@ -52,15 +63,15 @@ const SignInForm = () => {
         id="google"
         type="button"
         backgroundColor="gray"
-        onClick={() => {
-          signIn('google', {
+        onClick={async () => {
+          await signIn('google', {
             callbackUrl: String(query.callbackUrl || '/')
           })
         }}
       >
         <img src="/img/google.webp" alt="Google" />
         Logar com o Google
-      </Button>
+      </Button> */}
 
       <S.Span style={{ marginTop: '2.4rem' }}>
         <p>

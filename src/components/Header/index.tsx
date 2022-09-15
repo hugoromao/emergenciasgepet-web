@@ -7,7 +7,7 @@ import { Close, Menu } from 'styled-icons/material-rounded'
 
 import * as S from './styles'
 import Button from 'components/Button'
-import { signIn, signOut, useSession } from 'next-auth/react'
+import { signOut, useSession } from 'next-auth/react'
 
 type HeaderProps = {
   transparent?: boolean
@@ -15,8 +15,7 @@ type HeaderProps = {
 }
 
 const Header = ({ transparent = false, hideLogo = false }: HeaderProps) => {
-  const { status, data } = useSession()
-  console.log(data)
+  const { status } = useSession()
   const [openMenu, setOpenMenu] = useState(false)
 
   const router = useRouter()
@@ -31,14 +30,14 @@ const Header = ({ transparent = false, hideLogo = false }: HeaderProps) => {
             <S.Link href="/inscricao">Inscrições</S.Link>
             <S.Link href="/inscricao/artigo">Envio de artigos</S.Link>
             {/* <S.Link href="/programacao">Programação</S.Link> */}
-            {/* {status === 'authenticated' && (
+            {status === 'authenticated' && (
               <S.Link href="/myArticles">
                 <Button type="button" backgroundColor="gray">
                   Meus artigos
                 </Button>
               </S.Link>
-            )} */}
-            {/* {status !== 'authenticated' ? (
+            )}
+            {status !== 'authenticated' ? (
               <S.Link href="/signIn?callbackUrl=/">
                 <Button type="button" backgroundColor="gray">
                   Entrar
@@ -54,7 +53,7 @@ const Header = ({ transparent = false, hideLogo = false }: HeaderProps) => {
               >
                 Sair
               </Button>
-            )} */}
+            )}
           </S.LinksWrapper>
           <S.Button id="menu" onClick={() => setOpenMenu(true)}>
             <Menu />

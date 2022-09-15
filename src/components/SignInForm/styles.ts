@@ -65,3 +65,10 @@ export const Span = styled.span`
     }
   `}
 `
+
+export const ErrorText = styled.p`
+  ${({ theme }) => css`
+    color: ${theme.colors.darkRed};
+    font-weight: 700;
+  `}
+`

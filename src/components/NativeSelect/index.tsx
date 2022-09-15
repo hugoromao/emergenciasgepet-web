@@ -3,8 +3,6 @@ import { InputHTMLAttributes } from 'react'
 import { UseFormRegisterReturn } from 'react-hook-form'
 import * as S from './styles'
 
-import { Error } from 'components/TextField/styles'
-
 export type SelectOption = {
   value: string | number | boolean
   label: string
