@@ -31,7 +31,11 @@ const Home = () => (
         </S.ButtonsWrapper>
 
         <S.SocialButtonsWrapper>
-          <a href="https://www.instagram.com/" target="_blank" rel="noreferrer">
+          <a
+            href="https://www.instagram.com/gepet_uerr/"
+            target="_blank"
+            rel="noreferrer"
+          >
             <Instagram />
           </a>
 

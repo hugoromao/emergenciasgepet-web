@@ -15,7 +15,13 @@ const Footer = () => (
         </S.TextRow>
         <S.TextRow>
           <Instagram />
-          @gepet_medicine
+          <a
+            href="https://www.instagram.com/gepet_uerr/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            @gepet_medicine
+          </a>
         </S.TextRow>
         <S.TextRow>
           <EmailOutline />
