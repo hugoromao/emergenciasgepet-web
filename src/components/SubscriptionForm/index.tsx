@@ -403,14 +403,14 @@ const SubscriptionForm = () => {
                 ).replace('.', ',')}
               </S.Title>
             )}
-            <S.Name>Chave Pix: 030.742.562-22</S.Name>
+            <S.Name>Chave Pix: Grupogepet46@gmail.com</S.Name>
           </S.Column>
           <S.Warning>
             <Warning />
             <p>
               ATENÇÃO: por favor, confirme os dados do recebedor antes de
               confirmar a transferência: Laura Beatriz Rocha Bacelar Paiva, com
-              CPF 030.742.562-22, CAIXA.
+              CPF 030.742.562-22, PICPAY.
             </p>
           </S.Warning>
         </S.Column>
