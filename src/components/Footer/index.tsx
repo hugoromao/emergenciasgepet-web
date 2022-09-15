@@ -23,7 +23,7 @@ const Footer = () => (
             @gepet_medicine
           </a>
         </S.TextRow>
-        <S.TextRow>
+        <S.TextRow style={{ wordBreak: 'break-word' }}>
           <EmailOutline />
           grupogepet46@gmail.com
         </S.TextRow>
