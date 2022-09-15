@@ -173,9 +173,9 @@ export const BorderWrapper = styled.div`
 export const QRCodeWrapper = styled.div`
   ${() => css`
     position: relative;
-    width: 24rem;
-    height: 24rem;
+    width: 30rem;
+    height: 30rem;
     border-radius: 2.4rem;
-    margin: 1.6rem;
+    /* margin: 1.6rem; */
   `}
 `
