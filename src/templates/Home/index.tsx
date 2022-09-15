@@ -3,7 +3,6 @@ import Button from 'components/Button'
 import Footer from 'components/Footer'
 import Header from 'components/Header'
 import Participants from 'components/Participants'
-import ScheduleSection from 'components/ScheduleSection'
 import { Check2, FileEarmarkRichtext } from 'styled-icons/bootstrap'
 import { Instagram, Whatsapp } from 'styled-icons/boxicons-logos'
 import { EmailOutline } from 'styled-icons/evaicons-outline'
@@ -70,7 +69,7 @@ const Home = () => (
       </S.AboutImage>
     </S.About>
 
-    <ScheduleSection />
+    {/* <ScheduleSection /> */}
 
     <S.About className="bv">
       <S.AboutText>

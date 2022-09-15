@@ -22,7 +22,10 @@ const SignInForm = () => {
 
   async function onSubmit(data: Inputs) {
     setLoading(true)
-    signIn('credentials', { ...data, callbackUrl: '/' })
+    signIn('credentials', {
+      ...data,
+      callbackUrl: String(query.callbackUrl || '/')
+    })
   }
 
   return (
@@ -31,7 +34,7 @@ const SignInForm = () => {
 
       <TextField
         label="E-mail"
-        type="identifier"
+        type="email"
         register={register('identifier', {
           required: 'Este campo é obrigatório'
         })}

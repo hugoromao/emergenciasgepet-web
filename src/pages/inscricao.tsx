@@ -3,6 +3,7 @@ import FormTemplate from 'templates/FormTemplate'
 
 import SubscriptionForm from 'components/SubscriptionForm'
 import protectedRoutes from 'utils/protected-routes'
+import { GetServerSidePropsContext } from 'next'
 
 export default function Subscription() {
   return (
