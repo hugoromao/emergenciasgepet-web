@@ -30,7 +30,7 @@ const Participants = () => (
       <Participant
         src="/img/Foto_Dr_Mario_Maciel.jpg"
         title="Dr. Mário Maciel de Lima Jr"
-        text="Emergências Ginecológicas"
+        text="Emergências Urológicas"
       />
       <Participant
         src="/img/Foto_Dr_Odair_Vaz.jpeg"

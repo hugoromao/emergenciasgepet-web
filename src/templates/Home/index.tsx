@@ -89,22 +89,25 @@ const Home = () => (
       <S.AboutText>
         {/* <p id="about">Credenciamento</p> */}
         <strong>
-          Credenciamento e Palestra Inaugural: No Aipana Plaza Hotel
+          Credenciamento, Palestras e Apresentações Orais: No Conselho Regional
+          de Medicina
         </strong>
         <p style={{ lineHeight: '3rem' }}>
-          Um espaço elegante, moderno e de alto padrão para receber os
-          congressistas.
+          O coração da medicina em Roraima pronto para receber os congressistas
         </p>
       </S.AboutText>
       <S.AboutImage>
-        <img src="/img/hotel.jpg" alt="doctors" />
+        <img src="/img/crm_foto.png" alt="doctors" />
       </S.AboutImage>
     </S.About>
 
     <S.About>
       <S.AboutText>
         {/* <p id="about">Sobre o congresso</p> */}
-        <strong>Palestras e Apresentações Orais: UERR, Campus Boa Vista</strong>
+        <strong>
+          Palestras, E-pôsters e Minicursos: UERR, Campus Boa Vista: UERR,
+          Campus Boa Vista
+        </strong>
       </S.AboutText>
       <S.AboutImage>
         <img src="/img/uerr.jpeg" alt="doctors" />

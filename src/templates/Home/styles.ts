@@ -180,7 +180,7 @@ export const AboutText = styled.div`
   }
 
   strong {
-    font-size: 6.4rem;
+    font-size: 5.4rem;
     font-weight: 700;
     position: relative;
 
