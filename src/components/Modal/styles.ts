@@ -1,7 +1,9 @@
 import styled, { css } from 'styled-components'
 import media from 'styled-media-query'
 
-export const Wrapper = styled.div``
+export const Wrapper = styled.div`
+  z-index: 15;
+`
 
 export const ModalWrapper = styled.div`
   display: flex;
@@ -11,7 +13,7 @@ export const ModalWrapper = styled.div`
   width: 100vw;
   height: 100vh;
 
-  position: absolute;
+  position: fixed;
   top: 0;
   bottom: 0;
   left: 0;
@@ -39,7 +41,7 @@ export const Modal = styled.div`
     width: 80vw;
     height: 40rem;
     border-radius: ${theme.border.radius};
-
+    overflow: auto;
     background: white;
     padding: ${theme.spacings.xsmall};
     position: relative;
