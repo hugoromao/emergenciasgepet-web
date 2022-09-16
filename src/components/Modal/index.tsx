@@ -9,9 +9,10 @@ type ModalProps = {
   children: React.ReactNode
   open: boolean
   setOpen: Dispatch<SetStateAction<boolean>>
+  modalStyle?: React.CSSProperties
 }
 
-const Modal = ({ children, open, setOpen }: ModalProps) => {
+const Modal = ({ children, open, setOpen, modalStyle }: ModalProps) => {
   const ref = useRef(null)
 
   function closeModal() {
@@ -26,6 +27,7 @@ const Modal = ({ children, open, setOpen }: ModalProps) => {
         <S.ModalWrapper>
           <S.Modal
             ref={ref}
+            style={modalStyle}
             // exit={{ opacity: 0, y: 10 }}
           >
             <Close size={24} onClick={closeModal} />
