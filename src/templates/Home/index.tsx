@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import Button from 'components/Button'
+import Countdown from 'components/Countdown'
 import Footer from 'components/Footer'
 import Header from 'components/Header'
 import Participants from 'components/Participants'
@@ -121,6 +122,8 @@ const Home = () => (
     <Activities />
 
     <Sponsors />
+
+    <Countdown />
 
     <Footer />
   </S.Wrapper>

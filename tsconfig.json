@@ -27,5 +27,5 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-, "src/hooks/useOnClickOutside.jsx"  ]
+, "src/hooks/useOnClickOutside.jsx", "src/components/Countdown/useCountdown.js"  ]
 }
