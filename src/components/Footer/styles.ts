@@ -11,7 +11,7 @@ export const Grid = styled.div`
   margin: 0 auto;
   gap: 2.4rem;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
 
   ${media.lessThan('large')`
     grid-template-columns: 1fr 1fr;
@@ -43,8 +43,13 @@ export const Column = styled.div`
   }
 
   img {
-    width: 13rem;
+    height: 13rem;
   }
+`
+
+export const Row = styled.span`
+  display: flex;
+  gap: 2.4rem;
 `
 
 export const Strong = styled.strong`

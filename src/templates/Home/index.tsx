@@ -3,6 +3,7 @@ import Button from 'components/Button'
 import Footer from 'components/Footer'
 import Header from 'components/Header'
 import Participants from 'components/Participants'
+import Sponsors from 'components/Sponsors'
 import { Check2, FileEarmarkRichtext } from 'styled-icons/bootstrap'
 import { Instagram, Whatsapp } from 'styled-icons/boxicons-logos'
 import { EmailOutline } from 'styled-icons/evaicons-outline'
@@ -118,6 +119,8 @@ const Home = () => (
     <Participants />
 
     <Activities />
+
+    <Sponsors />
 
     <Footer />
   </S.Wrapper>

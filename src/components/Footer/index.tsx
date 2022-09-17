@@ -37,11 +37,15 @@ const Footer = () => (
         <Link href="/programacao">Programação</Link>
       </S.Column>
 
-      <S.Column id="madeby">
+      {/* <S.Column id="madeby">
         <S.Strong>Realização</S.Strong>
 
-        <img src="/img/logo-red.png" alt="logo" />
-      </S.Column>
+        <S.Row>
+          <img src="/img/logo-red.png" alt="logo" />
+          <img src="/img/crm.JPG" alt="logo" />
+          <img src="/img/uerr.PNG" alt="logo" />
+        </S.Row>
+      </S.Column> */}
 
       <S.Copyright>
         Copyright © 2022 – 1º Congresso Roraimense de Trauma e Emergências
