@@ -6,6 +6,7 @@ import Participants from 'components/Participants'
 import { Check2, FileEarmarkRichtext } from 'styled-icons/bootstrap'
 import { Instagram, Whatsapp } from 'styled-icons/boxicons-logos'
 import { EmailOutline } from 'styled-icons/evaicons-outline'
+import Activities from '../../components/Activities'
 import * as S from './styles'
 
 const Home = () => (
@@ -115,6 +116,8 @@ const Home = () => (
     </S.About>
 
     <Participants />
+
+    <Activities />
 
     <Footer />
   </S.Wrapper>
