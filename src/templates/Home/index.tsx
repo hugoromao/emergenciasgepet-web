@@ -19,7 +19,7 @@ const Home = () => (
         <img src="/img/logo.png" />
         <S.HeroText>
           <h1>1º congresso roraimense de trauma e emergências médicas</h1>
-          <p>24, 25, 26 de novembro</p>
+          <p>17, 18, 19 de novembro</p>
         </S.HeroText>
 
         <S.ButtonsWrapper>
