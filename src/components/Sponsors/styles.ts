@@ -22,7 +22,7 @@ export const CardsWrapper = styled.div`
   flex-direction: row;
   gap: 3.2rem;
 
-  ${media.lessThan('small')`
+  ${media.lessThan('medium')`
     flex-direction: column;
 
     img[src="/img/uerr.PNG"] {
