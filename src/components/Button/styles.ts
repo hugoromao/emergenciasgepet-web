@@ -15,6 +15,10 @@ const backgrounds = {
   red: (theme: DefaultTheme) => css`
     background-color: ${theme.colors.darkRed};
     border: 1px solid ${theme.colors.darkRed};
+  `,
+  green: (theme: DefaultTheme) => css`
+    background-color: ${theme.colors.green};
+    border: 1px solid ${theme.colors.green};
   `
 }
 

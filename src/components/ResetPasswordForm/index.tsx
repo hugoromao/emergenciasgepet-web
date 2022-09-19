@@ -1,44 +1,74 @@
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
+import api from 'services/api'
 
 import Button from 'components/Button'
 import TextField from 'components/TextField'
 
 import * as S from './styles'
+import { useRouter } from 'next/router'
+import { useSnackbar } from 'notistack'
 
 type Inputs = {
-  identifier: string
+  code: string
+  password: string
+  passwordConfirmation: string
 }
 
 const ResetPasswordForm = () => {
-  const { handleSubmit, register, formState } = useForm<Inputs>()
+  const { query, push } = useRouter()
+  const { enqueueSnackbar } = useSnackbar()
+  const { handleSubmit, register, formState, getValues } = useForm<Inputs>()
 
   const [loading, setLoading] = useState(false)
 
   async function onSubmit(data: Inputs) {
-    setLoading(true)
-    console.log(data)
+    try {
+      setLoading(true)
+
+      api.post('/auth/reset-password', {
+        code: query.code,
+        password: data.password,
+        passwordConfirmation: data.passwordConfirmation
+      })
+      push('/signIn')
+      setLoading(false)
+    } catch {
+      setLoading(false)
+      enqueueSnackbar('Falha ao redefinir senha', { variant: 'error' })
+    }
   }
 
   return (
     <S.Wrapper onSubmit={handleSubmit(onSubmit)}>
-      <h1>Esqueceu a senha?</h1>
-      <p>
-        Digite o E-mail associado com sua conta e enviaremos um E-mail com
-        instruções para redefinir sua senha.
-      </p>
+      <h1>Redefinir senha</h1>
 
       <TextField
-        label="E-mail"
-        type="email"
-        register={register('identifier', {
-          required: 'Este campo é obrigatório'
+        label="Nova senha"
+        type="text"
+        register={register('password', {
+          required: 'Este campo é obrigatório',
+          minLength: {
+            value: 8,
+            message: 'A senha deve ter pelo menos 8 caracteres'
+          }
         })}
-        error={formState.errors.identifier?.message}
+        error={formState.errors.password?.message}
+      />
+
+      <TextField
+        label="Confirmar nova senha"
+        type="text"
+        register={register('passwordConfirmation', {
+          required: 'Este campo é obrigatório',
+          validate: (value) =>
+            value === getValues('password') || 'As senhas não combinam'
+        })}
+        error={formState.errors.passwordConfirmation?.message}
       />
 
       <Button type="submit" loading={loading}>
-        Enviar E-mail
+        Redefinir senha
       </Button>
     </S.Wrapper>
   )

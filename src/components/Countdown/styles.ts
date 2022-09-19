@@ -22,6 +22,7 @@ export const Wrapper = styled(Container)`
 
     text-align: center;
     color: white;
+    max-width: none;
 
     strong {
       font-size: 3.2rem;

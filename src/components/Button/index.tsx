@@ -11,7 +11,7 @@ export type ButtonProps = {
   styleType?: 'default' | 'outline' | 'minimal' | 'icon'
   loading?: boolean
   children: React.ReactNode
-  backgroundColor?: 'gray' | 'red'
+  backgroundColor?: 'gray' | 'red' | 'green'
   as?: React.ElementType
 } & ButtonTypes
 
