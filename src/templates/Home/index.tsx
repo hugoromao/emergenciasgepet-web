@@ -1,11 +1,14 @@
 /* eslint-disable @next/next/no-img-element */
 import Button from 'components/Button'
+import Countdown from 'components/Countdown'
 import Footer from 'components/Footer'
 import Header from 'components/Header'
 import Participants from 'components/Participants'
+import Sponsors from 'components/Sponsors'
 import { Check2, FileEarmarkRichtext } from 'styled-icons/bootstrap'
 import { Instagram, Whatsapp } from 'styled-icons/boxicons-logos'
 import { EmailOutline } from 'styled-icons/evaicons-outline'
+import Activities from '../../components/Activities'
 import * as S from './styles'
 
 const Home = () => (
@@ -16,7 +19,7 @@ const Home = () => (
         <img src="/img/logo.png" />
         <S.HeroText>
           <h1>1º congresso roraimense de trauma e emergências médicas</h1>
-          <p>24, 25, 26 de novembro</p>
+          <p>17, 18, 19 de novembro</p>
         </S.HeroText>
 
         <S.ButtonsWrapper>
@@ -115,6 +118,12 @@ const Home = () => (
     </S.About>
 
     <Participants />
+
+    <Activities />
+
+    <Sponsors />
+
+    <Countdown />
 
     <Footer />
   </S.Wrapper>
