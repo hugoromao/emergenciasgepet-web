@@ -42,7 +42,7 @@ export const Subtitle = styled.p`
 `
 
 export const Content = styled(Container)`
-  padding: 3.2rem 0;
+  padding: 3.2rem;
 `
 
 export const SectionText = styled.h2`
