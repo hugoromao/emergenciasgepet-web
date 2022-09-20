@@ -1,6 +1,8 @@
 import styled, { css } from 'styled-components'
 import media from 'styled-media-query'
 
+import { Container } from 'templates/Home/styles'
+
 export const Wrapper = styled.main``
 
 export const HeadingWrapper = styled.div`
@@ -30,7 +32,7 @@ export const Indent = styled.p`
   margin-left: 2.4rem;
 `
 
-export const Content = styled.div`
+export const Content = styled(Container)`
   ${({ theme }) => css`
     display: flex;
     flex-direction: column;
@@ -41,6 +43,7 @@ export const Content = styled.div`
     /* position: relative; */
 
     button {
+      max-width: 23rem;
       position: sticky;
       bottom: 2.4rem;
       right: 2.4rem;
