@@ -84,6 +84,24 @@ const Header = ({ transparent = false, hideLogo = false }: HeaderProps) => {
                 Programação
               </S.Link>
             </Link>
+            {status === 'authenticated' && (
+              <Link href="/perfil" passHref>
+                <S.Link>Meu perfil</S.Link>
+              </Link>
+            )}
+            {status !== 'authenticated' ? (
+              <Link href="/signIn?callbackUrl=/" passHref>
+                <S.Link>Entrar</S.Link>
+              </Link>
+            ) : (
+              <S.Link
+                onClick={() => {
+                  signOut()
+                }}
+              >
+                Sair
+              </S.Link>
+            )}
           </S.LinksWrapper>
         </S.MenuWrapper>
       )}
