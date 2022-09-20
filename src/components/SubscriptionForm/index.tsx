@@ -77,6 +77,7 @@ const SubscriptionForm = () => {
 
   const { enqueueSnackbar } = useSnackbar()
   const { push } = useRouter()
+
   const [loading, setLoading] = useState(false)
 
   const onSubmit: SubmitHandler<Inputs> = async ({

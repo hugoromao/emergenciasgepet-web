@@ -27,7 +27,7 @@ const Home = () => (
             Quero participar
             <Check2 />
           </Button>
-          <Button as="a" href="/inscricao/artigo" backgroundColor="red">
+          <Button as="a" href="/info" backgroundColor="red">
             Submissão de artigos
             <FileEarmarkRichtext />
           </Button>

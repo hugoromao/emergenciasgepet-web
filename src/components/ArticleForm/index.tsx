@@ -13,7 +13,6 @@ import NativeSelect from 'components/NativeSelect'
 
 import * as S from './styles'
 import Checkbox from 'components/Checkbox'
-import ArticleRulesModal from 'components/ArticleRulesModal'
 
 type Inputs = {
   nome: string
@@ -47,7 +46,6 @@ const ArticleForm = () => {
 
   const [loading, setLoading] = useState(false)
   const [acceptedTerms, setAcceptedTerms] = useState(false)
-  const [rules, setRules] = useState(true)
 
   const onSubmit: SubmitHandler<Inputs> = async ({
     bairro,
@@ -329,8 +327,6 @@ const ArticleForm = () => {
       >
         Enviar
       </Button>
-
-      <ArticleRulesModal open={rules} setOpen={setRules} />
     </S.ContentWrapper>
   )
 }
