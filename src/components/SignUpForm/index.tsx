@@ -78,6 +78,7 @@ const SignUpForm = () => {
       />
       <TextField
         label="Senha"
+        type="password"
         register={register('password', {
           required: 'Este campo é obrigatório',
           minLength: {

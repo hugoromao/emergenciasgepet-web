@@ -69,7 +69,7 @@ const MeusArtigosTemplate = () => {
         )}
 
         <S.SectionText>Inscrição</S.SectionText>
-        {inscricao && inscricao.data.length && (
+        {!!inscricao && !!inscricao.data.length && (
           <SubscriptionItem {...inscricao.data[0].attributes} />
         )}
 

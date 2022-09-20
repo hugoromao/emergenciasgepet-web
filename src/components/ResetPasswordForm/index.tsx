@@ -45,7 +45,7 @@ const ResetPasswordForm = () => {
 
       <TextField
         label="Nova senha"
-        type="text"
+        type="password"
         register={register('password', {
           required: 'Este campo é obrigatório',
           minLength: {
@@ -58,7 +58,7 @@ const ResetPasswordForm = () => {
 
       <TextField
         label="Confirmar nova senha"
-        type="text"
+        type="password"
         register={register('passwordConfirmation', {
           required: 'Este campo é obrigatório',
           validate: (value) =>

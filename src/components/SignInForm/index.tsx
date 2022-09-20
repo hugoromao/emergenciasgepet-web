@@ -43,6 +43,7 @@ const SignInForm = () => {
       />
       <TextField
         label="Senha"
+        type="password"
         register={register('password', {
           required: 'Este campo é obrigatório'
         })}
