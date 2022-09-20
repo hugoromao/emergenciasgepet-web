@@ -41,7 +41,7 @@ type Inputs = {
   comprovante_de_categoria: File
 }
 
-const isAfter1509 = dayjs().isAfter('2022-09-15')
+const isAfter1509 = dayjs().isAfter('2022-09-30')
 
 const categoriesPrices = {
   'Estudante de graduação (MEDICINA)': {
@@ -215,7 +215,7 @@ const SubscriptionForm = () => {
           })}
           title="Estudante de graduação (medicina)"
           prices={[
-            { label: 'Preço até 15/09', price: 70 },
+            { label: 'Preço até 30/09', price: 70 },
             { label: 'Preço até 15/10', price: 80 }
           ]}
           error={errors.categoria?.message}
@@ -236,7 +236,7 @@ const SubscriptionForm = () => {
   (outro curso da saúde) (vagas 
   limitadas)"
           prices={[
-            { label: 'Preço até 15/09', price: 80 },
+            { label: 'Preço até 30/09', price: 80 },
             { label: 'Preço até 15/10', price: 90 }
           ]}
           error={errors.categoria?.message}
@@ -252,7 +252,7 @@ const SubscriptionForm = () => {
           })}
           title="Médico (vagas limitadas)"
           prices={[
-            { label: 'Preço até 15/09', price: 100 },
+            { label: 'Preço até 30/09', price: 100 },
             { label: 'Preço até 15/10', price: 115 }
           ]}
           error={errors.categoria?.message}
@@ -270,7 +270,7 @@ const SubscriptionForm = () => {
           })}
           title="Outros profissionais da saúde (vagas limitadas)"
           prices={[
-            { label: 'Preço até 15/09', price: 115 },
+            { label: 'Preço até 30/09', price: 115 },
             { label: 'Preço até 15/10', price: 120 }
           ]}
           error={errors.categoria?.message}
