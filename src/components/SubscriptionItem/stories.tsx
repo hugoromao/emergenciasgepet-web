@@ -6,4 +6,4 @@ export default {
   component: MyArticleItem
 } as Meta
 
-export const Default: Story = () => <MyArticleItem />
+export const Default: Story = () => <p />
