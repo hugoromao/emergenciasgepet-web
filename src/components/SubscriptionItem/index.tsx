@@ -4,7 +4,7 @@ import * as S from './styles'
 
 type SubscriptionItemProps = SubscriptionAttributes
 
-const SubscriptionItem = ({ nome, celular, email }: SubscriptionItemProps) => {
+const SubscriptionItem = ({ nome, cpf, email }: SubscriptionItemProps) => {
   function hideString(string: string) {
     const hideNum = []
     for (let i = 0; i < string.length; i++) {
@@ -24,7 +24,7 @@ const SubscriptionItem = ({ nome, celular, email }: SubscriptionItemProps) => {
       <S.Column>
         <strong>{nome}</strong>
         <p>
-          {hideString(celular)} • {hideString(email)}
+          {hideString(cpf)} • {hideString(email)}
         </p>
       </S.Column>
     </S.Wrapper>
