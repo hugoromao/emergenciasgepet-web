@@ -8,6 +8,7 @@ import { signIn } from 'next-auth/react'
 import * as S from './styles'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
+import Link from 'next/link'
 
 type Inputs = {
   identifier: string
@@ -47,6 +48,11 @@ const SignInForm = () => {
         })}
         error={formState.errors.password?.message}
       />
+      <Link href="/auth/forgot-password">
+        <a>
+          <S.ForgotPassword>Esqueci minha senha</S.ForgotPassword>
+        </a>
+      </Link>
 
       {query.error === 'CredentialsSignin' && (
         <S.ErrorText>Email ou senha incorretos!</S.ErrorText>

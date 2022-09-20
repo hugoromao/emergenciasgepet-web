@@ -35,6 +35,11 @@ export const Wrapper = styled.form`
       height: 2.4rem;
     }
   }
+
+  a {
+    text-decoration: none;
+    margin-left: auto;
+  }
 `
 
 export const Span = styled.span`
@@ -70,5 +75,14 @@ export const ErrorText = styled.p`
   ${({ theme }) => css`
     color: ${theme.colors.darkRed};
     font-weight: 700;
+  `}
+`
+
+export const ForgotPassword = styled.p`
+  ${({ theme }) => css`
+    color: ${theme.colors.darkRed};
+    cursor: pointer;
+    margin-left: auto;
+    text-decoration: none;
   `}
 `
