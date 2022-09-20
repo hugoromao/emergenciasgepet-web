@@ -73,7 +73,7 @@ const MeusArtigosTemplate = () => {
           <SubscriptionItem {...inscricao.data[0].attributes} />
         )}
 
-        {inscricao.data.length === 0 && (
+        {inscricao?.data.length === 0 && (
           <S.NotFount>Nenhuma inscrição encontrada</S.NotFount>
         )}
       </S.Content>
