@@ -71,7 +71,7 @@ const Header = ({ transparent = false, hideLogo = false }: HeaderProps) => {
             <Link href="/" passHref>
               <S.Link active={router.route === '/'}>Início</S.Link>
             </Link>
-            <Link href="/incricao" passHref>
+            <Link href="/inscricao" passHref>
               <S.Link active={router.route === '/incricao'}>Inscrições</S.Link>
             </Link>
             <Link href="/inscricao/artigo" passHref>
