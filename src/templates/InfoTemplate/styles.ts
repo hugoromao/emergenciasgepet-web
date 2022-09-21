@@ -44,9 +44,9 @@ export const Content = styled(Container)`
 
     button {
       max-width: 23rem;
-      position: sticky;
+      /* position: sticky;
       bottom: 2.4rem;
-      right: 2.4rem;
+      right: 2.4rem; */
     }
 
     h1 {
