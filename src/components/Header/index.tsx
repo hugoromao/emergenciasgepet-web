@@ -29,7 +29,7 @@ const Header = ({ transparent = false, hideLogo = false }: HeaderProps) => {
             <S.Link href="/">Início</S.Link>
             <S.Link href="/inscricao">Inscrições</S.Link>
             <S.Link href="/info">Envio de artigos</S.Link>
-            {/* <S.Link href="/programacao">Programação</S.Link> */}
+            <S.Link href="/programacao">Programação</S.Link>
             {status === 'authenticated' && (
               <S.Link href="/perfil">
                 <Button type="button" backgroundColor="gray">

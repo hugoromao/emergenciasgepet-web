@@ -121,9 +121,9 @@ const Home = () => (
 
     <Activities />
 
-    <Sponsors />
-
     <Countdown />
+
+    <Sponsors />
 
     <Footer />
   </S.Wrapper>

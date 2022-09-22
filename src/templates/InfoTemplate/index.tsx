@@ -329,7 +329,7 @@ const InfoTemplate = () => (
       </ul>
 
       <Link href="/inscricao/artigo" passHref>
-        <Button>Submissão de trabalho</Button>
+        <Button>FAÇA SUA SUBMISSÃO</Button>
       </Link>
     </S.Content>
   </S.Wrapper>

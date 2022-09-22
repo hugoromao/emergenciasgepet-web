@@ -43,10 +43,9 @@ export const Content = styled(Container)`
     /* position: relative; */
 
     button {
-      max-width: 23rem;
-      /* position: sticky;
-      bottom: 2.4rem;
-      right: 2.4rem; */
+      ${media.greaterThan('large')`
+        max-width: 23rem;
+      `}
     }
 
     h1 {

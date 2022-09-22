@@ -14,29 +14,54 @@ const Programacao = () => (
     <S.ContentWrapper>
       <S.Content>
         <ScheduleItem
-          day={24}
-          extendedDay="quinta"
-          local="Aúditório, sala 255"
-          title="Palestra de abertura"
+          day={17}
+          extendedDay="NOV"
+          subtitle={
+            <>
+              <p>Emergências Vasculares</p>
+              <p>Emergências Cardiológicas</p>
+              <p>Emergências Gastroenterológicas</p>
+              <p>Emergências Ortopédicas</p>
+            </>
+          }
+          title="DIA 1"
+        />
+
+        <ScheduleItem
+          day={18}
+          extendedDay="NOV"
+          subtitle={
+            <>
+              <p>Emergências Pediátricas</p>
+              <p>Emergências Gastroenterológicas</p>
+              <p>Trauma Torácicos</p>
+              <p>Emergências Neurológicas</p>
+              <p>Emergências Oftalmológicas</p>
+              <p>Emergências Reumatológicas</p>
+              <p>Emergências Ginecológicas</p>
+              <p>Emergências Psiquiátricas</p>
+              <p>Emergências Dermatológicas</p>
+              <p>Trauma Abdominal</p>
+              <p>Emergências Cardiológicas</p>
+              <p>Emergências Nefrológicas</p>
+              <p>Emergências Endocrinológicas</p>
+              <p>Emergências Hematológicas</p>
+            </>
+          }
+          title="DIA 2"
         />
         <ScheduleItem
-          hideDate
-          day={24}
-          extendedDay="quinta"
-          local="Aúditório, sala 255"
-          title="Palestra de abertura"
-        />
-        <ScheduleItem
-          day={25}
-          extendedDay="quinta"
-          local="Aúditório, sala 255"
-          title="Roda de conversa Com professor fulano"
-        />
-        <ScheduleItem
-          day={25}
-          extendedDay="quinta"
-          local="Aúditório, sala 255"
-          title="Roda de conversa Com professor fulano"
+          day={19}
+          extendedDay="NOV"
+          subtitle={
+            <>
+              <p>ACLS</p>
+              <p>Emergências Reumatológicas</p>
+              <p>Emergências Urológicas</p>
+              <p>Ventilação Mecânica</p>
+            </>
+          }
+          title="DIA 3"
         />
       </S.Content>
     </S.ContentWrapper>

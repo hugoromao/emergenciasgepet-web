@@ -6,6 +6,7 @@ export const Wrapper = styled.div`
   gap: 2.4rem;
 
   h2 {
+    max-width: 8rem;
     font-size: 1.6rem;
     font-weight: 700;
     color: black;
@@ -26,9 +27,9 @@ export const Column = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.8rem;
-  max-width: 23rem;
 
   h1 {
+    max-width: 23rem;
     font-size: 2.4rem;
     font-weight: 700;
     color: black;

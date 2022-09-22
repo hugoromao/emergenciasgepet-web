@@ -5,14 +5,14 @@ export type ScheduleItemProps = {
   hideDate?: boolean
   extendedDay: string
   title: string
-  local: string
+  subtitle: React.ReactNode
 }
 
 const ScheduleItem = ({
   day,
   extendedDay,
   hideDate,
-  local,
+  subtitle,
   title
 }: ScheduleItemProps) => (
   <S.Wrapper>
@@ -22,7 +22,7 @@ const ScheduleItem = ({
     </h2>
     <S.Column>
       <h1>{title}</h1>
-      <p>{local}</p>
+      {subtitle}
     </S.Column>
   </S.Wrapper>
 )
