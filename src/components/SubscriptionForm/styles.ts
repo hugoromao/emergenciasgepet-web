@@ -31,6 +31,7 @@ export const ContentWrapper = styled.form`
     max-width: 56rem;
     margin: 0 auto;
     padding: ${theme.spacings.medium};
+    padding-bottom: 8.2rem;
 
     display: flex;
     flex-direction: column;
@@ -178,4 +179,25 @@ export const QRCodeWrapper = styled.div`
     border-radius: 2.4rem;
     /* margin: 1.6rem; */
   `}
+`
+
+export const StepButtonsWrapper = styled.div`
+  display: flex;
+
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  button {
+    width: 50% !important;
+    height: 5.6rem;
+    border-radius: 0;
+  }
+`
+
+export const InfoGrid = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.6rem;
 `
