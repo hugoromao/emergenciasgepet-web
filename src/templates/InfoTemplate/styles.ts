@@ -3,7 +3,9 @@ import media from 'styled-media-query'
 
 import { Container } from 'templates/Home/styles'
 
-export const Wrapper = styled.main``
+export const Wrapper = styled.main`
+  text-align: justify;
+`
 
 export const HeadingWrapper = styled.div`
   display: flex;
