@@ -542,24 +542,24 @@ limitadas)"
       {steps[step as 1].component()}
 
       <S.StepButtonsWrapper>
-        <Button
-          type="button"
-          onClick={() => {
-            if (step !== 1) {
-              setStep((s) => s - 1)
-            }
-          }}
-          disabled={step === 1}
-        >
-          Voltar
-        </Button>
+        {step !== 1 && (
+          <Button
+            type="button"
+            onClick={() => {
+              if (step !== 1) {
+                setStep((s) => s - 1)
+              }
+            }}
+          >
+            Voltar
+          </Button>
+        )}
 
         {step === 5 ? (
           <Button
             type="submit"
             backgroundColor="green"
             style={{ width: 'fit-content' }}
-            onClick={() => console.log('teste')}
             loading={loading}
           >
             Enviar

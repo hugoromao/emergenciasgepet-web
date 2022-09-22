@@ -190,7 +190,7 @@ export const StepButtonsWrapper = styled.div`
   right: 0;
 
   button {
-    width: 50% !important;
+    width: 100% !important;
     height: 5.6rem;
     border-radius: 0;
   }
