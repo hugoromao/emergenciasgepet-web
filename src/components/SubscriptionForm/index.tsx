@@ -546,9 +546,8 @@ limitadas)"
           <Button
             type="button"
             onClick={() => {
-              if (step !== 1) {
-                setStep((s) => s - 1)
-              }
+              setPrevent(false)
+              setStep((s) => s - 1)
             }}
           >
             Voltar

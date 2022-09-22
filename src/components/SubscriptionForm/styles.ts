@@ -194,6 +194,11 @@ export const StepButtonsWrapper = styled.div`
     height: 5.6rem;
     border-radius: 0;
   }
+
+  ${media.greaterThan('small')`
+    width: 50vw;
+    left: auto;
+  `}
 `
 
 export const InfoGrid = styled.div`
