@@ -133,6 +133,10 @@ const ArticleForm = () => {
     },
     { value: 'emergencias-ortopedicas', label: 'Emergências Ortopédicas' },
     {
+      value: 'emergencias-gastroenterologicas',
+      label: 'Emergências gastroenterológicas'
+    },
+    {
       value: 'emergencias-dermatologicas',
       label: 'Emergências Dermatológicas'
     },
