@@ -27,7 +27,7 @@ const Header = ({ transparent = false, hideLogo = false }: HeaderProps) => {
           <img src="/img/logo.png" />
           <S.LinksWrapper>
             <S.Link href="/">Início</S.Link>
-            <S.Link href="/inscricao">Inscrições</S.Link>
+            <S.Link href="/valores">Inscrições</S.Link>
             <S.Link href="/info">Envio de artigos</S.Link>
             <S.Link href="/programacao">Programação</S.Link>
             {status === 'authenticated' && (
@@ -71,7 +71,7 @@ const Header = ({ transparent = false, hideLogo = false }: HeaderProps) => {
             <Link href="/" passHref>
               <S.Link active={router.route === '/'}>Início</S.Link>
             </Link>
-            <Link href="/inscricao" passHref>
+            <Link href="/valores" passHref>
               <S.Link active={router.route === '/incricao'}>Inscrições</S.Link>
             </Link>
             <Link href="/info" passHref>

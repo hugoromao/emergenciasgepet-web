@@ -32,7 +32,7 @@ const Footer = () => (
       <S.Column id="event">
         <S.Strong>Evento</S.Strong>
         <Link href="/">Início</Link>
-        <Link href="/inscricao">Incrições</Link>
+        <Link href="/valores">Incrições</Link>
         <Link href="/info">Envio de artigos</Link>
         <Link href="/programacao">Programação</Link>
       </S.Column>

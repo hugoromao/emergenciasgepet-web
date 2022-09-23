@@ -41,23 +41,23 @@ type Inputs = {
   comprovante_de_categoria: File
 }
 
-const isAfter1509 = dayjs().isAfter('2022-09-30')
+const isAfter3009 = dayjs().isAfter('2022-09-30')
 
 const categoriesPrices = {
   'Estudante de graduação (MEDICINA)': {
-    price: isAfter1509 ? 80 : 70,
+    price: isAfter3009 ? 80 : 70,
     label: 'Estudante de graduação (medicina)'
   },
   MÉDICO: {
-    price: isAfter1509 ? 115 : 100,
+    price: isAfter3009 ? 115 : 100,
     label: 'Médico'
   },
   'Estudante de graduação (Outro curso da saúde)': {
-    price: isAfter1509 ? 90 : 80,
+    price: isAfter3009 ? 90 : 80,
     label: 'Estudante de graduação (outro curso da saúde) (vagas limitadas)'
   },
   'Outros profissionais da saúde': {
-    price: isAfter1509 ? 120 : 115,
+    price: isAfter3009 ? 120 : 115,
     label: 'Outros profissionais da saúde'
   }
 }
@@ -534,10 +534,7 @@ limitadas)"
 
   return (
     <S.ContentWrapper onSubmit={handleSubmit(onSubmit)}>
-      <S.Title>
-        INSCRIÇÃO - 1º congresso roraimense de trauma e emergências médicas
-        (ETAPA {step}/5)
-      </S.Title>
+      <S.Title>FICHA DE INSCRICÃO (ETAPA {step}/5)</S.Title>
 
       {steps[step as 1].component()}
 

@@ -23,7 +23,7 @@ const Home = () => (
         </S.HeroText>
 
         <S.ButtonsWrapper>
-          <Button as="a" href="/inscricao">
+          <Button as="a" href="/valores">
             Quero participar
             <Check2 />
           </Button>
@@ -66,7 +66,7 @@ const Home = () => (
           para nos reencontrarmos, compartilharmos experiências, aprendizados e
           nos tornarmos ainda melhores!
         </p>
-        <Button as="a" href="/inscricao">
+        <Button as="a" href="/valores">
           INSCREVA-SE
         </Button>
       </S.AboutText>
