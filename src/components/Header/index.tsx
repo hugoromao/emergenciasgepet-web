@@ -33,7 +33,7 @@ const Header = ({ transparent = false, hideLogo = false }: HeaderProps) => {
             {status === 'authenticated' && (
               <S.Link href="/perfil">
                 <Button type="button" backgroundColor="gray">
-                  Meu perfil
+                  Área do usuário
                 </Button>
               </S.Link>
             )}
@@ -84,7 +84,7 @@ const Header = ({ transparent = false, hideLogo = false }: HeaderProps) => {
             </Link>
             {status === 'authenticated' && (
               <Link href="/perfil" passHref>
-                <S.Link>Meu perfil</S.Link>
+                <S.Link>Área do usuário</S.Link>
               </Link>
             )}
             {status !== 'authenticated' ? (
