@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import Image from 'next/image'
+// import Image from 'next/image'
 
 import { SubmitHandler, useForm } from 'react-hook-form'
-import { Warning } from 'styled-icons/material-outlined'
+// import { Warning } from 'styled-icons/material-outlined'
 import { useSnackbar } from 'notistack'
 
 import Button from 'components/Button'
@@ -11,9 +11,12 @@ import TextField from 'components/TextField'
 import * as S from './styles'
 import { useState } from 'react'
 import CategoryRadio from 'components/CategoryRadio'
-import dayjs from 'dayjs'
+// import dayjs from 'dayjs'
 import { useRouter } from 'next/router'
 import api from 'services/api'
+import NativeSelect from 'components/NativeSelect'
+import Checkbox from 'components/Checkbox'
+import { ErrorText } from 'components/SignInForm/styles'
 
 type Inputs = {
   nome: string
@@ -32,6 +35,9 @@ type Inputs = {
   cidade: string
   uf: string
   cep: string
+  nomeCracha: string
+  sexo: string
+  rg: string
   endereco: string
   numero: string
   bairro: string
@@ -39,27 +45,6 @@ type Inputs = {
   cpf_do_pagador: string
   comprovante_de_pagamento: File
   comprovante_de_categoria: File
-}
-
-const isAfter3009 = dayjs().isAfter('2022-09-30')
-
-const categoriesPrices = {
-  'Estudante de graduação (MEDICINA)': {
-    price: isAfter3009 ? 80 : 70,
-    label: 'Estudante de graduação (medicina)'
-  },
-  MÉDICO: {
-    price: isAfter3009 ? 115 : 100,
-    label: 'Médico'
-  },
-  'Estudante de graduação (Outro curso da saúde)': {
-    price: isAfter3009 ? 90 : 80,
-    label: 'Estudante de graduação (outro curso da saúde) (vagas limitadas)'
-  },
-  'Outros profissionais da saúde': {
-    price: isAfter3009 ? 120 : 115,
-    label: 'Outros profissionais da saúde'
-  }
 }
 
 const SubscriptionForm = () => {
@@ -79,9 +64,11 @@ const SubscriptionForm = () => {
   const { enqueueSnackbar } = useSnackbar()
   const { push } = useRouter()
 
-  const [loading, setLoading] = useState(false)
   const [step, setStep] = useState(1)
+  const [loading, setLoading] = useState(false)
   const [prevent, setPrevent] = useState(false)
+  const [acceptedTerms, setAcceptedTerms] = useState(false)
+  const [invalidCpf, setInvalidCpf] = useState(false)
 
   const onSubmit: SubmitHandler<Inputs> = async ({
     bairro,
@@ -100,7 +87,6 @@ const SubscriptionForm = () => {
     pais,
     semestre_de_graduacao,
     comprovante_de_categoria,
-    comprovante_de_pagamento,
     uf
   }) => {
     try {
@@ -139,12 +125,12 @@ const SubscriptionForm = () => {
           formData.append('field', 'comprovante_de_categoria')
           await api.post('/upload', formData)
 
-          const formData2 = new FormData()
-          formData2.append('files', (comprovante_de_pagamento as any)[0])
-          formData2.append('refId', String(r.data.data.id))
-          formData2.append('ref', 'api::subscription.subscription')
-          formData2.append('field', 'comprovante_de_pagamento')
-          await api.post('/upload', formData2)
+          // const formData2 = new FormData()
+          // formData2.append('files', (comprovante_de_pagamento as any)[0])
+          // formData2.append('refId', String(r.data.data.id))
+          // formData2.append('ref', 'api::subscription.subscription')
+          // formData2.append('field', 'comprovante_de_pagamento')
+          // await api.post('/upload', formData2)
 
           push('/inscricao/success')
         })
@@ -162,58 +148,65 @@ const SubscriptionForm = () => {
     }
   }
 
+  async function verifyCpf(cpf: string): Promise<boolean> {
+    try {
+      setLoading(true)
+      const response = await api.get(`/subscriptions?filters[cpf][$eq]=${cpf}`)
+      const validCpf = !response.data.data.length
+      if (!validCpf) {
+        setInvalidCpf(true)
+        enqueueSnackbar(
+          'ESTE CPF NÃO PODE SER UTILIZADO, POIS JÁ FOI CADASTRADO',
+          { variant: 'error' }
+        )
+      }
+      setLoading(false)
+      return validCpf
+    } catch {
+      setLoading(false)
+      enqueueSnackbar('Falha ao verificar cpf', {
+        variant: 'error'
+      })
+      return false
+    }
+  }
+
+  const sexoOptions = [
+    { value: '', label: 'Selecionar' },
+    { label: 'Masculino', value: 'masculino' },
+    { label: 'Feminino', value: 'feminino' }
+  ]
+
   const steps = {
     1: {
       component: () => (
         <>
           <S.FormGrid>
             <TextField
-              label="Nome completo*"
-              name="nome"
-              register={register('nome', {
-                required: 'Este campo é obrigatório'
-              })}
-              error={errors.nome?.message}
-            />
-            <TextField
               type="tel"
-              label="CPF*"
+              label="Digite seu CPF*"
               name="cpf"
               mask="999.999.999-99"
               register={register('cpf', {
-                required: 'Este campo é obrigatório'
+                required: 'Este campo é obrigatório',
+                validate: {
+                  unusedCPF: async (v) => {
+                    return await verifyCpf(v)
+                  }
+                }
               })}
               error={errors.cpf?.message}
             />
-            <TextField
-              label="E-mail*"
-              type="email"
-              name="email"
-              register={register('email', {
-                required: 'Este campo é obrigatório'
-              })}
-              autoCapitalize="off"
-              size={30}
-              error={errors.email?.message}
-            />
-            <TextField
-              type="tel"
-              label="Telefone(celular)*"
-              mask="99 999999999"
-              name="celular"
-              register={register('celular', {
-                required: 'Este campo é obrigatório'
-              })}
-              error={errors.celular?.message}
-            />
+
+            {invalidCpf && (
+              <ErrorText>
+                ESTE CPF NÃO PODE SER UTILIZADO, POIS JÁ FOI CADASTRADO.
+                {/* <Link href="/signIn" passHref>
+                  <a>CLIQUE AQUI</a>
+                </Link> */}
+              </ErrorText>
+            )}
           </S.FormGrid>
-        </>
-      ),
-      triggers: ['nome', 'cpf', 'email', 'celular']
-    },
-    2: {
-      component: () => (
-        <>
           <S.CategoriesGrid>
             <S.FormInfo>Selecione a categoria</S.FormInfo>
 
@@ -292,11 +285,71 @@ limitadas)"
           </S.CategoriesGrid>
         </>
       ),
-      triggers: ['categoria']
+      triggers: ['cpf', 'categoria']
     },
-    3: {
+    2: {
       component: () => (
         <>
+          <TextField
+            label="Nome completo*"
+            name="nome"
+            register={register('nome', {
+              required: 'Este campo é obrigatório'
+            })}
+            error={errors.nome?.message}
+          />
+
+          <TextField
+            label="Nome para crachá*"
+            name="nomeCracha"
+            register={register('nomeCracha', {
+              required: 'Este campo é obrigatório'
+            })}
+            error={errors.nomeCracha?.message}
+          />
+
+          <TextField
+            label="E-mail*"
+            type="email"
+            name="email"
+            register={register('email', {
+              required: 'Este campo é obrigatório'
+            })}
+            autoCapitalize="off"
+            size={30}
+            error={errors.email?.message}
+          />
+
+          <TextField
+            type="tel"
+            label="Telefone(celular)*"
+            mask="99 999999999"
+            name="celular"
+            register={register('celular', {
+              required: 'Este campo é obrigatório'
+            })}
+            error={errors.celular?.message}
+          />
+
+          <NativeSelect
+            label="Sexo"
+            options={sexoOptions}
+            register={register('sexo', {
+              required: 'Este campo é obrigatório'
+            })}
+            error={errors.sexo?.message}
+          />
+
+          <TextField
+            label="RG*"
+            name="rg"
+            type="number"
+            register={register('rg', {
+              required: 'Este campo é obrigatório'
+            })}
+            error={errors.rg?.message}
+          />
+
           <S.FormGrid>
             {(watch('categoria') ===
               'Estudante de graduação (Outro curso da saúde)' ||
@@ -408,6 +461,10 @@ limitadas)"
         </>
       ),
       triggers: [
+        'nome',
+        'nomeCracha',
+        'sexo',
+        'rg',
         'semestre_de_graduacao',
         'instituicao',
         'pais',
@@ -417,87 +474,12 @@ limitadas)"
         'endereco',
         'numero',
         'bairro',
-        'comprovante_de_categoria'
+        'comprovante_de_categoria',
+        'email',
+        'celular'
       ]
     },
-    4: {
-      component: () => (
-        <>
-          <S.FormInfo>Pagamento</S.FormInfo>
-          <S.Payment>
-            <S.BorderWrapper>
-              <S.QRCodeWrapper>
-                <Image src="/img/qrcode.png" layout="fill" objectFit="fill" />
-              </S.QRCodeWrapper>
-            </S.BorderWrapper>
-            <S.Column>
-              <S.Column style={{ gap: 0 }}>
-                {watch('categoria') && (
-                  <S.Title>
-                    R${' '}
-                    {String(
-                      categoriesPrices[
-                        watch(
-                          'categoria'
-                        ) as 'Estudante de graduação (MEDICINA)'
-                      ].price.toFixed(2)
-                    ).replace('.', ',')}
-                  </S.Title>
-                )}
-                <S.Name>Chave Pix: Grupogepet46@gmail.com</S.Name>
-              </S.Column>
-              <S.Warning>
-                <Warning />
-                <p>
-                  ATENÇÃO: por favor, confirme os dados do recebedor antes de
-                  confirmar a transferência: Laura Beatriz Rocha Bacelar Paiva,
-                  com CPF 030.742.562-22, PICPAY.
-                </p>
-              </S.Warning>
-            </S.Column>
-          </S.Payment>
-
-          <S.FormGrid>
-            <TextField
-              label="Nome do pagador*"
-              name="nome_do_pagador"
-              register={register('nome_do_pagador', {
-                required: 'Este campo é obrigatório'
-              })}
-              error={errors.nome_do_pagador?.message}
-            />
-
-            <TextField
-              label="CPF do pagador*"
-              type="tel"
-              name="cpf_do_pagador"
-              mask="999.999.999-99"
-              register={register('cpf_do_pagador', {
-                required: 'Este campo é obrigatório'
-              })}
-              error={errors.cpf_do_pagador?.message}
-            />
-            <FileField
-              name="comprovante_de_pagamento"
-              label="Comprovante de pagamento *"
-              accept=".pdf, .doc, .docx, .png, .jpg"
-              register={register('comprovante_de_pagamento', {
-                required: 'Este campo é obrigatório'
-              })}
-              error={
-                errors.comprovante_de_pagamento?.message as string | undefined
-              }
-            />
-          </S.FormGrid>
-        </>
-      ),
-      triggers: [
-        'nome_do_pagador',
-        'cpf_do_pagador',
-        'comprovante_de_pagamento'
-      ]
-    },
-    5: {
+    3: {
       component: () => (
         <>
           <S.FormInfo>Confirmar Informações</S.FormInfo>
@@ -511,7 +493,7 @@ limitadas)"
             <p>{getValues('email')}</p>
             <strong>Celular</strong>
             <p>{getValues('celular')}</p>
-            <strong>Categoria</strong>
+            <strong>Categoria de inscrição</strong>
             <p>{getValues('categoria')}</p>
             <strong>País</strong>
             <p>{getValues('pais')}</p>
@@ -526,6 +508,14 @@ limitadas)"
             <strong>Bairro</strong>
             <p>{getValues('bairro')}</p>
           </S.InfoGrid>
+
+          <span style={{ gridColumn: 'span 2' }}>
+            <Checkbox
+              label="Declaro que li e estou de acordo com as regras de submissão"
+              labelFor="terms"
+              onCheck={(e) => setAcceptedTerms(e)}
+            />
+          </span>
         </>
       ),
       triggers: ['nome']
@@ -534,7 +524,9 @@ limitadas)"
 
   return (
     <S.ContentWrapper onSubmit={handleSubmit(onSubmit)}>
-      <S.Title>FICHA DE INSCRICÃO (ETAPA {step}/5)</S.Title>
+      <S.Title>
+        FICHA DE INSCRIÇÃO (ETAPA {step}/{Object.keys(steps).length})
+      </S.Title>
 
       {steps[step as 1].component()}
 
@@ -551,10 +543,11 @@ limitadas)"
           </Button>
         )}
 
-        {step === 5 ? (
+        {step === Object.keys(steps).length ? (
           <Button
             type="submit"
             backgroundColor="green"
+            disabled={!acceptedTerms}
             style={{ width: 'fit-content' }}
             loading={loading}
           >
@@ -564,7 +557,9 @@ limitadas)"
           <Button
             type="button"
             backgroundColor="red"
+            loading={loading}
             onClick={async () => {
+              setInvalidCpf(false)
               if (await trigger(steps[step as 1].triggers as ['nome'])) {
                 setStep((s) => s + 1)
               }

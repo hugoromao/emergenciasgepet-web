@@ -42,7 +42,7 @@ export const ContentWrapper = styled.form`
 
 export const Title = styled.h1`
   ${({ theme }) => css`
-    font-size: calc(${theme.font.sizes.large} * 2);
+    font-size: calc(${theme.font.sizes.xxlarge});
     color: ${theme.colors.blue};
     font-weight: ${theme.font.bold};
     text-transform: uppercase;
@@ -195,7 +195,7 @@ export const StepButtonsWrapper = styled.div`
     border-radius: 0;
   }
 
-  ${media.greaterThan('small')`
+  ${media.greaterThan('medium')`
     width: 50vw;
     left: auto;
   `}

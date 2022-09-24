@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import media from 'styled-media-query'
 
 import { Container } from 'templates/Home/styles'
@@ -53,4 +53,30 @@ export const SectionText = styled.h2`
 
 export const NotFount = styled.h3`
   margin: auto;
+`
+
+export const ComprovanteWrapper = styled.form`
+  ${({ theme }) => css`
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+    border-radius: 0 0.8rem 0.8rem 0;
+    padding: 2.4rem;
+    margin-bottom: 2.4rem;
+    box-shadow: ${theme.shadows.default};
+    border-left: 0.4rem solid ${theme.colors.darkRed};
+  `}
+`
+
+export const PagamentoWrapper = styled.div`
+  ${({ theme }) => css`
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+    border-radius: 0 0.8rem 0.8rem 0;
+    padding: 2.4rem;
+    margin-bottom: 2.4rem;
+    box-shadow: ${theme.shadows.default};
+    border-left: 0.4rem solid ${theme.colors.darkRed};
+  `}
 `
