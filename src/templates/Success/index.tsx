@@ -21,10 +21,11 @@ const Success = () => {
       <S.Content>
         <Lottie options={defaultOptions} height={250} width={250} />
 
-        <h1>Inscrição confirmada!</h1>
+        <h1>Inscrição enviada!</h1>
+        <p>Acesse a Área do Usuário para confirmar o pagamento</p>
 
-        <Link href="/" passHref>
-          <Button>Início</Button>
+        <Link href="/perfil" passHref>
+          <Button>Acessar Área do Usuário</Button>
         </Link>
       </S.Content>
     </S.Wrapper>

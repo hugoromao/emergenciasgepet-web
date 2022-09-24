@@ -28,6 +28,13 @@ export const Content = styled.div`
       margin-bottom: ${theme.spacings.small};
     }
 
+    p {
+      text-align: center;
+      font-size: 1.6rem;
+      max-width: 20rem;
+      margin-bottom: ${theme.spacings.small};
+    }
+
     button {
       font-weight: ${theme.font.bold};
       text-transform: uppercase;

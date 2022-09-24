@@ -195,7 +195,7 @@ export const StepButtonsWrapper = styled.div`
     border-radius: 0;
   }
 
-  ${media.greaterThan('small')`
+  ${media.greaterThan('medium')`
     width: 50vw;
     left: auto;
   `}
