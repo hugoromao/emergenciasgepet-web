@@ -16,6 +16,7 @@ import { useRouter } from 'next/router'
 import api from 'services/api'
 import NativeSelect from 'components/NativeSelect'
 import Checkbox from 'components/Checkbox'
+import { ErrorText } from 'components/SignInForm/styles'
 
 type Inputs = {
   nome: string
@@ -88,6 +89,7 @@ const SubscriptionForm = () => {
   const [loading, setLoading] = useState(false)
   const [prevent, setPrevent] = useState(false)
   const [acceptedTerms, setAcceptedTerms] = useState(false)
+  const [invalidCpf, setInvalidCpf] = useState(false)
 
   const onSubmit: SubmitHandler<Inputs> = async ({
     bairro,
@@ -173,6 +175,7 @@ const SubscriptionForm = () => {
       const response = await api.get(`/subscriptions?filters[cpf][$eq]=${cpf}`)
       const validCpf = !response.data.data.length
       if (!validCpf) {
+        setInvalidCpf(true)
         enqueueSnackbar(
           'ESTE CPF NÃO PODE SER UTILIZADO, POIS JÁ FOI CADASTRADO',
           { variant: 'error' }
@@ -215,6 +218,15 @@ const SubscriptionForm = () => {
               })}
               error={errors.cpf?.message}
             />
+
+            {invalidCpf && (
+              <ErrorText>
+                ESTE CPF NÃO PODE SER UTILIZADO, POIS JÁ FOI CADASTRADO.
+                {/* <Link href="/signIn" passHref>
+                  <a>CLIQUE AQUI</a>
+                </Link> */}
+              </ErrorText>
+            )}
           </S.FormGrid>
           <S.CategoriesGrid>
             <S.FormInfo>Selecione a categoria</S.FormInfo>
@@ -502,7 +514,7 @@ limitadas)"
             <p>{getValues('email')}</p>
             <strong>Celular</strong>
             <p>{getValues('celular')}</p>
-            <strong>Categoria</strong>
+            <strong>Categoria de inscrição</strong>
             <p>{getValues('categoria')}</p>
             <strong>País</strong>
             <p>{getValues('pais')}</p>
@@ -568,6 +580,7 @@ limitadas)"
             backgroundColor="red"
             loading={loading}
             onClick={async () => {
+              setInvalidCpf(false)
               if (await trigger(steps[step as 1].triggers as ['nome'])) {
                 setStep((s) => s + 1)
               }
