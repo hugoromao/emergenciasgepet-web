@@ -87,7 +87,10 @@ const SubscriptionForm = () => {
     pais,
     semestre_de_graduacao,
     comprovante_de_categoria,
-    uf
+    uf,
+    nomeCracha,
+    rg,
+    sexo
   }) => {
     try {
       if (!prevent) {
@@ -114,7 +117,10 @@ const SubscriptionForm = () => {
             numero,
             pais,
             semestre_de_graduacao: String(semestre_de_graduacao),
-            uf
+            uf,
+            nomeCracha,
+            rg,
+            sexo
           }
         })
         .then(async (r) => {
@@ -511,7 +517,7 @@ limitadas)"
 
           <span style={{ gridColumn: 'span 2' }}>
             <Checkbox
-              label="Declaro que li e estou de acordo com as regras de submissão"
+              label="Declaro que li e estou de acordo com as regras de inscrição"
               labelFor="terms"
               onCheck={(e) => setAcceptedTerms(e)}
             />

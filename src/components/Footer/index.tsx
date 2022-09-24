@@ -11,7 +11,7 @@ const Footer = () => (
         <S.Strong>Contato</S.Strong>
         <S.TextRow>
           <Whatsapp />
-          (95) 8119-0726
+          (95) 98119-0726
         </S.TextRow>
         <S.TextRow>
           <Instagram />

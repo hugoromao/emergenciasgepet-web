@@ -4,6 +4,8 @@ import Header from 'components/Header'
 import Link from 'next/link'
 import * as S from './styles'
 
+import { areasOptions } from 'components/ArticleForm'
+
 const InfoTemplate = () => (
   <S.Wrapper>
     <S.HeadingWrapper>
@@ -16,35 +18,36 @@ const InfoTemplate = () => (
     <S.Content>
       <p>
         Para a submissão de trabalhos, são obrigatórios o cadastro no sistema e
-        posterior acesso, por meio de login e senha, estes também são
-        necessários para o acompanhamento do processo editorial em curso. Acesso
-        em uma conta existente ou Registrar uma nova conta.
+        posterior acesso por meio de login e senha, os quais também são
+        necessários para o acompanhamento do processo editorial em curso.
       </p>
 
       <strong>I - Instruções para submissão de trabalhos</strong>
 
-      <b>Data de recebimento de trabalhos - 21/09/2022 a 15/10/2022</b>
+      <b>Data de recebimento de trabalhos - 30/09/2022 a 20/10/2022</b>
+
+      <em>
+        Para submeter os trabalhos é necessário que o autor responsável pela
+        submissão deste esteja inscrito no evento. Os demais autores que se
+        inscreverem no congresso não deverão reenviar o trabalho já inscrito.
+        <br />
+        <b>
+          A submissão de trabalhos deve ser feita exclusivamente via site do
+          congresso.
+        </b>
+      </em>
 
       <p>Para submeter um trabalho, siga os seguintes passos:</p>
 
       <ol>
         <li>
-          Para submeter os trabalhos é necessário que o autor responsável pela
-          submissão deste esteja inscrito no evento. Os demais autores que se
-          inscreverem no congresso não deverão reenviar o trabalho já inscrito.
-          <br />
-          <b>
-            A submissão de trabalhos deve ser feita exclusivamente via site do
-            congresso.
-          </b>
+          Acesse "Entrar", fornecendo seu login e senha cadastrados durante a
+          inscrição.
         </li>
 
         <li>
-          Acesse a área restrita, fornecendo seu login e senha cadastrados
-          durante a inscrição.
+          Clique no botão "Faça sua submissão" no final da página SUBMISSÕES.
         </li>
-
-        <li>Clique no menu "Meus Trabalhos".</li>
 
         <li>
           Siga as instruções da tela para acessar o formulário de submissão de
@@ -64,8 +67,17 @@ const InfoTemplate = () => (
         </li>
 
         <li style={{ fontWeight: 700 }}>
-          Assinale a modalidade preferencial = Apresentação Oral OU Pôster
-          Eletrônico;
+          <b>
+            Assinale a modalidade de apresentação escolhida = Apresentação Oral
+            OU Pôster;
+            <br />
+            <S.Indent>
+              * Participantes que submeteram relatos de casos e resumos serão
+              direcionados à modalidade de apresentação com pôster. Caso a
+              submissão efetuada seja de artigo científico, o participante
+              poderá optar pelas modalidades pôster ou apresentação oral.
+            </S.Indent>
+          </b>
         </li>
 
         <li>Ao finalizar a submissão dos resumos, clique em “Enviar”;</li>
@@ -74,7 +86,7 @@ const InfoTemplate = () => (
           Após a submissão do resumo será enviado um e-mail automático para o
           responsável pelo trabalho (quem o submeteu), confirmando as
           informações cadastradas. Verifique se todas estão corretas. Caso não
-          estejam você deve acessar sua área restrita e efetuar as alterações
+          estejam você deve acessar a área do usuário e efetuar as alterações
           pertinentes (o que poderá ser feito até a data limite para submissão
           dos resumos).
         </li>
@@ -95,38 +107,27 @@ const InfoTemplate = () => (
       <strong>II - Temas</strong>
 
       <ul>
-        <li>Emergências Urológicas</li>
-        <li>Emergências Cardíacas</li>
-        <li>Emergências Vasculares</li>
-        <li>Emergências Ginecológicas</li>
-        <li>Emergências Pediátricas</li>
-        <li>Emergências Reumatológicas</li>
-        <li>Emergências Ortopédicas</li>
-        <li>Emergências Dermatológicas</li>
-        <li>Emergências Endocrinológicas</li>
-        <li>Emergências Oftálmicas</li>
-        <li>Emergências Psiquiátricas</li>
-        <li>Emergências Nefrológicas</li>
-        <li>Emergências Neurológicas</li>
-        <li>Emergências Hematológicas</li>
-        <li>Emergências Pneumológicas</li>
-        <li>Trauma Abdominal</li>
-        <li>Trauma Torácico</li>
+        {areasOptions.map((o) => {
+          if (o.label !== 'Selecionar') {
+            return <li key={o.label}>{o.label}</li>
+          }
+          return null
+        })}
       </ul>
 
       <strong>III - Informações importantes</strong>
 
       <ul>
         <li>
-          O resumo deve ser enviado em português, ou inglês ou espanhol. Porém,
+          O resumo deve ser enviado em português, inglês ou espanhol. Porém,
           qualquer que seja a língua escolhida é fundamental que esteja
           gramaticalmente correta, caso contrário, poderá ser motivo de recusa.
         </li>
-        <li>O prazo para submissão dos resumos é: 15/10/2022</li>
+        <li>O prazo para submissão dos resumos é: 20/10/2022</li>
         <li>
           Para receber o certificado do seu resumo após o evento, um dos autores
           listados deve estar cadastrado e ter participado do evento, desde que
-          atenda ao critério de limite de trabalhos submetidos por inscrição.
+          atenda ao limite de trabalhos submetidos por inscrição.
         </li>
         <li>Serão aceitos até 02 trabalhos por inscrito. </li>
         <li>
@@ -136,34 +137,32 @@ const InfoTemplate = () => (
       </ul>
 
       <b>
-        IMPORTANTE: O(a) apresentador(a) também tem de se incluir na lista de
-        autores!
+        IMPORTANTE: O(a) apresentador(a) também deve estar na lista de autores!
       </b>
 
       <ul>
         <li>
-          O resultado dos trabalhos será divulgado na área restrita do autor, no
-          menu “Meus Trabalhos” no dia <b>28/10/2022.</b>
+          O resultado dos trabalhos será divulgado na área do usuário do autor
+          no dia <b>30/10/2022.</b>
         </li>
         <li>
-          A apresentação deverá ser feita por aquele indicado quando da
-          submissão do trabalho. Se não for possível, outro autor do trabalho
-          deverá realizar a apresentação, desde que esteja inscrito no evento e
-          tenha pago a taxa de inscrição
+          A apresentação deverá ser feita por aquele indicado submissão do
+          trabalho. Se não for possível, outro autor do trabalho deverá realizar
+          a apresentação, desde que esteja inscrito no evento e tenha pago a
+          taxa de inscrição
         </li>
         <li>
           Os resumos serão enviados exclusivamente pelo site oficial do
           Congresso.
         </li>
         <li>
-          Será emitido apenas 01 (um) certificado por trabalho apresentado. Os
-          certificados de trabalhos serão impressos seguindo a ordem cadastrada
-          de autores.
+          Será emitido apenas 01 (um) certificado por trabalho apresentado,
+          seguindo a ordem cadastrada de autores.
         </li>
         <li>
           Atenção: todos os materiais produzidos sobre os resumos (anais,
           certificado, dentre outros) serão reprodução fiel das informações
-          submetidas pelo autor. Portanto, não é possível proceder a alterações
+          submetidas pelo autor. Portanto, não é possível realizar alterações
           quanto à grafia do título, resumo ou autores após a data limite para
           envio de trabalhos.{' '}
           <b>
@@ -176,8 +175,8 @@ const InfoTemplate = () => (
           </b>
         </li>
         <li>
-          Os valores com desconto respeitarão as datas da tabela ‘Taxas de
-          inscrição’ disponível no site do evento, independente da data de
+          Os valores com desconto respeitarão as datas da tabela ‘Tabela de
+          preços’ disponível no site do evento, independentemente da data de
           aprovação dos trabalhos. Para garantir o pagamento com desconto é
           preciso respeitar as datas descritas nessa tabela. Não haverá
           ressarcimento dos valores de inscrição pagos em casos de desistência
@@ -191,14 +190,14 @@ const InfoTemplate = () => (
         <li>
           A decisão final da comissão avaliadora é considerada suprema,
           irrevogável e inapelável, a qual não será revista. Os trabalhos que
-          não forem aceitos para apresentação oral, podem ser aprovados para
-          pôster eletrônico e os autores serão informados desta decisão.
+          não forem aceitos para apresentação oral podem ser aprovados para
+          pôster, os autores serão informados desta decisão.
         </li>
         <li>
           Ao submeter os trabalhos, os autores assumem o cumprimento das
           legislações e normas éticas que regem a pesquisa com seres humanos e
-          animais, incluindo-se a aprovação pelos Comitês de Ética em Pesquisa e
-          de Ética Clínica em Pesquisa em Animais.
+          animais, incluindo a aprovação pelos Comitês de Ética em Pesquisa e de
+          Ética Clínica em Pesquisa em Animais.
         </li>
         <li>
           A Comissão organizadora do Congresso não será responsável pelos custos
@@ -206,14 +205,14 @@ const InfoTemplate = () => (
           apresentação de trabalhos em qualquer modalidade.
         </li>
         <li>
-          O envio do resumo representa um compromisso do(s) autor(es) de
+          A submissão de trabalhos representa um compromisso do(s) autor(es) de
           apresentar o trabalho, se aceito, durante o evento.
         </li>
       </ul>
 
-      <strong>
-        IV - Instruções para preparação de resumos Artigo Científico
-      </strong>
+      <strong>IV - Instruções para preparação</strong>
+
+      <strong>Artigo Científico</strong>
 
       <ul>
         <li>
@@ -225,33 +224,39 @@ const InfoTemplate = () => (
         </li>
         <li>
           O manuscrito deve estar em formato <b>Microsoft Word</b>, as
-          ilustrações: Tabelas e Gráficos em formato Excell e as Figuras no
+          ilustrações (Tabelas e Gráficos) em formato Excell e, as Figuras, no
           formato <b>JPEG com 300 dpi</b> (inseridas no texto próximas onde são
-          citadas{' '}
-          <b>e também anexar no portal em arquivos separados do texto</b>).
+          citadas).
         </li>
         <li>
           Após fazer as alterações sugeridas pelo Conselho Consultivo e pelo
           Corpo Editorial, o autor deve enviar o arquivo contendo o artigo
-          completo finalizado e as figuras, as tabelas e os gráficos também em
-          arquivos separados do texto. Todos os arquivos devem estar formatados
-          segundo as exigências previamente citadas. O arquivo deve estar
-          claramente identificado e marcado com o nome do autor, o título do
-          trabalho e a data de envio. Siga as instruções gerais de estilo e de
-          referências, contidas abaixo.
+          completo finalizado. Todos os arquivos devem estar formatados segundo
+          as exigências previamente citadas. Estes devem estar claramente
+          identificados e marcados com o nome do autor, o título do trabalho e a
+          data de envio. Siga as instruções gerais de estilo e de referências
+          contidas abaixo.
         </li>
         <li>
           Ilustrações e Tabelas serão manuseadas de modo convencional,
-          entretanto as legendas devem ser incluídas no texto e no arquivo
-          separado. Caracteres não-standard (letras gregas, símbolos
-          matemáticos, etc) devem ser codificados no texto. Faça uma lista de
-          tais caracteres e dos códigos usados. Pede-se que as <b>figuras</b>{' '}
-          sejam gravadas com resolução gráfica mínima de <b>300 dpi</b>. Caso o
-          autor envie tais arquivos em resolução inferior à solicitada, a
-          Revista de Medicina não se responsabiliza se as imagens apresentarem
-          baixa resolução na apresentação final do artigo.
+          entretanto as legendas devem ser incluídas no texto. Caracteres
+          não-standard (letras gregas, símbolos matemáticos, etc.) devem ser
+          codificados no texto. Faça uma lista de tais caracteres e dos códigos
+          usados. Pede-se que as <b>figuras</b> sejam gravadas com resolução
+          gráfica mínima de <b>300 dpi</b>. Caso o autor envie tais arquivos em
+          resolução inferior à solicitada, a Revista de Medicina não se
+          responsabiliza se as imagens apresentarem baixa resolução na
+          apresentação final do artigo.
         </li>
       </ul>
+
+      <Link href="https://congrrmed.herokuapp.com/uploads/Modelo_Artigo_Cientifico_113cb181e8.docx?updated_at=2022-09-24T20:58:37.111Z">
+        <a>
+          <Button type="button" backgroundColor="red">
+            Baixar template
+          </Button>
+        </a>
+      </Link>
 
       <strong>Resumo</strong>
 
@@ -266,11 +271,19 @@ const InfoTemplate = () => (
         </li>
         <li>
           O resumo deverá ser digitado em corpo único, sendo sugerido para o
-          autor seguir a sequência:
+          autor seguir a sequência:{' '}
           <b>Introdução, Objetivo, Método, Resultados e Conclusão;</b> Essa
           sugestão não se aplica para Relatos de Caso/Casos Clínicos.
         </li>
       </ul>
+
+      <Link href="https://congrrmed.herokuapp.com/uploads/Template_resumo_simples_cdf56a3857.doc?updated_at=2022-09-24T21:06:03.482Z">
+        <a>
+          <Button type="button" backgroundColor="red">
+            Baixar template
+          </Button>
+        </a>
+      </Link>
 
       <strong>Relato de Caso/ Caso Clínico</strong>
 
@@ -283,8 +296,8 @@ const InfoTemplate = () => (
           Não deverão ser incluídas referências bibliográficas. Considerando que
           os relatos de casos contribuem de modo importante para a troca de
           experiência entre os profissionais, a Comissão recomenda que sejam
-          enviados apenas relatos de casos comuns com evolução atípica ou de
-          casos realmente raros, que tenham importante relevância.
+          enviados apenas relatos comuns com evolução atípica ou de casos
+          realmente raros, que tenham relevância.
         </li>
         <li>
           A Instituição ou Instituições onde o trabalho foi realizado, assim
@@ -307,11 +320,11 @@ const InfoTemplate = () => (
         </li>
         <li>
           Resultados baseados em afirmações como “resultados serão apresentados”
-          e ou “dados serão analisados” não serão considerados. Estes devem ser
+          ou “dados serão analisados” não serão considerados. Estes devem ser
           expostos de modo mais claro possível e as conclusões devem ser
           baseadas nos dados apresentados. Neste caso, os autores devem
-          apresentar resultados preliminares, ou se é um estudo em andamento,
-          por exemplo.{' '}
+          apresentar resultados preliminares ou se é um estudo em andamento, por
+          exemplo.{' '}
           <b>
             Do mesmo modo, não serão aceitos resumos cujos resultados, de um
             mesmo trabalho, estejam pulverizados em diferentes resumos.
@@ -327,6 +340,14 @@ const InfoTemplate = () => (
           drogas, escritos em letras minúsculas.
         </li>
       </ul>
+
+      <Link href="https://congrrmed.herokuapp.com/uploads/6d_MODELO_DE_RELATO_DE_CASO_c991ed15df.docx?updated_at=2022-09-24T21:09:41.397Z">
+        <a>
+          <Button type="button" backgroundColor="red">
+            Baixar template
+          </Button>
+        </a>
+      </Link>
 
       <Link href="/inscricao/artigo" passHref>
         <Button>FAÇA SUA SUBMISSÃO</Button>

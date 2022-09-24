@@ -62,6 +62,26 @@ const Participants = () => (
         title="Dra. Patrícia Cavalcante"
         text="Emergências Pediátricas"
       />
+      <Participant
+        src="/img/luis.jpeg"
+        title="Dr. Luis Fernando"
+        text="Emergências Gastroenterológicas"
+      />
+      <Participant
+        src="/img/mayron.JPG"
+        title="Dr. Mayron Melo"
+        text="Emergências Otorrinolaringológicas"
+      />
+      <Participant
+        src="/img/joselito.jpeg"
+        title="Dr. Joselito Barbosa"
+        text="Emergências Oftálmicas"
+      />
+      <Participant
+        src="/img/amon.jpeg"
+        title="Dr. Amon Rheingantz Machado"
+        text="Emergências Respiratórias"
+      />
     </S.Grid>
   </S.Wrapper>
 )

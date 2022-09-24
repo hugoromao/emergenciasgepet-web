@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import media from 'styled-media-query'
 
 export const Wrapper = styled.main``
@@ -34,13 +34,15 @@ export const ContentWrapper = styled.div`
 `
 
 export const Content = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  max-width: 130rem;
-  margin: 0 auto;
+  ${() => css`
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 130rem;
+    margin: 0 auto;
 
-  padding: 8rem 0;
+    padding: 8rem 0;
 
-  gap: 2.4rem;
+    gap: 2.4rem;
+  `}
 `

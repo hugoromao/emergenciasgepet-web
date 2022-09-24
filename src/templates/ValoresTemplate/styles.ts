@@ -12,6 +12,7 @@ export const Table = styled.table`
     font-family: sans-serif;
     min-width: 40rem;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    font-size: 1.2rem;
 
     thead tr {
       background-color: ${theme.colors.darkRed};
@@ -62,9 +63,14 @@ export const Content = styled(Container)`
   flex-direction: column;
   padding: 2.4rem;
 
+  #limitadas {
+    margin-bottom: 1.6rem;
+  }
+
   a,
   button {
     width: 100%;
+    text-decoration: none;
     text-transform: uppercase;
   }
 `

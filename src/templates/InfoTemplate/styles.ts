@@ -14,7 +14,7 @@ export const HeadingWrapper = styled.div`
   padding-bottom: 4.2rem;
 
   height: 25rem;
-  background: linear-gradient(338.56deg, #e52521 -3.74%, #b71e1a 103.67%);
+  background: linear-gradient(338.56deg, #920000 -3.74%, #b71e1a 103.67%);
 `
 
 export const Title = styled.h1`
@@ -45,6 +45,11 @@ export const Content = styled(Container)`
     height: fit-content;
     width: -webkit-fill-available;
     /* position: relative; */
+
+    a {
+      width: fit-content;
+      text-decoration: none;
+    }
 
     button {
       ${media.greaterThan('large')`

@@ -18,10 +18,13 @@ const Programacao = () => (
           extendedDay="NOV"
           subtitle={
             <>
+              <p>Credenciamento*</p>
+              <p>Palestra Magna Inaugural*</p>
               <p>Emergências Vasculares</p>
               <p>Emergências Cardiológicas</p>
               <p>Emergências Gastroenterológicas</p>
               <p>Emergências Ortopédicas</p>
+              <p>Apresentação Oral*</p>
             </>
           }
           title="DIA 1"
@@ -44,12 +47,13 @@ const Programacao = () => (
               <p>Trauma Abdominal</p>
               <p>Emergências Cardiológicas</p>
               <p>Emergências Nefrológicas</p>
-              <p>Emergências Endocrinológicas</p>
-              <p>Emergências Hematológicas</p>
+              <p>Minicursos*</p>
+              <p>Feira Regional*</p>
             </>
           }
           title="DIA 2"
         />
+
         <ScheduleItem
           day={19}
           extendedDay="NOV"
@@ -59,6 +63,8 @@ const Programacao = () => (
               <p>Emergências Reumatológicas</p>
               <p>Emergências Urológicas</p>
               <p>Ventilação Mecânica</p>
+              <p>Mesa Redonda*</p>
+              <p>Premiação - Avaliação Oral*</p>
             </>
           }
           title="DIA 3"

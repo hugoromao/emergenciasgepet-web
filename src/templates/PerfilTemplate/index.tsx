@@ -95,7 +95,7 @@ const MeusArtigosTemplate = () => {
             label: 'Estudante de graduação (medicina)'
           },
           MÉDICO: {
-            price: isAfter3009 ? 115 : 100,
+            price: isAfter3009 ? 120 : 100,
             label: 'Médico'
           },
           'Estudante de graduação (Outro curso da saúde)': {
@@ -104,7 +104,7 @@ const MeusArtigosTemplate = () => {
               'Estudante de graduação (outro curso da saúde) (vagas limitadas)'
           },
           'Outros profissionais da saúde': {
-            price: isAfter3009 ? 120 : 115,
+            price: isAfter3009 ? 110 : 100,
             label: 'Outros profissionais da saúde'
           }
         })
@@ -162,11 +162,10 @@ const MeusArtigosTemplate = () => {
 
         {inscricao && (
           <S.ComprovanteWrapper onSubmit={handleSubmit(onSubmit)}>
-            {console.log(inscricao)}
             <p>
               Status:{' '}
               <strong>
-                {inscricao?.attributes.confirmed ? 'CONFIRMADA' : 'PENDENTE'}
+                {inscricao?.attributes.confirmado ? 'CONFIRMADA' : 'PENDENTE'}
               </strong>
             </p>
             <p>
@@ -220,7 +219,7 @@ const MeusArtigosTemplate = () => {
                     ).replace('.', ',')}
                   </Title>
                 )}
-                <Name>Chave Pix: Grupogepet46@gmail.com</Name>
+                <Name>Chave Pix: grupogepet46@gmail.com</Name>
               </Column>
               <WarningWrapper>
                 <Warning />

@@ -34,6 +34,44 @@ type Inputs = {
   areaDeEstudo: string
 }
 
+export const areasOptions = [
+  { value: '', label: 'Selecionar' },
+  { value: 'ACLS', label: 'Advanced Cardiac Life Support(ACLS)' },
+  { value: 'emergencias-urologicas', label: 'Emergências Urológicas' },
+  { value: 'emergencias-cardiacas', label: 'Emergências Cardíacas' },
+  { value: 'emergencias-vasculares', label: 'Emergências Vasculares' },
+  { value: 'emergencias-ginecologicas', label: 'Emergências Ginecológicas' },
+  { value: 'emergencias-pediatricas', label: 'Emergências Pediátricas' },
+  {
+    value: 'emergencias-reumatologicas',
+    label: 'Emergências Reumatológicas'
+  },
+  { value: 'emergencias-ortopedicas', label: 'Emergências Ortopédicas' },
+  {
+    value: 'emergencias-gastroenterologicas',
+    label: 'Emergências Gastroenterológicas'
+  },
+  {
+    value: 'emergencias-infectocontagiosas',
+    label: 'Emergências Infectocontagiosas'
+  },
+  {
+    value: 'emergencias-otorrinolaringológicas',
+    label: 'Emergências Otorrinolaringológicas'
+  },
+  {
+    value: 'emergencias-dermatologicas',
+    label: 'Emergências Dermatológicas'
+  },
+  { value: 'emergencias-oftalmicas', label: 'Emergencias Oftálmicas' },
+  { value: 'emergencias-psiquiatricas', label: 'Emergencias Psiquiátricas' },
+  { value: 'emergencias-neurologicas', label: 'Emergencias Neurológicas' },
+  { value: 'emergencias-pneumologicas', label: 'Emergencias Respiratórias' },
+  { value: 'emergencias-nefrologicas', label: 'Emergencias Nefrológicas' },
+  { value: 'trauma-abdominal', label: 'Trauma Abdominal' },
+  { value: 'emergencias-toracico', label: 'Trauma Torácico' }
+]
+
 const ArticleForm = () => {
   const {
     register,
@@ -116,32 +154,14 @@ const ArticleForm = () => {
   const modalityOptions = [
     { value: '', label: 'Selecionar' },
     { value: 'relatoCaso', label: 'Relato de caso' },
-    { value: 'resumoSimples', label: 'Resumo simples' },
-    { value: 'resumoExpandido', label: 'Resumo expandido' }
+    { value: 'resumoSimples', label: 'Resumo' },
+    { value: 'resumoExpandido', label: 'Artigo Científico' }
   ]
 
-  const areasOptions = [
+  const modalidadeDeApresentação = [
     { value: '', label: 'Selecionar' },
-    { value: 'emergencias-urologicas', label: 'Emergências Urológicas' },
-    { value: 'emergencias-cardiacas', label: 'Emergências Cardíacas' },
-    { value: 'emergencias-vasculares', label: 'Emergências Vasculares' },
-    { value: 'emergencias-ginecologicas', label: 'Emergências Ginecológicas' },
-    { value: 'emergencias-pediatricas', label: 'Emergências Pediátricas' },
-    {
-      value: 'emergencias-reumatologicas',
-      label: 'Emergências Reumatológicas'
-    },
-    { value: 'emergencias-ortopedicas', label: 'Emergências Ortopédicas' },
-    {
-      value: 'emergencias-gastroenterologicas',
-      label: 'Emergências gastroenterológicas'
-    },
-    {
-      value: 'emergencias-dermatologicas',
-      label: 'Emergências Dermatológicas'
-    },
-    { value: 'trauma-abdominal', label: 'Trauma Abdominal' },
-    { value: 'trauma-toracico', label: 'Trauma Torácico' }
+    { value: 'apresentacao-oral', label: 'Apresentação oral' },
+    { value: 'poster', label: 'Pôster' }
   ]
 
   return (
@@ -289,7 +309,7 @@ const ArticleForm = () => {
       />
 
       <NativeSelect
-        label="Modalidade"
+        label="Modalidade*"
         options={modalityOptions}
         register={register('modalidade', {
           required: 'Este campo é obrigatório'
@@ -298,7 +318,16 @@ const ArticleForm = () => {
       />
 
       <NativeSelect
-        label="Área Temática"
+        label="Modalidade de apresentação*"
+        options={modalidadeDeApresentação}
+        register={register('modalidade', {
+          required: 'Este campo é obrigatório'
+        })}
+        error={errors.modalidade?.message}
+      />
+
+      <NativeSelect
+        label="Área Temática*"
         options={areasOptions}
         register={register('areaDeEstudo', {
           required: 'Este campo é obrigatório'
@@ -307,7 +336,7 @@ const ArticleForm = () => {
       />
 
       <TextField
-        label="Autores"
+        label="Autores*"
         name="autores"
         register={register('autores', {
           required: 'Este campo é obrigatório'

@@ -68,8 +68,8 @@ export const HeroContent = styled(Container)`
 
     img {
       grid-area: img;
-      width: 10rem;
-      height: 10rem;
+      width: 20rem;
+      height: 20rem;
     }
 
     &::after {

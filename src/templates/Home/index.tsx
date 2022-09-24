@@ -16,10 +16,10 @@ const Home = () => (
     <S.Hero>
       <Header transparent hideLogo />
       <S.HeroContent>
-        <img src="/img/logo.png" />
+        <img src="/img/logo2.png" />
         <S.HeroText>
           <h1>I congresso roraimense de trauma e emergências médicas</h1>
-          <p>17, 18, 19 de novembro</p>
+          <p style={{ color: '#D1B53F' }}>17, 18, 19 de novembro</p>
         </S.HeroText>
 
         <S.ButtonsWrapper>
@@ -94,8 +94,8 @@ const Home = () => (
       <S.AboutText>
         {/* <p id="about">Credenciamento</p> */}
         <strong style={{ textAlign: 'left' }}>
-          Credenciamento, Palestras e Apresentações Orais: No Conselho Regional
-          de Medicina
+          Credenciamento, Palestras e Apresentações Orais: Conselho Regional de
+          Medicina (CRM)
         </strong>
         <p style={{ lineHeight: '3rem' }}>
           O coração da medicina em Roraima pronto para receber os congressistas
@@ -110,12 +110,11 @@ const Home = () => (
       <S.AboutText>
         {/* <p id="about">Sobre o congresso</p> */}
         <strong style={{ textAlign: 'left' }}>
-          Palestras, E-pôsters e Minicursos: UERR, Campus Boa Vista: UERR,
-          Campus Boa Vista
+          Palestras, Pôsters e Minicursos: UERR, Campus Boa Vista
         </strong>
       </S.AboutText>
       <S.AboutImage>
-        <img src="/img/uerr.jpeg" alt="doctors" />
+        <img src="/img/Uerr_foto.JPG" alt="doctors" />
       </S.AboutImage>
     </S.About>
 

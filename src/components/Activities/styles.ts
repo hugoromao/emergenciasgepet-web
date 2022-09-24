@@ -21,6 +21,7 @@ export const Grid = styled.div`
   grid-template-columns: 1fr 1fr;
   gap: 3.2rem;
   width: 100%;
+  text-align: justify;
 
   ${media.between('medium', 'large')`
       grid-template-columns: 1fr 1fr;

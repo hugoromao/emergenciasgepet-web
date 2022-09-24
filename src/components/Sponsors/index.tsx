@@ -7,13 +7,13 @@ const Sponsors = () => (
 
     <S.CardsWrapper>
       <S.Card>
-        <img src="/img/gepet.JPG" alt="CRM" />
+        <img src="/img/circulo.png" alt="CRM" />
       </S.Card>
       <S.Card>
-        <img src="/img/uerr.PNG" alt="CRM" />
+        <img src="/img/brasao.PNG" alt="CRM" />
       </S.Card>
       <S.Card>
-        <img src="/img/crm.JPG" alt="CRM" />
+        <img src="/img/crm.PNG" alt="CRM" />
       </S.Card>
     </S.CardsWrapper>
   </S.Wrapper>

@@ -40,8 +40,8 @@ const Activities = () => (
         text="Diferentes especialistas discutirão o tema escolhido, debatendo sobre condutas das suas áreas e atualizações, além de responder dúvidas de congressistas interessados."
       />
       <Card
-        title="Apresentação de e-pôsters"
-        text="Relatos de caso e resumos submetidos e aprovados previamente serão apresentados em formato de e-pôster pelos autores congressistas."
+        title="Apresentação de pôsters"
+        text="Relatos de caso e resumos submetidos e aprovados previamente serão apresentados em formato de pôster pelos autores congressistas."
       />
       <Card
         title="Apresentação oral de artigos"
@@ -49,7 +49,7 @@ const Activities = () => (
       />
       <Card
         title="Prêmios para os melhores trabalhos"
-        text="Os trabalhos apresentados tanto por e-pôster quanto oralmente serão avaliados por profissionais capacitados e, os melhores, receberão premiação no último dia do evento."
+        text="Os trabalhos apresentados oralmente serão avaliados por profissionais capacitados e, os melhores, receberão premiação no último dia do evento."
       />
       <Card
         title="Minicursos"
