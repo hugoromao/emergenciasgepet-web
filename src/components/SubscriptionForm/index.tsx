@@ -47,27 +47,6 @@ type Inputs = {
   comprovante_de_categoria: File
 }
 
-// const isAfter3009 = dayjs().isAfter('2022-09-30')
-
-// const categoriesPrices = {
-//   'Estudante de graduação (MEDICINA)': {
-//     price: isAfter3009 ? 80 : 70,
-//     label: 'Estudante de graduação (medicina)'
-//   },
-//   MÉDICO: {
-//     price: isAfter3009 ? 115 : 100,
-//     label: 'Médico'
-//   },
-//   'Estudante de graduação (Outro curso da saúde)': {
-//     price: isAfter3009 ? 90 : 80,
-//     label: 'Estudante de graduação (outro curso da saúde) (vagas limitadas)'
-//   },
-//   'Outros profissionais da saúde': {
-//     price: isAfter3009 ? 120 : 115,
-//     label: 'Outros profissionais da saúde'
-//   }
-// }
-
 const SubscriptionForm = () => {
   const {
     register,

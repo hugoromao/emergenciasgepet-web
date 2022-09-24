@@ -42,7 +42,7 @@ export const ContentWrapper = styled.form`
 
 export const Title = styled.h1`
   ${({ theme }) => css`
-    font-size: calc(${theme.font.sizes.large} * 2);
+    font-size: calc(${theme.font.sizes.xxlarge});
     color: ${theme.colors.blue};
     font-weight: ${theme.font.bold};
     text-transform: uppercase;

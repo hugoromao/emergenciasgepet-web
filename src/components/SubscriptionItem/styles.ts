@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components'
+import media from 'styled-media-query'
 
 export const Wrapper = styled.div`
   ${({ theme }) => css`
@@ -10,7 +11,6 @@ export const Wrapper = styled.div`
 
     border: 0.1rem solid ${theme.colors.lightGray1};
     color: ${theme.colors.lightGray1};
-    width: fit-content;
 
     svg {
       height: 4.2rem;
@@ -20,6 +20,12 @@ export const Wrapper = styled.div`
     strong {
       font-size: 2.4rem;
     }
+
+    width: fit-content;
+
+    ${media.lessThan('medium')`
+      width: 100%;
+    `}
   `}
 `
 
