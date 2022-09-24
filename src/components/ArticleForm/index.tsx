@@ -147,7 +147,7 @@ const ArticleForm = () => {
   return (
     <S.ContentWrapper onSubmit={handleSubmit(onSubmit)}>
       <S.Title>
-        SUBMISSÃO DE ARTIGO - 1º congresso roraimense de trauma e emergências
+        SUBMISSÃO DE ARTIGO -I congresso roraimense de trauma e emergências
         médicas
       </S.Title>
       <S.FormGrid>

@@ -14,7 +14,7 @@ export const Wrapper = styled(Container)`
   margin-top: 5.4rem;
   margin-bottom: 5.4rem;
 
-  min-height: auto;
+  min-height: auto !important;
 `
 
 export const CardsWrapper = styled.div`

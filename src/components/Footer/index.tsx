@@ -20,7 +20,7 @@ const Footer = () => (
             target="_blank"
             rel="noreferrer"
           >
-            @gepet_medicine
+            @gepet_uerr
           </a>
         </S.TextRow>
         <S.TextRow style={{ wordBreak: 'break-word' }}>
@@ -48,7 +48,7 @@ const Footer = () => (
       </S.Column> */}
 
       <S.Copyright>
-        Copyright © 2022 – 1º Congresso Roraimense de Trauma e Emergências
+        Copyright © 2022 – I Congresso Roraimense de Trauma e Emergências
         Médicas
       </S.Copyright>
     </S.Grid>

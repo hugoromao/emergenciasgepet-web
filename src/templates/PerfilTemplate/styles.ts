@@ -22,7 +22,8 @@ export const Title = styled.h1`
   margin: 0 auto;
   margin-top: auto;
   color: white;
-  word-break: break-all;
+  /* word-break: break-all; */
+  word-break: break-word;
   ${media.lessThan('medium')`
     font-size: 3.6rem;
   `}

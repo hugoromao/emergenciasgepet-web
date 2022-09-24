@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components'
-
+import media from 'styled-media-query'
 import { Container } from 'templates/Home/styles'
 
 export const Wrapper = styled.main``
@@ -10,7 +10,7 @@ export const Table = styled.table`
     margin: 25px 0;
     font-size: 0.9em;
     font-family: sans-serif;
-    min-width: 400px;
+    min-width: 40rem;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 
     thead tr {
@@ -32,6 +32,10 @@ export const Table = styled.table`
     tbody tr:last-of-type {
       border-bottom: 2px solid ${theme.colors.darkRed};
     }
+
+    ${media.lessThan('medium')`
+      min-width: auto;
+    `}
   `}
 `
 

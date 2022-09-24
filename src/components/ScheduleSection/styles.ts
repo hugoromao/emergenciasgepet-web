@@ -24,7 +24,7 @@ export const Wrapper = styled(Container)`
     position: absolute;
     top: 0;
     left: -10rem;
-    background-image: url('/img/plus-schedule-left.png');
+    /* background-image: url('/img/plus-schedule-left.png'); */
     width: 35rem;
     height: 35rem;
 
@@ -42,7 +42,7 @@ export const Wrapper = styled(Container)`
     position: absolute;
     bottom: 0;
     right: 0rem;
-    background-image: url('/img/plus-schedule-right.png');
+    /* background-image: url('/img/plus-schedule-right.png'); */
     background-repeat: no-repeat;
     width: 26rem;
     height: 20rem;
@@ -72,6 +72,7 @@ export const Strong = styled.strong`
   font-size: 6.4rem;
   font-weight: 700;
   position: relative;
+  text-align: center;
 
   ${media.lessThan('medium')`
       font-size: 3.2rem;

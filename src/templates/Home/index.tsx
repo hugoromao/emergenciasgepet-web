@@ -18,7 +18,7 @@ const Home = () => (
       <S.HeroContent>
         <img src="/img/logo.png" />
         <S.HeroText>
-          <h1>1º congresso roraimense de trauma e emergências médicas</h1>
+          <h1>I congresso roraimense de trauma e emergências médicas</h1>
           <p>17, 18, 19 de novembro</p>
         </S.HeroText>
 
@@ -59,11 +59,13 @@ const Home = () => (
 
     <S.About>
       <S.AboutText>
-        <strong>I Congresso Roraimense de Trauma e Emergências Médicas</strong>
+        <strong style={{ textAlign: 'left' }}>
+          I Congresso Roraimense de Trauma e Emergências Médicas
+        </strong>
         <p style={{ lineHeight: '3rem' }}>
-          De 17 a 19 de novembro, vamos estar juntos, em Boa Vista-RR, no evento
+          De 17 a 19 de novembro vamos estar juntos, em Boa Vista-RR, no evento
           do GEPET mais aguardado dos últimos tempos. Será um momento especial
-          para nos reencontrarmos, compartilharmos experiências, aprendizados e
+          para nos reencontrarmos, compartilharmos experiências, aprendizados, e
           nos tornarmos ainda melhores!
         </p>
         <Button as="a" href="/valores">
@@ -91,7 +93,7 @@ const Home = () => (
     <S.About>
       <S.AboutText>
         {/* <p id="about">Credenciamento</p> */}
-        <strong>
+        <strong style={{ textAlign: 'left' }}>
           Credenciamento, Palestras e Apresentações Orais: No Conselho Regional
           de Medicina
         </strong>
@@ -107,7 +109,7 @@ const Home = () => (
     <S.About>
       <S.AboutText>
         {/* <p id="about">Sobre o congresso</p> */}
-        <strong>
+        <strong style={{ textAlign: 'left' }}>
           Palestras, E-pôsters e Minicursos: UERR, Campus Boa Vista: UERR,
           Campus Boa Vista
         </strong>

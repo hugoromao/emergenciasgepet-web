@@ -15,7 +15,7 @@ export const Hero = styled.section`
     flex-direction: column;
     height: fit-content;
 
-    background: linear-gradient(357.23deg, #e52521 19.28%, #b71e1a 128.93%);
+    background: linear-gradient(357.23deg, #920000 19.28%, #b71e1a 128.93%);
     position: relative;
     padding: 2.4rem;
 
@@ -167,6 +167,8 @@ export const AboutText = styled.div`
   gap: 1.6rem;
   color: #000;
 
+  text-align: justify;
+
   margin: 12rem 0;
 
   ${media.lessThan('medium')`
@@ -241,7 +243,7 @@ export const AboutImage = styled.div`
     width: 25rem;
     height: 14rem;
     background-repeat: no-repeat;
-    background-image: url('/img/plus-left.png');
+    /* background-image: url('/img/plus-left.png'); */
     left: -4rem;
     bottom: 2rem;
     z-index: 0;
@@ -257,7 +259,7 @@ export const AboutImage = styled.div`
     width: 20rem;
     height: 18rem;
     background-repeat: no-repeat;
-    background-image: url('/img/plus-right.png');
+    /* background-image: url('/img/plus-right.png'); */
     right: 5rem;
     bottom: 4rem;
     z-index: 2;

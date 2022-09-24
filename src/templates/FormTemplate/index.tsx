@@ -15,7 +15,7 @@ const FormTemplate = ({ children }: FormTemplateProps) => (
       <S.Hero>
         <Image width="100" height="100" src="/img/logo.png" />
         <S.Strong>
-          1º congresso roraimense de trauma e emergências médicas
+          I congresso roraimense de trauma e emergências médicas
         </S.Strong>
       </S.Hero>
     </S.TemplateWrapper>

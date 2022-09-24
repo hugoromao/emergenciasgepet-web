@@ -14,15 +14,7 @@ export const Wrapper = styled(Container)`
 export const Grid = styled.div`
   display: grid;
   gap: 4.2rem;
-  grid-template-columns: 1fr 1fr 1fr;
-
-  ${media.between('medium', 'large')`
-      grid-template-columns: 1fr 1fr;
-  `}
-
-  ${media.lessThan('medium')`
-      grid-template-columns: 1fr;
-  `}
+  grid-template-columns: 1fr;
 `
 
 export const Title = styled.strong`

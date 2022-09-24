@@ -53,14 +53,14 @@ const ValoresTemplate = () => (
         </S.THead>
         <S.TBody>
           <S.Tr>
-            <S.Td>Estudante de Graduação (MEDICINA)</S.Td>
+            <S.Td>Estudante de Graduação (Medicina)</S.Td>
             <S.Td>
               {categoriesPrices['Estudante de graduação (MEDICINA)'].price}
             </S.Td>
           </S.Tr>
           <S.Tr>
             <S.Td>
-              Estudante de Graduação (OUTRO CURSO DA SAÚDE) (VAGAS LIMITADAS)
+              Estudante de Graduação (Outro Curso da Saúde) (VAGAS LIMITADAS)
             </S.Td>
             <S.Td>
               {' '}
@@ -76,7 +76,7 @@ const ValoresTemplate = () => (
             <S.Td> {categoriesPrices.MÉDICO.price}</S.Td>
           </S.Tr>
           <S.Tr>
-            <S.Td>OUTROS PROFISSIONAIS DA SAÚDE (VAGAS LIMITADAS)</S.Td>
+            <S.Td>Outros Profissionais da Saúde (VAGAS LIMITADAS)</S.Td>
             <S.Td>
               {' '}
               {categoriesPrices['Outros profissionais da saúde'].price}

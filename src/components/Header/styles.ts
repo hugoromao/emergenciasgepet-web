@@ -112,7 +112,7 @@ export const Container = styled.div<ContainerProps>`
       fill: ${theme.colors.white};
     }
 
-    ${media.greaterThan('medium')`
+    ${media.greaterThan('large')`
       #menu {
         display: none;
       }

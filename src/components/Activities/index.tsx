@@ -49,7 +49,7 @@ const Activities = () => (
       />
       <Card
         title="Prêmios para os melhores trabalhos"
-        text="os trabalhos apresentados tanto por e-pôster quanto oralmente serão avaliados por profissionais capacitados e, os melhores, receberão premiação no último dia do evento."
+        text="Os trabalhos apresentados tanto por e-pôster quanto oralmente serão avaliados por profissionais capacitados e, os melhores, receberão premiação no último dia do evento."
       />
       <Card
         title="Minicursos"

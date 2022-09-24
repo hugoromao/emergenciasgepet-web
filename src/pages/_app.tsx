@@ -21,12 +21,12 @@ function App({ Component, pageProps: { session, ...pageProps } }: AppProps) {
         }}
       >
         <NextSeo
-          title="1º congresso roraimense de trauma e emergências médicas"
+          title="I congresso roraimense de trauma e emergências médicas"
           description="17, 18, 19 de novembro."
           canonical="https://congresso-roraimense-de-trauma-e-emergencias-medicas-web.vercel.app/"
           openGraph={{
             url: 'https://congresso-roraimense-de-trauma-e-emergencias-medicas-web.vercel.app/',
-            title: '1º congresso roraimense de trauma e emergências médicas',
+            title: 'I congresso roraimense de trauma e emergências médicas',
             description: '17, 18, 19 de novembro.',
             images: [
               {
@@ -37,13 +37,13 @@ function App({ Component, pageProps: { session, ...pageProps } }: AppProps) {
                 type: 'image/jpeg'
               }
             ],
-            site_name: '1º congresso roraimense de trauma e emergências médicas'
+            site_name: 'I congresso roraimense de trauma e emergências médicas'
           }}
         />
         <ThemeProvider theme={theme}>
           <Head>
             <title>
-              1º CONGRESSO RORAIMENSE DE TRAUMA E EMERGÊNCIAS MÉDICAS
+              I CONGRESSO RORAIMENSE DE TRAUMA E EMERGÊNCIAS MÉDICAS
             </title>
             <link rel="shortcut icon" href="/img/favicon.png" />
             <link rel="apple-touch-icon" href="/img/favicon.png" />

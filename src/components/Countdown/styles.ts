@@ -13,7 +13,7 @@ export const Wrapper = styled(Container)`
     padding: 2.4rem;
     background-color: ${theme.colors.darkRed};
 
-    background: linear-gradient(357.23deg, #e52521 19.28%, #b71e1a 128.93%);
+    background: ${theme.gradients.red};
 
     margin: 0 auto;
     margin-top: 5.4rem;
