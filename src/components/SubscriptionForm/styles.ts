@@ -127,6 +127,7 @@ export const Payment = styled.div`
     ${media.lessThan('medium')`
       grid-template-columns: 1fr;
       width: 100%;
+      column-gap: 0;
     `}
 
     h1 {
@@ -139,6 +140,10 @@ export const Name = styled.p`
   ${({ theme }) => css`
     font-size: ${theme.font.sizes.xxlarge};
     color: black;
+
+    ${media.lessThan('small')`
+      font-size: 1.2rem;
+    `}
   `}
 `
 
@@ -159,6 +164,10 @@ export const Warning = styled.div`
       font-size: ${theme.font.sizes.xsmall};
       font-weight: 500;
     }
+
+    ${media.lessThan('small')`
+      flex-direction: column;
+    `}
   `}
 `
 
@@ -174,10 +183,14 @@ export const BorderWrapper = styled.div`
 export const QRCodeWrapper = styled.div`
   ${() => css`
     position: relative;
-    width: 30rem;
-    height: 30rem;
+    /* width: 30rem; */
+    /* height: 30rem; */
     border-radius: 2.4rem;
     /* margin: 1.6rem; */
+
+    img {
+      width: 100%;
+    }
   `}
 `
 

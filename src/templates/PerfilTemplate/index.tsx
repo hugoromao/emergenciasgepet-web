@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useSession } from 'next-auth/react'
 import MyArticleItem from 'components/MyArticleItem'
@@ -13,7 +14,6 @@ import FileField from 'components/FileField'
 import { useForm } from 'react-hook-form'
 import Button from 'components/Button'
 import { Warning } from 'styled-icons/material-rounded'
-import Image from 'next/image'
 import {
   BorderWrapper,
   Payment,
@@ -202,7 +202,7 @@ const MeusArtigosTemplate = () => {
           <Payment>
             <BorderWrapper>
               <QRCodeWrapper>
-                <Image src="/img/qrcode.png" layout="fill" objectFit="fill" />
+                <img src="/img/qrcode.png" alt="qrcode" />
               </QRCodeWrapper>
             </BorderWrapper>
             <Column>
