@@ -9,7 +9,7 @@ import Button from 'components/Button'
 import FileField from 'components/FileField'
 import TextField from 'components/TextField'
 import * as S from './styles'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import CategoryRadio from 'components/CategoryRadio'
 // import dayjs from 'dayjs'
 import { useRouter } from 'next/router'
@@ -69,6 +69,13 @@ const SubscriptionForm = () => {
   const [prevent, setPrevent] = useState(false)
   const [acceptedTerms, setAcceptedTerms] = useState(false)
   const [invalidCpf, setInvalidCpf] = useState(false)
+
+  const [estudante, setEstudante] = useState(0)
+  const [estudanteFora, setEstudanteFora] = useState(0)
+  const [medicosTotal, setMedicosTotal] = useState(0)
+  const [outros, setOutros] = useState(0)
+
+  console.log(estudante, estudanteFora, medicosTotal, outros)
 
   const onSubmit: SubmitHandler<Inputs> = async ({
     bairro,
@@ -216,78 +223,86 @@ const SubscriptionForm = () => {
           <S.CategoriesGrid>
             <S.FormInfo>Selecione a categoria</S.FormInfo>
 
-            <CategoryRadio
-              id="Estudante de graduação (MEDICINA)"
-              name="Estudante de graduação (MEDICINA)"
-              value="Estudante de graduação (MEDICINA)"
-              isSelected={
-                getValues('categoria') === 'Estudante de graduação (MEDICINA)'
-              }
-              register={register('categoria', {
-                required: 'Escolha pelo menos uma categoria'
-              })}
-              title="Estudante de graduação (medicina)"
-              prices={[
-                { label: 'Preço até 30/09', price: 70 },
-                { label: 'Preço até 15/10', price: 80 }
-              ]}
-              error={errors.categoria?.message}
-            />
+            {estudante < 100 && (
+              <CategoryRadio
+                id="Estudante de graduação (MEDICINA)"
+                name="Estudante de graduação (MEDICINA)"
+                value="Estudante de graduação (MEDICINA)"
+                isSelected={
+                  getValues('categoria') === 'Estudante de graduação (MEDICINA)'
+                }
+                register={register('categoria', {
+                  required: 'Escolha pelo menos uma categoria'
+                })}
+                title="Estudante de graduação (medicina)"
+                prices={[
+                  { label: 'Preço até 30/09', price: 70 },
+                  { label: 'Preço até 15/10', price: 80 }
+                ]}
+                error={errors.categoria?.message}
+              />
+            )}
 
-            <CategoryRadio
-              id="Estudante de graduação (Outro curso da saúde)"
-              name="Estudante de graduação (Outro curso da saúde)"
-              value="Estudante de graduação (Outro curso da saúde)"
-              isSelected={
-                getValues('categoria') ===
-                'Estudante de graduação (Outro curso da saúde)'
-              }
-              register={register('categoria', {
-                required: 'Escolha pelo menos uma categoria'
-              })}
-              title="Estudante de graduação 
+            {estudanteFora < 20 && (
+              <CategoryRadio
+                id="Estudante de graduação (Outro curso da saúde)"
+                name="Estudante de graduação (Outro curso da saúde)"
+                value="Estudante de graduação (Outro curso da saúde)"
+                isSelected={
+                  getValues('categoria') ===
+                  'Estudante de graduação (Outro curso da saúde)'
+                }
+                register={register('categoria', {
+                  required: 'Escolha pelo menos uma categoria'
+                })}
+                title="Estudante de graduação 
 (outro curso da saúde) (vagas 
 limitadas)"
-              prices={[
-                { label: 'Preço até 30/09', price: 80 },
-                { label: 'Preço até 15/10', price: 90 }
-              ]}
-              error={errors.categoria?.message}
-            />
+                prices={[
+                  { label: 'Preço até 30/09', price: 80 },
+                  { label: 'Preço até 15/10', price: 90 }
+                ]}
+                error={errors.categoria?.message}
+              />
+            )}
 
-            <CategoryRadio
-              id="MÉDICO"
-              name="MÉDICO"
-              value="MÉDICO"
-              isSelected={getValues('categoria') === 'MÉDICO'}
-              register={register('categoria', {
-                required: 'Escolha pelo menos uma categoria'
-              })}
-              title="Médico (vagas limitadas)"
-              prices={[
-                { label: 'Preço até 30/09', price: 100 },
-                { label: 'Preço até 15/10', price: 115 }
-              ]}
-              error={errors.categoria?.message}
-            />
+            {medicosTotal < 20 && (
+              <CategoryRadio
+                id="MÉDICO"
+                name="MÉDICO"
+                value="MÉDICO"
+                isSelected={getValues('categoria') === 'MÉDICO'}
+                register={register('categoria', {
+                  required: 'Escolha pelo menos uma categoria'
+                })}
+                title="Médico (vagas limitadas)"
+                prices={[
+                  { label: 'Preço até 30/09', price: 100 },
+                  { label: 'Preço até 15/10', price: 115 }
+                ]}
+                error={errors.categoria?.message}
+              />
+            )}
 
-            <CategoryRadio
-              id="Outros profissionais da saúde"
-              name="Outros profissionais da saúde"
-              value="Outros profissionais da saúde"
-              isSelected={
-                getValues('categoria') === 'Outros profissionais da saúde'
-              }
-              register={register('categoria', {
-                required: 'Escolha pelo menos uma categoria'
-              })}
-              title="Outros profissionais da saúde (vagas limitadas)"
-              prices={[
-                { label: 'Preço até 30/09', price: 115 },
-                { label: 'Preço até 15/10', price: 120 }
-              ]}
-              error={errors.categoria?.message}
-            />
+            {outros < 10 && (
+              <CategoryRadio
+                id="Outros profissionais da saúde"
+                name="Outros profissionais da saúde"
+                value="Outros profissionais da saúde"
+                isSelected={
+                  getValues('categoria') === 'Outros profissionais da saúde'
+                }
+                register={register('categoria', {
+                  required: 'Escolha pelo menos uma categoria'
+                })}
+                title="Outros profissionais da saúde (vagas limitadas)"
+                prices={[
+                  { label: 'Preço até 30/09', price: 115 },
+                  { label: 'Preço até 15/10', price: 120 }
+                ]}
+                error={errors.categoria?.message}
+              />
+            )}
           </S.CategoriesGrid>
         </>
       ),
@@ -527,6 +542,37 @@ limitadas)"
       triggers: ['nome']
     }
   }
+
+  async function fetchRemainingSubscriptions() {
+    try {
+      const estudante = await api.get<any>(
+        '/subscriptions?filters[confirmado][$eq]=true&filters[categoria][$eq]=Estudante de graduação (MEDICINA)'
+      )
+
+      const estudanteFora = await api.get<any>(
+        '/subscriptions?filters[confirmado][$eq]=true&filters[categoria][$eq]=Estudante de graduação (Outro curso da saúde)'
+      )
+      const medicosTotal = await api.get<any>(
+        '/subscriptions?filters[confirmado][$eq]=true&filters[categoria][$eq]=MÉDICO'
+      )
+      const outros = await api.get<any>(
+        '/subscriptions?filters[confirmado][$eq]=true&filters[categoria][$eq]=Outros profissionais da saúde'
+      )
+      setEstudante(estudante.data.meta.pagination.total)
+      setEstudanteFora(estudanteFora.data.meta.pagination.total)
+      setMedicosTotal(medicosTotal.data.meta.pagination.total)
+      setOutros(outros.data.meta.pagination.total)
+    } catch {
+      enqueueSnackbar('Erro', {
+        variant: 'error'
+      })
+    }
+  }
+
+  useEffect(() => {
+    fetchRemainingSubscriptions()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   return (
     <S.ContentWrapper onSubmit={handleSubmit(onSubmit)}>
