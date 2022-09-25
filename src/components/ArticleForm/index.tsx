@@ -139,7 +139,7 @@ const ArticleForm = () => {
           formData.append('field', 'comprovante_de_categoria')
           await api.post('/upload', formData)
 
-          push('/inscricao/success')
+          push({ pathname: '/inscricao/success', query: { text: 'Submissão' } })
         })
         .catch(() => {
           setLoading(false)
