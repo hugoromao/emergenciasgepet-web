@@ -75,8 +75,6 @@ const SubscriptionForm = () => {
   const [medicosTotal, setMedicosTotal] = useState(0)
   const [outros, setOutros] = useState(0)
 
-  console.log(estudante, estudanteFora, medicosTotal, outros)
-
   const onSubmit: SubmitHandler<Inputs> = async ({
     bairro,
     categoria,
@@ -106,6 +104,19 @@ const SubscriptionForm = () => {
         return
       }
       setLoading(true)
+
+      const checkSubscription = await api.get(
+        `/subscriptions?filters[email][$eq]=${email}`
+      )
+
+      if (checkSubscription.data.data.length) {
+        setLoading(false)
+        enqueueSnackbar('Já exite uma inscrição para esse usuário', {
+          variant: 'error'
+        })
+        return false
+      }
+
       await api
         .post('/subscriptions', {
           data: {
