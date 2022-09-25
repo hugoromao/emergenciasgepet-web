@@ -28,7 +28,7 @@ export const CardsWrapper = styled.div`
     img[src="/img/uerr.PNG"] {
       height: 10rem;
     }
-  `}
+    `}
 `
 
 export const Card = styled.div`
@@ -45,7 +45,7 @@ export const Card = styled.div`
     position: relative;
 
     img {
-      height: 16rem;
+      width: 24rem;
     }
 
     &::before {
