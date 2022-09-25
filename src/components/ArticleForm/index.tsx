@@ -31,6 +31,7 @@ type Inputs = {
   tituloDoArtigo: string
   autores: string
   modalidade: string
+  modalidade_apresentacao: string
   areaDeEstudo: string
 }
 
@@ -76,6 +77,7 @@ const ArticleForm = () => {
   const {
     register,
     handleSubmit,
+    watch,
     formState: { errors }
   } = useForm<Inputs>()
 
@@ -102,7 +104,8 @@ const ArticleForm = () => {
     autores,
     tituloDoArtigo,
     areaDeEstudo,
-    modalidade
+    modalidade,
+    modalidade_apresentacao
   }) => {
     try {
       setLoading(true)
@@ -124,7 +127,8 @@ const ArticleForm = () => {
             autores,
             titulodoartigo: tituloDoArtigo,
             areadeestudo: areaDeEstudo,
-            modalidade
+            modalidade,
+            modalidade_apresentacao
           }
         })
         .then(async (r) => {
@@ -158,10 +162,14 @@ const ArticleForm = () => {
     { value: 'resumoExpandido', label: 'Artigo Científico' }
   ]
 
-  const modalidadeDeApresentação = [
+  const modalidadeDeApresentação1 = [
     { value: '', label: 'Selecionar' },
-    { value: 'apresentacao-oral', label: 'Apresentação oral' },
     { value: 'poster', label: 'Pôster' }
+  ]
+
+  const modalidadeDeApresentação2 = [
+    { value: '', label: 'Selecionar' },
+    { value: 'apresentacao-oral', label: 'Apresentação oral' }
   ]
 
   return (
@@ -319,11 +327,15 @@ const ArticleForm = () => {
 
       <NativeSelect
         label="Modalidade de apresentação*"
-        options={modalidadeDeApresentação}
-        register={register('modalidade', {
+        options={
+          watch('modalidade') === 'relatoCaso'
+            ? modalidadeDeApresentação1
+            : modalidadeDeApresentação2
+        }
+        register={register('modalidade_apresentacao', {
           required: 'Este campo é obrigatório'
         })}
-        error={errors.modalidade?.message}
+        error={errors.modalidade_apresentacao?.message}
       />
 
       <NativeSelect
