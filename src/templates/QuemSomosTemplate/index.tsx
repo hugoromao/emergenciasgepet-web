@@ -53,39 +53,39 @@ const QuemSomosTemplate = () => (
 
       <strong>Diretoria atual</strong>
 
-      <span style={{ margin: '0 auto' }}>
-        <img src="/img/image8.jpg" alt="gepet" style={{ width: '100%' }} />
+      <span style={{ margin: '0 auto' }} className="people">
+        <img src="/img/image8.jpg" alt="gepet" />
         <p>Jéssica Souza: Presidente</p>
       </span>
-      <span style={{ margin: '0 auto' }}>
-        <img src="/img/image7.jpg" alt="gepet" style={{ width: '100%' }} />
+      <span style={{ margin: '0 auto' }} className="people">
+        <img src="/img/image7.jpg" alt="gepet" />
         <p>Antônio Railan: Vice-Presidente</p>
       </span>
-      <span style={{ margin: '0 auto' }}>
-        <img src="/img/image12.jpg" alt="gepet" style={{ width: '100%' }} />
+      <span style={{ margin: '0 auto' }} className="people">
+        <img src="/img/image12.jpg" alt="gepet" />
         <p>Aryanne Barros: Diretora Científica e de Pesquisa</p>
       </span>
-      <span style={{ margin: '0 auto' }}>
-        <img src="/img/image2.jpg" alt="gepet" style={{ width: '100%' }} />
+      <span style={{ margin: '0 auto' }} className="people">
+        <img src="/img/image2.jpg" alt="gepet" />
         <p>Sarah Moura: Diretora de Marketing</p>
       </span>
-      <span style={{ margin: '0 auto' }}>
-        <img src="/img/image3.jpg" alt="gepet" style={{ width: '100%' }} />
+      <span style={{ margin: '0 auto' }} className="people">
+        <img src="/img/image3.jpg" alt="gepet" />
         <p>Laura Paiva: Diretora Financeira</p>
       </span>
 
       <strong>Comissão Editorial</strong>
 
-      <span style={{ margin: '0 auto' }}>
-        <img src="/img/image4.jpg" alt="gepet" style={{ width: '100%' }} />
+      <span style={{ margin: '0 auto' }} className="people">
+        <img src="/img/image4.jpg" alt="gepet" />
         <p>Dra. Iara Leão Luna de Souza</p>
       </span>
-      <span style={{ margin: '0 auto' }}>
-        <img src="/img/image5.jpg" alt="gepet" style={{ width: '100%' }} />
+      <span style={{ margin: '0 auto' }} className="people">
+        <img src="/img/image5.jpg" alt="gepet" />
         <p>Aryanne Barros</p>
       </span>
-      <span style={{ margin: '0 auto' }}>
-        <img src="/img/image11.jpg" alt="gepet" style={{ width: '100%' }} />
+      <span style={{ margin: '0 auto' }} className="people">
+        <img src="/img/image11.jpg" alt="gepet" />
         <p>Jéssica Souza</p>
       </span>
     </S.Content>

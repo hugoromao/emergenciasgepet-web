@@ -40,5 +40,14 @@ export const Content = styled(Container)`
         font-size: 1.8rem;
       }
     `}
+
+    .people {
+      display: flex;
+      flex-direction: column;
+      img {
+        width: 24rem;
+        margin: 0 auto;
+      }
+    }
   `}
 `

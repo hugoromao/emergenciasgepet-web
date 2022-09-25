@@ -30,6 +30,7 @@ const Header = ({ transparent = false, hideLogo = false }: HeaderProps) => {
             <S.Link href="/valores">Inscrições</S.Link>
             <S.Link href="/info">Envio de artigos</S.Link>
             <S.Link href="/programacao">Programação</S.Link>
+            <S.Link href="/quemSomos">Quem Somos</S.Link>
             {status === 'authenticated' && (
               <S.Link href="/perfil">
                 <Button type="button" backgroundColor="gray">
@@ -81,6 +82,9 @@ const Header = ({ transparent = false, hideLogo = false }: HeaderProps) => {
               <S.Link active={router.route === '/programacao'}>
                 Programação
               </S.Link>
+            </Link>
+            <Link href="/quemSomos" passHref>
+              <S.Link active={router.route === '/quemSomos'}>Quem Somos</S.Link>
             </Link>
             {status === 'authenticated' && (
               <Link href="/perfil" passHref>
