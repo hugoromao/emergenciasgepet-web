@@ -250,7 +250,7 @@ const InfoTemplate = () => (
         </li>
       </ul>
 
-      <Link href="https://congrrmed.herokuapp.com/uploads/Modelo_Artigo_Cientifico_113cb181e8.docx?updated_at=2022-09-24T20:58:37.111Z">
+      <Link href="https://emergenciasgepet.s3.sa-east-1.amazonaws.com/Modelo_Artigo_Cientifico_8c7701358a.docx?updated_at=2022-09-26T01:33:10.024Z">
         <a>
           <Button type="button" backgroundColor="red">
             Baixar template
@@ -277,7 +277,7 @@ const InfoTemplate = () => (
         </li>
       </ul>
 
-      <Link href="https://congrrmed.herokuapp.com/uploads/Template_resumo_simples_cdf56a3857.doc?updated_at=2022-09-24T21:06:03.482Z">
+      <Link href="https://emergenciasgepet.s3.sa-east-1.amazonaws.com/Template_resumo_simples_a44ac5c31b.doc?updated_at=2022-09-26T01:33:09.550Z">
         <a>
           <Button type="button" backgroundColor="red">
             Baixar template
@@ -341,7 +341,7 @@ const InfoTemplate = () => (
         </li>
       </ul>
 
-      <Link href="https://congrrmed.herokuapp.com/uploads/6d_MODELO_DE_RELATO_DE_CASO_c991ed15df.docx?updated_at=2022-09-24T21:09:41.397Z">
+      <Link href="https://emergenciasgepet.s3.sa-east-1.amazonaws.com/6d_MODELO_DE_RELATO_DE_CASO_476f2f2cf9.docx?updated_at=2022-09-26T01:32:57.503Z">
         <a>
           <Button type="button" backgroundColor="red">
             Baixar template
