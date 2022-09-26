@@ -27,10 +27,10 @@ const Home = () => (
             Quero participar
             <Check2 />
           </Button>
-          <Button as="a" href="/info" backgroundColor="red">
+          {/* <Button as="a" href="/info" backgroundColor="red">
             Submissão de artigos
             <FileEarmarkRichtext />
-          </Button>
+          </Button> */}
         </S.ButtonsWrapper>
 
         <S.SocialButtonsWrapper>
