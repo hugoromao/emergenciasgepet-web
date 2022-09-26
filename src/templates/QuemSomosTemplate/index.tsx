@@ -77,7 +77,7 @@ const QuemSomosTemplate = () => (
       <strong>Comissão Editorial</strong>
 
       <span style={{ margin: '0 auto' }} className="people">
-        <img src="/img/image4.jpg" alt="gepet" />
+        <img src="/img/image4.jpeg" alt="gepet" />
         <p>Dra. Iara Leão Luna de Souza</p>
       </span>
       <span style={{ margin: '0 auto' }} className="people">
