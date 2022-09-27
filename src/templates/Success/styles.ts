@@ -12,7 +12,8 @@ export const Wrapper = styled.div`
 export const Content = styled.div`
   ${({ theme }) => css`
     width: 72rem;
-    height: 42rem;
+    min-height: 42rem;
+    padding: 0.8rem;
     border-radius: 0.4rem;
     background-color: white;
     gap: ${theme.spacings.xxsmall};

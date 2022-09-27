@@ -25,6 +25,10 @@ const Success = () => {
 
         <h1>{query.text || 'Inscrição'} enviada!</h1>
         <p>Acesse a Área do Usuário para confirmar o pagamento</p>
+        <p style={{ fontSize: 12 }}>
+          Você receberá a confirmação da inscrição por E-mail em até 24 horas
+          após o pagamento
+        </p>
 
         <Link href="/perfil" passHref>
           <Button>Acessar Área do Usuário</Button>

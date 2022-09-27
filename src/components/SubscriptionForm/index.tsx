@@ -415,6 +415,15 @@ limitadas)"
             />
 
             <TextField
+              label="Nome do pagador*"
+              name="nome_do_pagador"
+              register={register('nome_do_pagador', {
+                required: 'Este campo é obrigatório'
+              })}
+              error={errors.nome_do_pagador?.message}
+            />
+
+            <TextField
               label="Instituição/Empresa*"
               name="instituicao"
               placeholder="UFRR, UERR, ... "
