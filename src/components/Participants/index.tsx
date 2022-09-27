@@ -24,7 +24,7 @@ const Participants = () => (
       />
       <Participant
         src="/img/Foto_Dra_Paula_Trintinela.jpg"
-        title="Dra. Paula Trintinalharo"
+        title="Dra. Paula Trintinalha"
         text="Emergências Vasculares"
       />
       <Participant
