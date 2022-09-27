@@ -82,6 +82,11 @@ const Participants = () => (
         title="Dr. Amon Rheingantz Machado"
         text="Emergências Respiratórias"
       />
+      <Participant
+        src="/img/luisenrique.jpeg"
+        title="Dr. Luis Enrique Bermejo Galán"
+        text="Emergências Infectocontagiosas"
+      />
     </S.Grid>
   </S.Wrapper>
 )
