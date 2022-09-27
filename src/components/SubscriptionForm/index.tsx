@@ -17,11 +17,11 @@ import api from 'services/api'
 import NativeSelect from 'components/NativeSelect'
 import Checkbox from 'components/Checkbox'
 import { ErrorText } from 'components/SignInForm/styles'
+import { useSession } from 'next-auth/react'
 
 type Inputs = {
   nome: string
   cpf: string
-  email: string
   celular: string
   categoria:
     | 'Estudante de graduação (MEDICINA)'
@@ -48,6 +48,7 @@ type Inputs = {
 }
 
 const SubscriptionForm = () => {
+  const { data: session } = useSession()
   const {
     register,
     handleSubmit,
@@ -83,7 +84,6 @@ const SubscriptionForm = () => {
     cidade,
     cpf,
     cpf_do_pagador,
-    email,
     endereco,
     instituicao,
     nome,
@@ -106,7 +106,7 @@ const SubscriptionForm = () => {
       setLoading(true)
 
       const checkSubscription = await api.get(
-        `/subscriptions?filters[email][$eq]=${email}`
+        `/subscriptions?filters[email][$eq]=${session?.user?.email}`
       )
 
       if (checkSubscription.data.data.length) {
@@ -127,9 +127,9 @@ const SubscriptionForm = () => {
             cidade,
             cpf,
             cpf_do_pagador,
-            email,
             endereco,
             instituicao,
+            email: session?.user?.email,
             nome,
             nome_do_pagador,
             numero,
@@ -341,18 +341,6 @@ limitadas)"
           />
 
           <TextField
-            label="E-mail*"
-            type="email"
-            name="email"
-            register={register('email', {
-              required: 'Este campo é obrigatório'
-            })}
-            autoCapitalize="off"
-            size={30}
-            error={errors.email?.message}
-          />
-
-          <TextField
             type="tel"
             label="Telefone(celular)*"
             mask="99 999999999"
@@ -516,7 +504,6 @@ limitadas)"
         'numero',
         'bairro',
         'comprovante_de_categoria',
-        'email',
         'celular'
       ]
     },
@@ -531,7 +518,7 @@ limitadas)"
             <strong>CPF</strong>
             <p>{getValues('cpf')}</p>
             <strong>Email</strong>
-            <p>{getValues('email')}</p>
+            <p>{session?.user?.email}</p>
             <strong>Celular</strong>
             <p>{getValues('celular')}</p>
             <strong>Categoria de inscrição</strong>
