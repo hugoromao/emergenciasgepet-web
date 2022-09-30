@@ -5,7 +5,7 @@ import Footer from 'components/Footer'
 import Header from 'components/Header'
 import Participants from 'components/Participants'
 import Sponsors from 'components/Sponsors'
-import { Check2 } from 'styled-icons/bootstrap'
+import { Check2, FileEarmarkRichtext } from 'styled-icons/bootstrap'
 import { Instagram, Whatsapp } from 'styled-icons/boxicons-logos'
 import { EmailOutline } from 'styled-icons/evaicons-outline'
 import Activities from '../../components/Activities'
@@ -27,10 +27,10 @@ const Home = () => (
             Quero participar
             <Check2 />
           </Button>
-          {/* <Button as="a" href="/info" backgroundColor="red">
+          <Button as="a" href="/info" backgroundColor="red">
             Submissão de artigos
             <FileEarmarkRichtext />
-          </Button> */}
+          </Button>
         </S.ButtonsWrapper>
 
         <S.SocialButtonsWrapper>
