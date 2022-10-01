@@ -169,6 +169,7 @@ const ArticleForm = () => {
 
   const modalidadeDeApresentação2 = [
     { value: '', label: 'Selecionar' },
+    { value: 'poster', label: 'Pôster' },
     { value: 'apresentacao-oral', label: 'Apresentação oral' }
   ]
 
@@ -328,9 +329,9 @@ const ArticleForm = () => {
       <NativeSelect
         label="Modalidade de apresentação*"
         options={
-          watch('modalidade') === 'relatoCaso'
-            ? modalidadeDeApresentação1
-            : modalidadeDeApresentação2
+          watch('modalidade') === 'resumoExpandido'
+            ? modalidadeDeApresentação2
+            : modalidadeDeApresentação1
         }
         register={register('modalidade_apresentacao', {
           required: 'Este campo é obrigatório'
