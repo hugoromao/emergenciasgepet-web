@@ -250,7 +250,7 @@ const InfoTemplate = () => (
         </li>
       </ul>
 
-      <Link href="https://emergenciasgepet.s3.sa-east-1.amazonaws.com/Modelo_Artigo_Cientifico_8c7701358a.docx?updated_at=2022-09-26T01:33:10.024Z">
+      <Link href="https://emergenciasgepet.s3.sa-east-1.amazonaws.com/Modelo_Artigo_Cientifico_8c7701358a_01525974fb.docx?updated_at=2022-10-06T14:08:49.765Z">
         <a>
           <Button type="button" backgroundColor="red">
             Baixar template
@@ -277,7 +277,7 @@ const InfoTemplate = () => (
         </li>
       </ul>
 
-      <Link href="https://emergenciasgepet.s3.sa-east-1.amazonaws.com/Template_resumo_simples_a44ac5c31b.doc?updated_at=2022-09-26T01:33:09.550Z">
+      <Link href="https://emergenciasgepet.s3.sa-east-1.amazonaws.com/Template_resumo_simples_a44ac5c31b_902abc9912.docx?updated_at=2022-10-06T14:08:49.728Z">
         <a>
           <Button type="button" backgroundColor="red">
             Baixar template
@@ -341,7 +341,7 @@ const InfoTemplate = () => (
         </li>
       </ul>
 
-      <Link href="https://emergenciasgepet.s3.sa-east-1.amazonaws.com/6d_MODELO_DE_RELATO_DE_CASO_476f2f2cf9.docx?updated_at=2022-09-26T01:32:57.503Z">
+      <Link href="https://emergenciasgepet.s3.sa-east-1.amazonaws.com/Template_caso_clinico_gepet_3b8d8f37c0.docx?updated_at=2022-10-06T14:08:49.750Z">
         <a>
           <Button type="button" backgroundColor="red">
             Baixar template
