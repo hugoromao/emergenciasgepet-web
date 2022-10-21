@@ -24,7 +24,7 @@ const InfoTemplate = () => (
 
       <strong>I - Instruções para submissão de trabalhos</strong>
 
-      <b>Data de recebimento de trabalhos - 30/09/2022 a 20/10/2022</b>
+      <b>Data de recebimento de trabalhos - 30/09/2022 a 30/10/2022</b>
 
       <em>
         Para submeter os trabalhos é necessário que o autor responsável pela
@@ -123,7 +123,7 @@ const InfoTemplate = () => (
           qualquer que seja a língua escolhida é fundamental que esteja
           gramaticalmente correta, caso contrário, poderá ser motivo de recusa.
         </li>
-        <li>O prazo para submissão dos resumos é: 20/10/2022</li>
+        <li>O prazo para submissão dos resumos é: 30/10/2022</li>
         <li>
           Para receber o certificado do seu resumo após o evento, um dos autores
           listados deve estar cadastrado e ter participado do evento, desde que

@@ -13,7 +13,7 @@ const Countdown = () => {
 
       <S.Column>
         <S.Info>Inscrições: 26/09 a 26/10</S.Info>
-        <S.Info>Submissão de artigos: 30/09 a 20/10</S.Info>
+        <S.Info>Submissão de artigos: 30/09 a 30/10</S.Info>
       </S.Column>
     </S.Wrapper>
   )
