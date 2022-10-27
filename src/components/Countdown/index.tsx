@@ -12,7 +12,7 @@ const Countdown = () => {
       <CountdownTimer countdownTimestampMs={1668670518000} />
 
       <S.Column>
-        <S.Info>Inscrições: 26/09 a 26/10</S.Info>
+        <S.Info>Inscrições: 26/09 a 04/11</S.Info>
         <S.Info>Submissão de artigos: 30/09 a 30/10</S.Info>
       </S.Column>
     </S.Wrapper>
