@@ -135,7 +135,7 @@ const ArticleForm = () => {
           const formData = new FormData()
           formData.append('files', (artigo as any)[0])
           formData.append('refId', String(r.data.data.id))
-          formData.append('ref', 'api::subscription.subscription')
+          formData.append('ref', 'api::article.article')
           formData.append('field', 'comprovante_de_categoria')
           await api.post('/upload', formData)
 
