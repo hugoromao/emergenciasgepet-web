@@ -134,9 +134,10 @@ const ArticleForm = () => {
         .then(async (r) => {
           const formData = new FormData()
           formData.append('files', (artigo as any)[0])
+          console.log(r.data.data.id)
           formData.append('refId', String(r.data.data.id))
           formData.append('ref', 'api::article.article')
-          formData.append('field', 'comprovante_de_categoria')
+          formData.append('field', 'artigo')
           await api.post('/upload', formData)
 
           push({ pathname: '/inscricao/success', query: { text: 'Submissão' } })
