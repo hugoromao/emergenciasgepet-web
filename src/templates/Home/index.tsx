@@ -1,11 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
-import Button from 'components/Button'
 import Countdown from 'components/Countdown'
 import Footer from 'components/Footer'
 import Header from 'components/Header'
 import Participants from 'components/Participants'
 import Sponsors from 'components/Sponsors'
-import { Check2 } from 'styled-icons/bootstrap'
 import { Instagram, Whatsapp } from 'styled-icons/boxicons-logos'
 import { EmailOutline } from 'styled-icons/evaicons-outline'
 import Activities from '../../components/Activities'
@@ -23,10 +21,10 @@ const Home = () => (
         </S.HeroText>
 
         <S.ButtonsWrapper>
-          <Button as="a" href="/valores">
+          {/* <Button as="a" href="/valores">
             Quero participar
             <Check2 />
-          </Button>
+          </Button> */}
           {/* <Button as="a" href="/info" backgroundColor="red">
             Submissão de artigos
             <FileEarmarkRichtext />
@@ -68,9 +66,9 @@ const Home = () => (
           para nos reencontrarmos, compartilharmos experiências, aprendizados, e
           nos tornarmos ainda melhores!
         </p>
-        <Button as="a" href="/valores">
+        {/* <Button as="a" href="/valores">
           INSCREVA-SE
-        </Button>
+        </Button> */}
       </S.AboutText>
 
       <S.AboutImage>
