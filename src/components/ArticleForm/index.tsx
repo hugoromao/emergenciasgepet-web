@@ -134,9 +134,10 @@ const ArticleForm = () => {
         .then(async (r) => {
           const formData = new FormData()
           formData.append('files', (artigo as any)[0])
+          console.log(r.data.data.id)
           formData.append('refId', String(r.data.data.id))
-          formData.append('ref', 'api::subscription.subscription')
-          formData.append('field', 'comprovante_de_categoria')
+          formData.append('ref', 'api::article.article')
+          formData.append('field', 'artigo')
           await api.post('/upload', formData)
 
           push({ pathname: '/inscricao/success', query: { text: 'Submissão' } })
@@ -169,6 +170,7 @@ const ArticleForm = () => {
 
   const modalidadeDeApresentação2 = [
     { value: '', label: 'Selecionar' },
+    { value: 'poster', label: 'Pôster' },
     { value: 'apresentacao-oral', label: 'Apresentação oral' }
   ]
 
@@ -328,9 +330,9 @@ const ArticleForm = () => {
       <NativeSelect
         label="Modalidade de apresentação*"
         options={
-          watch('modalidade') === 'relatoCaso'
-            ? modalidadeDeApresentação1
-            : modalidadeDeApresentação2
+          watch('modalidade') === 'resumoExpandido'
+            ? modalidadeDeApresentação2
+            : modalidadeDeApresentação1
         }
         register={register('modalidade_apresentacao', {
           required: 'Este campo é obrigatório'

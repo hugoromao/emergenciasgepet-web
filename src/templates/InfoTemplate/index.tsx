@@ -24,7 +24,7 @@ const InfoTemplate = () => (
 
       <strong>I - Instruções para submissão de trabalhos</strong>
 
-      <b>Data de recebimento de trabalhos - 30/09/2022 a 20/10/2022</b>
+      <b>Data de recebimento de trabalhos - 30/09/2022 a 30/10/2022</b>
 
       <em>
         Para submeter os trabalhos é necessário que o autor responsável pela
@@ -123,7 +123,7 @@ const InfoTemplate = () => (
           qualquer que seja a língua escolhida é fundamental que esteja
           gramaticalmente correta, caso contrário, poderá ser motivo de recusa.
         </li>
-        <li>O prazo para submissão dos resumos é: 20/10/2022</li>
+        <li>O prazo para submissão dos resumos é: 30/10/2022</li>
         <li>
           Para receber o certificado do seu resumo após o evento, um dos autores
           listados deve estar cadastrado e ter participado do evento, desde que
@@ -250,7 +250,7 @@ const InfoTemplate = () => (
         </li>
       </ul>
 
-      <Link href="https://emergenciasgepet.s3.sa-east-1.amazonaws.com/Modelo_Artigo_Cientifico_8c7701358a.docx?updated_at=2022-09-26T01:33:10.024Z">
+      <Link href="https://emergenciasgepet.s3.sa-east-1.amazonaws.com/Modelo_Artigo_Cientifico_8c7701358a_01525974fb.docx?updated_at=2022-10-06T14:08:49.765Z">
         <a>
           <Button type="button" backgroundColor="red">
             Baixar template
@@ -277,7 +277,7 @@ const InfoTemplate = () => (
         </li>
       </ul>
 
-      <Link href="https://emergenciasgepet.s3.sa-east-1.amazonaws.com/Template_resumo_simples_a44ac5c31b.doc?updated_at=2022-09-26T01:33:09.550Z">
+      <Link href="https://emergenciasgepet.s3.sa-east-1.amazonaws.com/Template_resumo_simples_a44ac5c31b_902abc9912.docx?updated_at=2022-10-06T14:08:49.728Z">
         <a>
           <Button type="button" backgroundColor="red">
             Baixar template
@@ -341,7 +341,7 @@ const InfoTemplate = () => (
         </li>
       </ul>
 
-      <Link href="https://emergenciasgepet.s3.sa-east-1.amazonaws.com/6d_MODELO_DE_RELATO_DE_CASO_476f2f2cf9.docx?updated_at=2022-09-26T01:32:57.503Z">
+      <Link href="https://emergenciasgepet.s3.sa-east-1.amazonaws.com/Template_caso_clinico_gepet_3b8d8f37c0.docx?updated_at=2022-10-06T14:08:49.750Z">
         <a>
           <Button type="button" backgroundColor="red">
             Baixar template
