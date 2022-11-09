@@ -80,3 +80,37 @@ export const PagamentoWrapper = styled.div`
     border-left: 0.4rem solid ${theme.colors.darkRed};
   `}
 `
+
+export const AcceptedWrapper = styled.div`
+  ${({ theme }) => {
+    return css`
+    display: flex;
+    flex-direction: column;
+
+    padding: 2.4rem;
+    border 1px solid ${theme.colors.primary};
+    border-radius: 1.6rem;
+    margin-bottom: 1.6rem;
+  `
+  }}
+`
+
+export const AcceptedInfoWrapper = styled.div`
+  ${({ theme }) => {
+    return css`
+      display: flex;
+      flex-direction: column;
+      border-radius: 1.6rem;
+      margin: 0.8rem 0;
+      padding: 2.4rem;
+      border 1px solid ${theme.colors.disabled};
+      p {
+        font-weight: 700;
+      }
+    `
+  }}
+`
+
+export const AcceptedText = styled.p`
+  font-size: 1.6rem;
+`

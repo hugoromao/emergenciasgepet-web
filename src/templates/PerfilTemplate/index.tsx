@@ -8,7 +8,7 @@ import api from 'services/api'
 import * as S from './styles'
 import { useSnackbar } from 'notistack'
 import { useEffect, useState } from 'react'
-import { Daum, IArticle, ISubscription } from './types'
+import { Daum, IArticle, ISubscription, UserQueryResponse } from './types'
 // import SubscriptionItem from 'components/SubscriptionItem'
 import FileField from 'components/FileField'
 import { useForm } from 'react-hook-form'
@@ -24,6 +24,9 @@ import {
   Title
 } from 'components/SubscriptionForm/styles'
 import dayjs from 'dayjs'
+import Lottie from 'react-lottie'
+import animationData from '../../../public/lottie/success.json'
+import Link from 'next/link'
 
 type Inputs = {
   comprovante_de_pagamento: File
@@ -32,6 +35,11 @@ type Inputs = {
 type Inscricao = {
   id: number
   attributes: any
+}
+
+type TrabalhoAprovado = {
+  name: string
+  hora_apresentacao: Date
 }
 
 const MeusArtigosTemplate = () => {
@@ -48,6 +56,8 @@ const MeusArtigosTemplate = () => {
   const [sent, setSent] = useState(false)
   const [loading, setLoading] = useState(false)
   const [categoriesPrices, setCategoriesPrices] = useState<any>(null)
+  const [trabalhoAprovado, setTrabalhoAprovado] =
+    useState<TrabalhoAprovado | null>(null)
 
   async function fetchCpf() {
     try {
@@ -131,13 +141,40 @@ const MeusArtigosTemplate = () => {
       enqueueSnackbar('Falha ao enviar comprovante', { variant: 'error' })
     }
   }
+  async function fetchUser() {
+    try {
+      const response = await api.get<UserQueryResponse>(
+        `/users?filters[email][$eq]=${session?.user?.email}`
+      )
+
+      if (response.data.length && response.data[0].trab_aprovado) {
+        const { name, hora_apresentacao } = response.data[0]
+        setTrabalhoAprovado({
+          name,
+          hora_apresentacao
+        })
+      }
+    } catch {
+      enqueueSnackbar('Falha ao buscar usuário', { variant: 'error' })
+    }
+  }
 
   useEffect(() => {
     if (session) {
+      fetchUser()
       fetchCpf()
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [session])
+
+  const defaultOptions = {
+    loop: false,
+    autoplay: true,
+    animationData: animationData,
+    rendererSettings: {
+      preserveAspectRatio: 'xMidYMid slice'
+    }
+  }
 
   return (
     <S.Wrapper>
@@ -150,6 +187,53 @@ const MeusArtigosTemplate = () => {
 
       <S.Content>
         <S.SectionText>Artigos</S.SectionText>
+
+        {trabalhoAprovado && (
+          <>
+            <S.AcceptedWrapper>
+              <S.AcceptedText>
+                Parabéns, {trabalhoAprovado.name}!
+              </S.AcceptedText>
+              <Lottie options={defaultOptions} height={250} width={250} />
+              <S.AcceptedText>
+                Seu trabalho foi <b>aprovado</b> para o I Congresso Roraimense
+                de Trauma e Emergências Médicas.
+              </S.AcceptedText>
+
+              <S.AcceptedInfoWrapper>
+                <S.AcceptedText>
+                  Local de apresentação: Plenário do CRM
+                </S.AcceptedText>
+                <S.AcceptedText>Dia: 17/11/2022</S.AcceptedText>
+                <S.AcceptedText>
+                  Horário:{' '}
+                  {dayjs(trabalhoAprovado.hora_apresentacao).format(
+                    'DD/MM/YYYY HH:mm'
+                  )}
+                </S.AcceptedText>
+                <S.AcceptedText>
+                  Duração: 10 min+5min de considerações da banca avaliadora
+                </S.AcceptedText>
+              </S.AcceptedInfoWrapper>
+              <S.AcceptedText>
+                Segue o modelo de pôster eletrônico que deve ser enviado para a
+                Comissão Científica até o dia <b>12/11/2022</b>. É indicado que
+                o autor principal leve seu pôster eletrônico em formato{' '}
+                <b>pdf</b> em
+                <b> dispositivo externo</b> para apresentação.
+              </S.AcceptedText>
+            </S.AcceptedWrapper>
+
+            <Link href="https://emergenciasgepet.s3.sa-east-1.amazonaws.com/template_poster_crtem_Salvo_automaticamente_ce95b81a3d.pptx?updated_at=2022-11-09T00:30:31.610Z">
+              <a>
+                <Button type="button" backgroundColor="red">
+                  Template de Pôster Eletrônico
+                </Button>
+              </a>
+            </Link>
+          </>
+        )}
+
         {articles?.map((item) => (
           <MyArticleItem key={item.id} {...item} />
         ))}

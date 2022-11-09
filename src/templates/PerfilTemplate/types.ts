@@ -70,3 +70,20 @@ export interface SubscriptionAttributes {
   cpf_do_pagador: string
   numero: string
 }
+
+export type UserQueryResponse = User[]
+
+export interface User {
+  id: number
+  username: string
+  email: string
+  provider: string
+  confirmed: boolean
+  blocked: boolean
+  createdAt: string
+  updatedAt: string
+  name: string
+  lastname: string
+  trab_aprovado: boolean
+  hora_apresentacao: Date
+}
