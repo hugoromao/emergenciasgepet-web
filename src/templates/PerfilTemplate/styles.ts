@@ -110,6 +110,7 @@ export const AcceptedInfoWrapper = styled.div`
       border 1px solid ${theme.colors.disabled};
       p {
         font-weight: 700;
+        color: ${theme.colors.primary};
       }
     `
   }}
