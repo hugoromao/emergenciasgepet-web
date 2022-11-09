@@ -92,6 +92,8 @@ export const AcceptedWrapper = styled.div`
     border-radius: 1.6rem;
     margin-bottom: 1.6rem;
 
+    background: #FCF7B6;
+
     p {
       text-align: justify;
     }
