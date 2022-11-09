@@ -217,7 +217,7 @@ const MeusArtigosTemplate = () => {
               </S.AcceptedInfoWrapper>
               <S.AcceptedText>
                 Segue o modelo de pôster eletrônico que deve ser enviado para a
-                Comissão Científica até o dia <b>12/11/2022</b>. É indicado que
+                Comissão Científica até o dia <b>13/11/2022</b>. É indicado que
                 o autor principal leve seu pôster eletrônico em formato{' '}
                 <b>pdf</b> em
                 <b> dispositivo externo</b> para apresentação.
