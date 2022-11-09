@@ -91,6 +91,10 @@ export const AcceptedWrapper = styled.div`
     border 1px solid ${theme.colors.primary};
     border-radius: 1.6rem;
     margin-bottom: 1.6rem;
+
+    p {
+      text-align: justify;
+    }
   `
   }}
 `
