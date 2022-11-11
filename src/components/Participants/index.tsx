@@ -78,14 +78,14 @@ const Participants = () => (
         text="Emergências Oftálmicas"
       />
       <Participant
-        src="/img/amon.jpeg"
-        title="Dr. Amon Rheingantz Machado"
-        text="Emergências Respiratórias"
-      />
-      <Participant
         src="/img/luisenrique.jpeg"
         title="Dr. Luis Enrique Bermejo Galán"
         text="Emergências Infectocontagiosas"
+      />
+      <Participant
+        src="/img/marcelogomes.jpeg"
+        title="Dr. Marcelo Gomes"
+        text="Emergências ortopédicas"
       />
     </S.Grid>
   </S.Wrapper>
