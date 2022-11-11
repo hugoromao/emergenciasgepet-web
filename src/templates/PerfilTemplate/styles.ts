@@ -93,7 +93,7 @@ export const AcceptedWrapper = styled.div`
     margin-bottom: 1.6rem;
 
     background: #FCF7B6;
-
+    
     p {
       text-align: justify;
     }
@@ -109,10 +109,11 @@ export const AcceptedInfoWrapper = styled.div`
       border-radius: 1.6rem;
       margin: 0.8rem 0;
       padding: 2.4rem;
-      border 1px solid ${theme.colors.disabled};
+      background-color: ${theme.colors.primary};
+
       p {
         font-weight: 700;
-        color: ${theme.colors.primary};
+        color: #fcf7b6;
       }
     `
   }}
