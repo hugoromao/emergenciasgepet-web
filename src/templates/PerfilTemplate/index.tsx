@@ -40,6 +40,7 @@ type Inscricao = {
 type TrabalhoAprovado = {
   name: string
   hora_apresentacao: Date
+  hora_apresent: Date
 }
 
 const MeusArtigosTemplate = () => {
@@ -148,10 +149,11 @@ const MeusArtigosTemplate = () => {
       )
 
       if (response.data.length && response.data[0].trab_aprovado) {
-        const { name, hora_apresentacao } = response.data[0]
+        const { name, hora_apresentacao, hora_apresent } = response.data[0]
         setTrabalhoAprovado({
           name,
-          hora_apresentacao
+          hora_apresentacao,
+          hora_apresent
         })
       }
     } catch {
@@ -210,6 +212,10 @@ const MeusArtigosTemplate = () => {
                   {dayjs(trabalhoAprovado.hora_apresentacao).format(
                     'DD/MM/YYYY HH:mm'
                   )}
+                  {trabalhoAprovado.hora_apresent &&
+                    ` e ${dayjs(trabalhoAprovado.hora_apresent).format(
+                      'DD/MM/YYYY HH:mm'
+                    )}`}
                 </S.AcceptedText>
                 <S.AcceptedText>
                   Duração: 10 min+5min de considerações da banca avaliadora

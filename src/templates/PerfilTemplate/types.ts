@@ -86,4 +86,5 @@ export interface User {
   lastname: string
   trab_aprovado: boolean
   hora_apresentacao: Date
+  hora_apresent: Date
 }
