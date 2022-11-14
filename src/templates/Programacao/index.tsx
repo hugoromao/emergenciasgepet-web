@@ -1,5 +1,8 @@
+import Link from 'next/link'
+
 import Footer from 'components/Footer'
 import Header from 'components/Header'
+import Button from 'components/Button'
 import ScheduleItem from 'components/ScheduleItem'
 import * as S from './styles'
 
@@ -69,6 +72,12 @@ const Programacao = () => (
           }
           title="DIA 3"
         />
+
+        <Link href="https://emergenciasgepet.s3.sa-east-1.amazonaws.com/Panfleto_de_Oferta_de_Mercado_Amarelo_e_Vermelho_A4_2_4a1b8d60f8.pdf?updated_at=2022-11-14T23:20:41.465Z">
+          <a target="_blank">
+            <Button>Baixar panfleto</Button>
+          </a>
+        </Link>
       </S.Content>
     </S.ContentWrapper>
 
