@@ -73,7 +73,7 @@ const Programacao = () => (
           title="DIA 3"
         />
 
-        <Link href="https://emergenciasgepet.s3.sa-east-1.amazonaws.com/Panfleto_de_Oferta_de_Mercado_Amarelo_e_Vermelho_A4_2_4a1b8d60f8.pdf?updated_at=2022-11-14T23:20:41.465Z">
+        <Link href="https://emergenciasgepet.s3.sa-east-1.amazonaws.com/PROGRAMACAP_OFICIAL_ICRTEM_257af8bf42.pdf?updated_at=2022-11-16T22:18:11.351Z">
           <a target="_blank">
             <Button>Baixar panfleto</Button>
           </a>
